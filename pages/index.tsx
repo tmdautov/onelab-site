@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
 import { db, auth } from "./services/firebaseConfig";
+import { fetchData } from "./util/fetchData";
 
 export default function Home() {
   
@@ -8,23 +9,9 @@ export default function Home() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [city, setCity] = useState(""); 
+  const [rotation, setRotation] = useState("");
 
-  useEffect(() => {
-    const fetchData = async () => {
-      db.collection("users")
-        .get()
-        .then(snapshot => {
-          const usersList = [];
-          snapshot.forEach(doc => {
-            const data = doc.data();
-            usersList.push(data);
-          })
-          setUsers(usersList);
-        })
-        .catch(error => alert(error));
-    }
-    fetchData();
-  }, []);
+  fetchData(setUsers);
   
   return (
     <div className="container">
@@ -52,41 +39,62 @@ export default function Home() {
                 <input type='text' data-key='email' className='user-input' 
                 onChange={(e) => {setEmail(e.target.value)}}/><br />
                 rotation:<br />
-                <select name="rotations">
-                  <option value="1">Frontend Development</option>
-                  <option value="2">Mobile Development</option>
-                  <option value="3">Backend Development</option>
-                </select>
-                <button type='button' onClick={() => {console.log(JSON.stringify(email))}}>Add User</button>
+                <select name="rotations" onChange={(e) => {
+                  setRotation(e.target.value);
+                }}>
+                  <option value="Frontend">Frontend Development</option>
+                  <option value="Mobile">Mobile Development</option>
+                  <option value="Backend">Backend Development</option>
+                </select><br/>
+                <button type='button' onClick={() => {
+                  db.collection('users').get()
+                  .then(snapshot => {
+                    snapshot.forEach(doc => {
+                      if (doc.data().email === email)
+                      {
+                        throw new Error("Already registered");
+                      };
+                    });
+                    db.collection('users')
+                    .add({
+                      name: name,
+                      rotation: rotation,
+                      city: city,
+                      email: email,
+                      date: new Date().toLocaleString()
+                    });
+                  })
+                  .catch(error => 
+                    console.log(error.message)
+                  );
+                }}>Add User</button>
             </div>
           </div>
 
           <div className="card">
             <h3>Already Registered</h3>
-            {users.map(user => {
+            <ul style={{listStyle: "none"}}>
+            {users.length > 0 ? users.map(user => {
               return (
-                <p>{user.name} - {user.email}</p>
+                <li>
+                  <label style={{marginRight: "10px"}}>{user.name}</label>
+                  <button type="button" onClick={() => {
+                    db.collection("users")
+                    .get()
+                    .then(snapshot => {
+                      snapshot.forEach(doc => {
+                        if (doc.data().email === user.email) 
+                        { 
+                          doc.ref.delete();
+                        }
+                      })
+                    })
+                  }}>x</button>
+                </li>
               )
-            })}
+            }) : "empty"}
+            </ul>
           </div>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
         </div>
       </main>
 
@@ -200,13 +208,6 @@ export default function Home() {
           border: 1px solid #eaeaea;
           border-radius: 10px;
           transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
         }
 
         .card h3 {
