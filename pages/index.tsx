@@ -1,23 +1,31 @@
 import Head from "next/head";
-import * as firebase from "firebase";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyA_pUudH2nhkbzYYiqCPIY1Sdb-TYZQIrg",
-  authDomain: "adilk-efc66.firebaseapp.com",
-  databaseURL: "https://adilk-efc66.firebaseio.com",
-  projectId: "adilk-efc66",
-  storageBucket: "adilk-efc66.appspot.com",
-  messagingSenderId: "954892485083",
-  appId: "1:954892485083:web:73cfe3cfe668f3354a67fe",
-  measurementId: "G-KS56TGG8PP"
-};
-
-firebase.initializeApp(firebaseConfig);
+import { useState, useEffect } from "react";
+import { db, auth } from "./services/firebaseConfig";
 
 export default function Home() {
-  const db = firebase.database();
+  
+  const [users, setUsers] = useState([]);
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [city, setCity] = useState(""); 
 
-  console.log(db);
+  useEffect(() => {
+    const fetchData = async () => {
+      db.collection("users")
+        .get()
+        .then(snapshot => {
+          const usersList = [];
+          snapshot.forEach(doc => {
+            const data = doc.data();
+            usersList.push(data);
+          })
+          setUsers(usersList);
+        })
+        .catch(error => alert(error));
+    }
+    fetchData();
+  }, []);
+  
   return (
     <div className="container">
       <Head>
@@ -27,23 +35,40 @@ export default function Home() {
 
       <main>
         <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Project
         </h1>
 
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
         <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+          <div className="card">
+            <h3>Add User</h3>
+              <div>
+                name:<br />
+                <input type='text' value={name} data-key='name' className='user-input' 
+                onChange={(e) => {setName(e.target.value)}}/><br />
+                city:<br />
+                <input type='text' data-key='age' className='user-input'
+                onChange={(e) => {setCity(e.target.value)}} /><br />
+                email:<br />
+                <input type='text' data-key='email' className='user-input' 
+                onChange={(e) => {setEmail(e.target.value)}}/><br />
+                rotation:<br />
+                <select name="rotations">
+                  <option value="1">Frontend Development</option>
+                  <option value="2">Mobile Development</option>
+                  <option value="3">Backend Development</option>
+                </select>
+                <button type='button' onClick={() => {console.log(JSON.stringify(email))}}>Add User</button>
+            </div>
+          </div>
 
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+          <div className="card">
+            <h3>Already Registered</h3>
+            {users.map(user => {
+              return (
+                <p>{user.name} - {user.email}</p>
+              )
+            })}
+          </div>
 
           <a
             href="https://github.com/vercel/next.js/tree/master/examples"
