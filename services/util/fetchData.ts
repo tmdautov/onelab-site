@@ -1,4 +1,4 @@
-import { db } from "../services/firebaseConfig";
+import { db } from "../firebaseConfig";
 
 export const fetchData = async (setUsers: (any) => void, setLoading: (boolean) => void) => {
     db.collection("users")
