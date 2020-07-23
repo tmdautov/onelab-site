@@ -24,7 +24,11 @@ function Header() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export default Header;
 =======
 export default Header;
 >>>>>>> origin
+=======
+export default Header;
+>>>>>>> f1ef61c696fee833789f38d02af2e1d630f3bac4
