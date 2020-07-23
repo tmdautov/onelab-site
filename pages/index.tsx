@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useState, useEffect } from "react";
 import { db, auth } from "./services/firebaseConfig";
 import { fetchData } from "./util/fetchData";
+import Loader from 'react-loader-spinner';
 
 export default function Home() {
   
@@ -9,9 +10,11 @@ export default function Home() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [city, setCity] = useState(""); 
-  const [rotation, setRotation] = useState("");
+  const [rotation, setRotation] = useState("Frontend");
+  const [loading, setLoading] = useState(true);
 
-  fetchData(setUsers);
+  useEffect(() => {
+      fetchData(setUsers, setLoading)}, [users]);
   
   return (
     <div className="container">
@@ -39,7 +42,7 @@ export default function Home() {
                 <input type='text' data-key='email' className='user-input' 
                 onChange={(e) => {setEmail(e.target.value)}}/><br />
                 rotation:<br />
-                <select name="rotations" onChange={(e) => {
+                <select name="rotations" defaultValue="Frontend" onChange={(e) => {
                   setRotation(e.target.value);
                 }}>
                   <option value="Frontend">Frontend Development</option>
@@ -65,7 +68,7 @@ export default function Home() {
                     });
                   })
                   .catch(error => 
-                    console.log(error.message)
+                    alert(error.message)
                   );
                 }}>Add User</button>
             </div>
@@ -74,25 +77,27 @@ export default function Home() {
           <div className="card">
             <h3>Already Registered</h3>
             <ul style={{listStyle: "none"}}>
-            {users.length > 0 ? users.map(user => {
-              return (
-                <li>
-                  <label style={{marginRight: "10px"}}>{user.name}</label>
-                  <button type="button" onClick={() => {
-                    db.collection("users")
-                    .get()
-                    .then(snapshot => {
-                      snapshot.forEach(doc => {
-                        if (doc.data().email === user.email) 
-                        { 
-                          doc.ref.delete();
-                        }
+            {loading ? <Loader type="ThreeDots" color="blue" /> :  
+              users.length > 0 ? users.map(user => {
+                return (
+                  <li>
+                    <label style={{marginRight: "10px"}}>{user.name}</label>
+                    <button type="button" onClick={() => {
+                      db.collection("users")
+                      .get()
+                      .then(snapshot => {
+                        snapshot.forEach(doc => {
+                          if (doc.data().email === user.email) 
+                          { 
+                            doc.ref.delete();
+                          }
+                        })
                       })
-                    })
-                  }}>x</button>
-                </li>
-              )
-            }) : "empty"}
+                    }}>x</button>
+                  </li>
+                )
+              }) : "empty"
+            }
             </ul>
           </div>
         </div>
