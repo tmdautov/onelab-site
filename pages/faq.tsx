@@ -6,6 +6,7 @@ function FAQ() {
   return (
     <Layout>
       <Header />
+	<p>This is FAQ page</p>
       <Footer />
     </Layout>
   );
