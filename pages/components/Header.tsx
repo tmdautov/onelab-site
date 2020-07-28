@@ -7,8 +7,8 @@ function Header() {
         nav {
           width: 100%;
 
-          position: absolute;
-          top: 0;
+          // position: absolute;
+          // top: 0;
         }
 
         ul {
