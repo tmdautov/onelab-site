@@ -6,9 +6,10 @@ interface ImageContainerProps {
 }
 
 const ImageContainer: React.FC<ImageContainerProps> = (props) => {
-    return (
+    return (props.photos !== undefined) ? 
+    (
         <div className="container">
-            {
+            {  
                 props.photos.map(e => {
                     return (
                         <span
@@ -33,7 +34,7 @@ const ImageContainer: React.FC<ImageContainerProps> = (props) => {
                 })
             }
         </div>
-    )
+    ) : <div> loading</div>;
 }
 
 export default ImageContainer;

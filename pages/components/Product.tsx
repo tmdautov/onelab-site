@@ -1,38 +1,33 @@
 import React from "react";
-import ImageContainer from "./ImageContainer";
-import ImageModal from "./ImageModal";
+import { ProductItem } from "../../types";
+import { products } from "../../services/placeholder";
+import { Row, Col } from "antd";
+import ImageSection from "./ImageSection";
+import ProductPanel from "./ProductPanel";
 
-const Product = () => {
+interface ProductProps {
+    product: ProductItem;
+    onAddFeatured: (ProductItem) => void;
+}
 
+const Product: React.FC<ProductProps> = ({product, onAddFeatured}) => {
+    
     const [photos, setPhotos] = React.useState([]);
     React.useEffect(() => {
-        const urls = [
-            "https://cdn-1.dar.kz/darbiz/catalogs/f71/7880bf00-f716-11e9-9368-0a580a0204b9-L.webp",
-            "https://cdn-1.dar.kz/darbiz/catalogs/f71/7afbf83b-f716-11e9-9163-0a580a0203c3-L.webp",
-            "https://cdn-1.dar.kz/darbiz/catalogs/f71/7b0a96bf-f716-11e9-9163-0a580a0203c3-L.webp",
-            "https://cdn-1.dar.kz/darbiz/catalogs/f71/7b1d4aab-f716-11e9-9163-0a580a0203c3-L.webp",
-        ];
-        setPhotos(urls);
-    }, []);
-
-    const [selectedPhoto, setSelectedPhoto] = React.useState("");
-    const [visibility, setVisibility] = React.useState(false);
-
-    React.useEffect(() => {
-        setSelectedPhoto(photos[0]);
+        setPhotos(product.image);
     }, [photos]);
 
     return (
-        <div className="Product" style={{ display: "flex", flexDirection: "column" }}>
-            <img src={selectedPhoto} alt={selectedPhoto} style={{ width: "250px" }} onClick={() => setVisibility(true)}/>
-            <label>Нажмите на изображение, чтобы увеличить</label>
-            <ImageContainer
-                photos={photos}
-                setSelectedPhoto={setSelectedPhoto}
-            />
-            <ImageModal visible={visibility} photo={selectedPhoto} name={selectedPhoto} setVisibility={setVisibility}/>
-        </div>
+        <Row gutter={[16, 8]}>
+            <Col span={12}>
+                <ImageSection photos={photos} />
+            </Col>
+            <Col span={12}>
+                <ProductPanel product={product} onAddFeatured={onAddFeatured} />
+            </Col>
+        </Row>
     )
+
 }
 
 export default Product;
