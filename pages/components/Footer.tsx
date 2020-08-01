@@ -3,13 +3,13 @@ function Footer() {
     <>
       <style jsx>{`
         .Footer {
-          width: 100%;
-
-          position: absolute;
           bottom: 0;
+          background: #000;
         }
       `}</style>
-      <div className="Footer">I am a footer</div>
+      <div className="Footer">
+        I am footer
+      </div>
     </>
   );
 }

@@ -1,8 +1,7 @@
 import React from "react";
 import { Row, Col } from "antd";
-import { useSelector, useDispatch } from "react-redux";
-import { addFeatured } from "../../store/actions";
-import { FeaturedState, ProductItem } from "../../types";
+import { useSelector } from "react-redux";
+import { FeaturedState } from "../../types";
 import ProductTape from "./ProductTape";
 
 const ProductPage = () => {
@@ -16,16 +15,20 @@ const ProductPage = () => {
     );
 
     return (
-        <Row justify="space-around" align="middle">
-            <Col span={20}>
+        <>
+            <div>
                 <ProductTape catalog={catalog}/>
-            </Col>
-            <ul>
-                {featured.map((line) => {
-                    return <li>{line.product.name}</li>
-                })}
-            </ul>
-        </Row>
+            </div>
+            <Row justify="space-around" align="middle">
+                <Col span={20}>
+                    <ul>
+                        {featured.map((line) => {
+                            return <li>{line.product.name}</li>
+                        })}
+                    </ul>
+                </Col>
+            </Row>
+        </>
     )
 }
 

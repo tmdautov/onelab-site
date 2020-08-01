@@ -1,7 +1,8 @@
 import React from "react";
-import { Button } from "antd";
+import { Button, Divider } from "antd";
 import { ProductItem, FeaturedState } from "../../types";
 import { useSelector } from "react-redux";
+import TextArea from "antd/lib/input/TextArea";
 
 interface ProductPanelProps {
     product: ProductItem;
@@ -34,6 +35,12 @@ const ProductPanel = ({product, onAddFeatured}) => {
         return !!featured.find((line) => line.product === product);
     }
 
+    const [description, setDescription] = React.useState("");
+
+    React.useEffect(() => {
+        (product.briefDescription !== undefined) ? setDescription(product.briefDescription) : setDescription("Null");
+    }, [description])
+
     return (
         <div>
             <h1>{name}</h1>
@@ -64,6 +71,8 @@ const ProductPanel = ({product, onAddFeatured}) => {
             >
                 Добавить в корзину
             </Button>
+            <Divider />
+            <TextArea disabled value={description} autoSize style={{color: "black", resize: "none"}}/>
         </div>
     )
 }

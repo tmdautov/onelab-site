@@ -3,6 +3,7 @@ export type ProductItem = {
     image: string[];
     price: number;
     code: number;
+    briefDescription: string;
   }
   
 export interface FeaturedLine {
