@@ -68,11 +68,15 @@ function Header() {
 
           color: ${theme.colors.black};
         }
+
+        .logo {
+          width: 9.531vw;
+        }
       `}</style>
       <header>
         <Wrapper>
           <nav>
-            <div className="LOGO">
+            <div className="logo">
               <Link href="/">
                 <a>
                   <LabLogo />
