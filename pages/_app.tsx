@@ -30,15 +30,12 @@ export default function App({ Component, pageProps }) {
                   /* Chrome 26+, Opera 23+, Firefox 39+ */
                     url("../public/assets/fonts/rubik-v9-latin_cyrillic-regular.woff")
                     format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-
               body {
                 font-family: ${theme.fontFamily}; //FIXME: Fix font family
                 font-style: normal;
                 font-weight: normal;
-
                 background: ${theme.colors.backgroundColor};
               }
-
               ::root {
                 font-size: 16px;
               }
