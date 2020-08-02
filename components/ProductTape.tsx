@@ -28,14 +28,6 @@ const ProductTape: React.FC<ProductTapeProps> = (props) => {
       </style>
       <List
         header={<h1>Направления стажировок</h1>}
-        pagination={{
-          pageSize: 3,
-          style: {
-            position: "absolute",
-            bottom: "87%",
-            right: "2.6vh",
-          },
-        }}
         grid={{ gutter: 16, column: 3 }}
         dataSource={props.catalog}
         renderItem={(product) => (
