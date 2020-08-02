@@ -10,25 +10,28 @@ function Header() {
         nav {
           background: #1A1A1A;
           height: 104px;
+          width: 100%;
+          min-width: 100%;
 
           //position: absolute;
           //top: 0;
         }
 
         ul {
-          height: 52px;
+          height: 50%;
           display: flex;
           line-height: 150%;
-          align-items: center
+          align-items: center;
+          transform: translate(7%, 50%);
+
         }
 
         li {
-          font-family: Rubik;
-          font-size: 18px;
+          font-weight: 400;
+          font-size: 85%;
           text-transform: uppercase!important;
-          margin-right: 48px;
+          margin-right: 3%;
           position: relative;
-          top: 23px;
           list-style: none;
         }
         
@@ -37,19 +40,17 @@ function Header() {
         }
 
         .LOGO {
-          margin-right: 82px;
+          margin-right: 7.5%;
         }
 
         .btn-nav {
           position: relative;
-          left: 35px;
+          transform: translateX(15%);
         }
 
 
       `}</style>
       <nav>
-        <Row justify="space-around" align="middle">
-          <Col span={20}>
             <ul>
               <li className="LOGO">
                 <Link href="/">
@@ -84,7 +85,7 @@ function Header() {
                   <Button
                     style={
                       {
-                        borderRadius: "6px" , width: "240px", height: "56px", fontSize: "18px", marginRight: "0"
+                        borderRadius: "6px" , width: "130%", height: "150%", fontSize: "100%", marginRight: "0"
                       }
                     }
                   >
@@ -93,8 +94,6 @@ function Header() {
                 </Link>
               </li>
             </ul>{" "}
-          </Col>
-        </Row>
       </nav>{" "}
     </>
   );

@@ -6,33 +6,14 @@ import { sliderSetting } from "../../services/sliderSetting";
 import { bannerSrc } from "../../services/bannerSrc";
 
 const Banner = () => {
-    const responsive = {
-        superLargeDesktop: {
-          // the naming can be any, depends on you.
-          breakpoint: { max: 4000, min: 3000 },
-          items: 5
-        },
-        desktop: {
-          breakpoint: { max: 3000, min: 1024 },
-          items: 3
-        },
-        tablet: {
-          breakpoint: { max: 1024, min: 464 },
-          items: 2
-        },
-        mobile: {
-          breakpoint: { max: 464, min: 0 },
-          items: 1
-        }
-    };
     return (
         <>
             <style jsx>
                 {`
                     .ant-carousel .slick-slide {
                         text-align: center;
-                        height: 160px;
-                        line-height: 160px;
+                        height: 22vh;
+                        line-height: 21vh;
                         background: #364d79;
                         overflow: hidden;
                       }
@@ -43,23 +24,28 @@ const Banner = () => {
 
                       .carousel-holder {
                         background: linear-gradient(180deg, #FFFFFF 0%, #F6F6F6 100%); 
-                        height: 425px;
+                        height: 54.7%;
+                        max-height: 54.7%;
                         width: 100%;
                       }
 
                       .grayscale { filter: grayscale(100%); }
+
+                      @media only screen and (max-width: 600px) {
+                        .pic-holder {
+                          display: none;
+                        }
+                      }
                 `}
             </style>
             <div className="carousel-holder">
                 <Slider {...sliderSetting}>
                   {bannerSrc.map(e => {
                     return (
-                      <div>
-                        <div>
+                        <div style={{display: "flex", flexDirection: "row"}}>
                           <BannerText description={e.description}/>
-                          <Picture src={e.src} paddingRight={e.paddingRight} paddingBottom={e.paddingBottom} />
+                          <Picture src={e.src} />
                         </div>
-                      </div>  
                     )
                   })}
                 </Slider>

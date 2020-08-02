@@ -1,15 +1,24 @@
 export default function Picture(props: any) {
   return (
-    <img
-      className="grayscale"
-      style={{
-        height: "415px",
-        position: "relative",
-        bottom: props.paddingBottom,
-        float: "right",
-        right: props.paddingRight,
-      }}
-      src={props.src}
-    />
+    <>
+      <style jsx>
+        {`
+          @media only screen and (max-width: 720px) {
+            img {
+              display: none;
+            }
+          }
+        `}
+      </style>
+      <img
+        style={{
+          height: "51.6vh",
+          maxHeight: "914px",
+          paddingLeft: "60%",
+          transform: "translateY(-63%)"
+        }}
+        src={props.src}
+      />
+    </>
   );
 }
