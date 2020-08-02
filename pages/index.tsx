@@ -7,17 +7,8 @@ import ProductPage from "../components/ProductContainer";
 export default function Home() {
   return (
     <>
-      <style jsx global>{`
-        body {
-          // overflow-x: hidden !important;
-        }
-
-        .slick-dots {
-          bottom: 250px;
-        }
-      `}</style>
       <Banner />
-      <ProductPage />
+      {/* <ProductPage /> */}
     </>
   );
 }
