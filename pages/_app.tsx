@@ -19,17 +19,7 @@ export default function App({ Component, pageProps }) {
         <Layout>
           <style jsx global>
             {`
-              /* rubik-regular - latin_cyrillic */
-              @font-face {
-                font-family: "Rubik";
-                font-style: normal;
-                font-weight: 400;
-                src: local("Rubik"), local("Rubik-Regular"),
-                  url("../public/assets/fonts/rubik-v9-latin_cyrillic-regular.woff2")
-                    format("woff2"),
-                  /* Chrome 26+, Opera 23+, Firefox 39+ */
-                    url("../public/assets/fonts/rubik-v9-latin_cyrillic-regular.woff")
-                    format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+              @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap");
               body {
                 font-family: ${theme.fontFamily}; //FIXME: Fix font family
                 font-style: normal;

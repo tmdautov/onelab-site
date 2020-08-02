@@ -10,9 +10,8 @@ function Header() {
         header {
           width: 100%;
           background: ${theme.colors.black};
-          height: 104px;
+          height: 15vh;
           width: 100%;
-          min-width: 100%;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -24,17 +23,23 @@ function Header() {
           justify-content: space-between;
           align-items: center;
         }
+        .logo {
+          width: 25% !important;
+        }
+        .logo svg {
+          width: 100%;
+        }
         ul {
           list-style: none;
           display: flex;
           justify-content: space-between;
           align-items: center;
-          width: 32.552vw;
+          width: 50% !important;
         }
         li a {
           color: ${theme.colors.white};
           text-decoration: none;
-          font-size: 0.938vw; //FIXME: Fix fs vw
+          font-size: 0.85em;
           line-height: 150%;
           text-transform: uppercase;
         }
@@ -42,6 +47,11 @@ function Header() {
           width: 1px;
           height: 26px;
           background: ${theme.colors.white};
+        }
+        .header-button {
+          width: 25% !important;
+          display: flex;
+          justify-content: flex-end;
         }
         button {
           border-radius: 6px;
@@ -75,13 +85,13 @@ function Header() {
                   <a>Направления</a>
                 </Link>
               </li>
-              <em className="border"></em>
+              <em className="border" />
               <li>
                 <Link href="/contacts">
                   <a>Порядок приема</a>
                 </Link>
               </li>
-              <em className="border"></em>
+              <em className="border" />
 
               <li>
                 <Link href="/faq">
@@ -89,8 +99,9 @@ function Header() {
                 </Link>
               </li>
             </ul>
-
-            <button>Я хочу обучаться!</button>
+            <div className="header-button">
+              <button>Я хочу обучаться!</button>
+            </div>
           </nav>
         </Wrapper>
       </header>
