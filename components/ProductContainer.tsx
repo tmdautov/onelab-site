@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col } from "antd";
 import { useSelector } from "react-redux";
-import { FeaturedState } from "../../types";
+import { FeaturedState } from "../types";
 import ProductTape from "./ProductTape";
 
 const ProductPage = () => {

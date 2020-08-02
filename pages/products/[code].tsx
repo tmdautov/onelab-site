@@ -4,10 +4,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { FeaturedState, ProductItem } from "../../types";
 import { addFeatured } from "../../store/actions";
 import { Row, Col, Button } from "antd";
-import ImageContainer from "../components/ImageContainer";
-import ImageModal from "../components/ImageModal";
+import ImageContainer from "../../components/ImageContainer";
+import ImageModal from "../../components/ImageModal";
 import { products } from "../../services/placeholder";
-import Product from "../components/Product";
+import Product from "../../components/Product";
 
 export default function Products({ product }) {
 

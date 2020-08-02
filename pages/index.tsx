@@ -1,9 +1,9 @@
-import Layout from "./components/Layout";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import ProductPage from "./components/ProductContainer";
+import Layout from "../components/Layout";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import ProductPage from "../components/ProductContainer";
 import { Row, Col } from "antd";
-import Banner from "./components/Banner";
+import Banner from "../components/Banner";
 
 export default function Home() {
   return (
