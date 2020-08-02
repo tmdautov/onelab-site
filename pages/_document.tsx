@@ -9,7 +9,6 @@ export default class MyDocument extends Document {
             name="viewport"
             content="initial-scale=1.0, width=device-width"
           />
-          <link rel="stylesheet" href="../styles/reset.css" />
         </Head>
         <body>
           <Main />

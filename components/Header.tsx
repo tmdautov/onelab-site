@@ -1,101 +1,107 @@
 import Link from "next/link";
-import { Row, Col, Button } from "antd";
 import LabLogo from "../public/assets/svg/logo";
 import Banner from "./Banner";
+import theme from "../styles/theme";
+import Wrapper from "./Wrapper";
 
 function Header() {
   return (
     <>
       <style jsx>{`
-        nav {
-          background: #1A1A1A;
+        header {
+          width: 100%;
+          background: ${theme.colors.black};
           height: 104px;
 
-          //position: absolute;
-          //top: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        nav {
+          width: 100%;
+          height: 100%;
+
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
         }
 
         ul {
-          height: 52px;
-          display: flex;
-          line-height: 150%;
-          align-items: center
-        }
-
-        li {
-          font-family: Rubik;
-          font-size: 18px;
-          text-transform: uppercase!important;
-          margin-right: 48px;
-          position: relative;
-          top: 23px;
           list-style: none;
-        }
-        
-        a {
-          color: #fff;
-        }
 
-        .LOGO {
-          margin-right: 82px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          width: 32.552vw;
         }
 
-        .btn-nav {
-          position: relative;
-          left: 35px;
+        li a {
+          color: ${theme.colors.white};
+          text-decoration: none;
+
+          font-size: 0.938vw; //FIXME: Fix fs vw
+          line-height: 150%;
+          text-transform: uppercase;
         }
 
+        .border {
+          width: 1px;
+          height: 26px;
+          background: ${theme.colors.white};
+        }
 
+        button {
+          border-radius: 6px;
+          border: none;
+          background: ${theme.colors.white};
+          width: 12.5vw;
+          height: 2.917vw; //FIXME: Fix vw to vh
+
+          font-weight: 500;
+          line-height: 150%;
+
+          text-align: center;
+
+          color: ${theme.colors.black};
+        }
       `}</style>
-      <nav>
-        <Row justify="space-around" align="middle">
-          <Col span={20}>
+      <header>
+        <Wrapper>
+          <nav>
+            <div className="LOGO">
+              <Link href="/">
+                <a>
+                  <LabLogo />
+                </a>
+              </Link>
+            </div>
             <ul>
-              <li className="LOGO">
-                <Link href="/">
-                  <a>
-                    <LabLogo />
-                  </a>
-                </Link>
-              </li>
               <li>
                 <Link href="/">
-                  <a>
-                    Направления
-                  </a>
+                  <a>Направления</a>
                 </Link>
               </li>
+              <em className="border"></em>
               <li>
                 <Link href="/contacts">
-                  <a>
-                    Порядок приема
-                  </a>
+                  <a>Порядок приема</a>
                 </Link>
               </li>
+              <em className="border"></em>
+
               <li>
                 <Link href="/faq">
-                  <a>
-                    Как проходит обучение
-                  </a>
+                  <a>Как проходит обучение</a>
                 </Link>
               </li>
-              <li className="btn-nav">
-                <Link href="/">
-                  <Button
-                    style={
-                      {
-                        borderRadius: "6px" , width: "240px", height: "56px", fontSize: "18px", marginRight: "0"
-                      }
-                    }
-                  >
-                    Я хочу обучаться!
-                  </Button>
-                </Link>
-              </li>
-            </ul>{" "}
-          </Col>
-        </Row>
-      </nav>{" "}
+            </ul>
+
+            <button>Я хочу обучаться!</button>
+          </nav>
+        </Wrapper>
+      </header>
     </>
   );
 }

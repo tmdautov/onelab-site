@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Layout from "../components/Layout";
 
-import "antd/dist/antd.css";
+import "../styles/reset.css";
 import "react-multi-carousel/lib/styles.css";
 import React from "react";
 import { Provider } from "react-redux";
@@ -32,11 +32,15 @@ export default function App({ Component, pageProps }) {
                     format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 
               body {
-                font-family: ${theme.fontFamily};
+                font-family: ${theme.fontFamily}; //FIXME: Fix font family
                 font-style: normal;
                 font-weight: normal;
 
                 background: ${theme.colors.backgroundColor};
+              }
+
+              ::root {
+                font-size: 16px;
               }
             `}
           </style>
