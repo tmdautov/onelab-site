@@ -10,6 +10,8 @@ import store from "../store/store";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import theme from "../styles/theme";
+
 export default function App({ Component, pageProps }) {
   return (
     <React.StrictMode>
@@ -30,9 +32,11 @@ export default function App({ Component, pageProps }) {
                     format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 
               body {
-                font-family: Rubik;
+                font-family: ${theme.fontFamily};
                 font-style: normal;
                 font-weight: normal;
+
+                background: ${theme.colors.backgroundColor};
               }
             `}
           </style>
