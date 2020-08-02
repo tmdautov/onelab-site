@@ -2,8 +2,8 @@ import React from "react";
 import Picture from "./Picture";
 import BannerText from "./BannerText";
 import Slider from "react-slick";
-import { sliderSetting } from "../../services/sliderSetting";
-import { bannerSrc } from "../../services/bannerSrc";
+import { sliderSetting } from "../services/sliderSetting";
+import { bannerSrc } from "../services/bannerSrc";
 
 const Banner = () => {
     return (

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Row, Col, Button } from "antd";
-import LabLogo from "../svg/logo";
+import LabLogo from "../public/assets/svg/logo";
 import Banner from "./Banner";
 
 function Header() {

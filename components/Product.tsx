@@ -1,6 +1,6 @@
 import React from "react";
-import { ProductItem } from "../../types";
-import { products } from "../../services/placeholder";
+import { ProductItem } from "../types";
+import { products } from "../services/placeholder";
 import { Row, Col } from "antd";
 import ImageSection from "./ImageSection";
 import ProductPanel from "./ProductPanel";

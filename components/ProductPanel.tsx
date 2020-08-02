@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Divider } from "antd";
-import { ProductItem, FeaturedState } from "../../types";
+import { ProductItem, FeaturedState } from "../types";
 import { useSelector } from "react-redux";
 import TextArea from "antd/lib/input/TextArea";
 

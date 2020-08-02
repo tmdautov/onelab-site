@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, List, Button } from "antd";
 import Link from "next/link";
-import { ProductItem } from "../../types";
+import { ProductItem } from "../types";
 
 interface ProductTapeProps {
     catalog: ProductItem[];
