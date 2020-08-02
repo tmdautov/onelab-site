@@ -40,9 +40,7 @@ export default function App({ Component, pageProps }) {
               }
             `}
           </style>
-          <Header />
           <Component {...pageProps} />
-          <Footer />
         </Layout>
       </Provider>
     </React.StrictMode>
