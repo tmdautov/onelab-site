@@ -10,14 +10,14 @@ export default function Home() {
     <>
       <style jsx global>{`
         body {
-          overflow-x: hidden!important;
+          overflow-x: hidden !important;
         }
 
         .slick-dots {
           bottom: 250px;
         }
       `}</style>
-      <Row justify="center" align="middle" >
+      <Row justify="center" align="middle">
         <Col span={24}>
           <Banner />
         </Col>
@@ -28,5 +28,5 @@ export default function Home() {
         </Col>
       </Row>
     </>
-  )
+  );
 }
