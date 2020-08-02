@@ -12,6 +12,8 @@ function Header() {
           width: 100%;
           background: ${theme.colors.black};
           height: 104px;
+          width: 100%;
+          min-width: 100%;
 
           display: flex;
           justify-content: center;

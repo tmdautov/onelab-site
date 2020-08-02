@@ -8,20 +8,18 @@ const BannerText = (props: any) => {
                 {`
                     .banner-text {
                         position: relative;
-                        left: 280px;
-                        top: 48px;
-                        width: 600px;
+                        left: 15%;
+                        transform: translateY(15%);
+                        width: 30%;
                     }
                     h1 {
                         font-weight: 800;
-                        line-height: 150%;
-                        font-size: 48px;
+                        font-size: 200%;
                     }
                     
                     span {
-                        width: 600px;
-                        height: 102px;
-                        font-size: 24px;
+                        height: 14vh;
+                        font-size: 120%;
                         line-height: 150%;
                         color: #1A1A1A;
                     
@@ -35,7 +33,7 @@ const BannerText = (props: any) => {
                 </div>
                 <Button type="primary"
                     style={
-                        { position: "relative", top: "30px", width: "240px", height: "56px", color: "#fff", background: "#000", }
+                        { position: "relative", top: "4vh", width: "30.625vh", height: "56px", color: "#fff", background: "#000", }
                     }
                 >
                     Подать заявку
