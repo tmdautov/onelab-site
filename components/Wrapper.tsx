@@ -4,7 +4,7 @@ function Wrapper({ children }) {
       <style jsx>{`
         .wrapper {
           width: 100%;
-          padding: 10vw;
+          padding: 0 15vw;
           height: 100%;
         }
       `}</style>
