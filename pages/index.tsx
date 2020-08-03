@@ -10,8 +10,7 @@ export default function Home() {
       <Banner />
       <Profits />
       <DirectionsContainer />
-      {/*<Profits />
-      <ProductPage />*/}
+      {/*FIX: slick-active needs to be implemented*/}
     </>
   );
 }
