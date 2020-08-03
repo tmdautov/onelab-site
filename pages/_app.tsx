@@ -29,6 +29,11 @@ export default function App({ Component, pageProps }) {
               ::root {
                 font-size: 16px;
               }
+
+              button {
+                font-family: ${theme.fontFamily}; //FIXME: Fix font family
+                font-style: normal;
+              }
             `}
           </style>
           <Component {...pageProps} />
