@@ -16,6 +16,8 @@ function Footer() {
           display: flex;
           justify-content: center;
           align-items: center;
+          position: relative;
+          bottom: 0;
         }
         nav {
           width: 100%;
@@ -45,7 +47,7 @@ function Footer() {
         }
       `}</style>
       <footer>
-      <Wrapper>
+        <Wrapper>
           <nav>
             <div>
               <Social />

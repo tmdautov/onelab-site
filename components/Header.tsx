@@ -14,6 +14,8 @@ function Header() {
           display: flex;
           justify-content: center;
           align-items: center;
+          position: relative;
+          top: 0;
         }
         nav {
           width: 100%;
