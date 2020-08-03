@@ -50,8 +50,8 @@ const Profits = () => {
             <style jsx>
                 {`
                     .profits {
-                        padding-top: 72px;
-                        margin-bottom: 72px;
+                        padding-top: 9.55vh;
+                        margin-bottom: 9.55vh;
                         text-align: center;
                         color: #1A1A1A;
                     }
@@ -59,33 +59,43 @@ const Profits = () => {
                     h1 {
                         font-weight: 800;
                         font-size: 2.3rem;
-                        margin-bottom: 40px;
+                        margin-bottom: 9.55vh;
                     }
 
                     .header-profit {
                         font-size: 1.25rem;
+                        margin-bottom: 3%;
                     }
 
                     .label-profit {
                         font-size: 0.95rem;
                     }
+
+                    .grid-container {
+                        justify-content: center;
+                        display: grid;
+                        grid-template-columns: 26vw 26vw 26vw;
+                        grid-template-rows: 21.22vh;
+                        column-gap: 3.183vh;
+                        row-gap: 1.5625vw;
+                    }
                 `}
             </style>
             <div className="profits">
                 <h1>Что ты получишь?</h1>
-                <Row gutter={[24, 24]}>
+                <div className="grid-container">
                     {profits.map(
                         e => {
                             return (
-                                <Col span={8}>
+                                <div>
                                     {e.icon}
                                     <h2 className="header-profit">{e.header}</h2>
                                     <label className="label-profit">{e.label}</label>
-                                </Col>
+                                </div>
                             )
                         }
                     )}
-                </Row>
+                </div>
             </div>
         </div>
     )

@@ -42,7 +42,7 @@ function Footer() {
         }
         .border {
           width: 1px;
-          height: 26px;
+          height: 3.45vh;
           background: ${theme.colors.white};
         }
       `}</style>

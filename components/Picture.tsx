@@ -7,6 +7,10 @@ export default function Picture({ imgUrl }) {
             width: auto;
             height: 100%;
           }
+
+          img {
+            position: ;
+          }
         `}
       </style>
       <img className="banner-img" src={imgUrl} />
