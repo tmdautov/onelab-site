@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Picture from "./Picture";
 import BannerText from "./BannerText";
 import Slider from "react-slick";
 import { sliderSetting } from "../services/sliderSetting";
 import { bannerSrc } from "../services/bannerSrc";
 import Wrapper from "./Wrapper";
+import getBanners from "../services/banner.service";
 
 function Banner() {
+  const [banners, setBanners] = useState([]);
+  useEffect(() => {
+    async function fetchBanners() {
+      setBanners(await getBanners());
+    }
+    fetchBanners();
+  }, []);
   return (
     <>
       <style jsx>{`
@@ -31,17 +39,18 @@ function Banner() {
       `}</style>
       <div className="banner_container">
         <Slider {...sliderSetting}>
-          {bannerSrc.map((e) => {
+          {banners.map((banner) => {
             return (
               <div className="banner">
                 <Wrapper>
                   <div className="banner_flex">
                     <BannerText
-                      title={e.title}
-                      description={e.description}
-                      url={e.src}
+                      title={banner.title}
+                      description={banner.description}
+                      url={banner.url}
+                      buttonText={banner.buttonText}
                     />
-                    <Picture imgUrl={e.src} />
+                    <Picture imgUrl={banner.img} />
                   </div>
                 </Wrapper>
               </div>

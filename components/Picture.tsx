@@ -1,4 +1,5 @@
 export default function Picture({ imgUrl }) {
+  console.log(imgUrl);
   return (
     <>
       <style jsx>
@@ -7,12 +8,9 @@ export default function Picture({ imgUrl }) {
             width: auto;
             height: 100%;
           }
-
-          img {
-            position: ;
-          }
         `}
       </style>
+      {/* FIXME: Fix AdBlock of img */}
       <img className="banner-img" src={imgUrl} />
     </>
   );

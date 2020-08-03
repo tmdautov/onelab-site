@@ -1,7 +1,7 @@
 import React from "react";
 import theme from "../styles/theme";
 
-function BannerText({ title, description, url }) {
+function BannerText({ title, description, url, buttonText }) {
   return (
     <>
       <style jsx>
@@ -41,18 +41,18 @@ function BannerText({ title, description, url }) {
             cursor: pointer;
             transition: background-color 0.5s ease, color 0.5s ease;
           }
-  
+
           button:hover {
             color: ${theme.colors.white};
             background: #f70f0f;
           }
-
         `}
       </style>
       <div className="banner-text">
         <h1>{title}</h1>
         <p className="description-text">{description}</p>
-        <button>Подать заявку</button>
+        {/* TODO: Add button url */}
+        <button>{buttonText}</button>
       </div>
     </>
   );
