@@ -48,7 +48,7 @@ const BannerText = (props: any) => {
                 `}
             </style>
             <div className="banner-text">
-                <h1>ONE LAB</h1>
+                <h1>{props.title}</h1>
                 <div className="description-text">
                     <span>{props.description}</span>
                 </div>

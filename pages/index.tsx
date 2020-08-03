@@ -8,8 +8,10 @@ export default function Home() {
       <style jsx global>{`
         .slick-dots {
           bottom: 0!important;
-          top: 80%;
-          right: 27.845%;
+          position: relative;
+          transform: translate(-26.845%, -250%);
+          //top: 80%;
+          //right: 27.845%;
         }
       `}</style>
       <Banner />

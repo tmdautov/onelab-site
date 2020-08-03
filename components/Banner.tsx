@@ -28,7 +28,7 @@ const Banner = () => {
             return (
               <div className="banner">
                 <Wrapper>
-                  <BannerText description={e.description} />
+                  <BannerText description={e.description} title={e.title} />
                   <Picture src={e.src} />
                 </Wrapper>
               </div>
