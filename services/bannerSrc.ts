@@ -10,7 +10,6 @@ export const bannerSrc = [
     src:
       "https://purepng.com/public/uploads/large/purepng.com-studentsstudentcollege-studentschool-studentstudentsmale-female-1421526923960d2xfn.png",
     title: "ONE LAB",
-    description:
-      "это опыт работы в команде в рамках образовательного проекта IT Компании One Technologies",
+    description: "это жизнь!",
   },
 ];

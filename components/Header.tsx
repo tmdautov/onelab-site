@@ -8,7 +8,6 @@ function Header() {
     <>
       <style jsx>{`
         header {
-          width: 100%;
           background: ${theme.colors.black};
           height: 15vh;
           width: 100%;

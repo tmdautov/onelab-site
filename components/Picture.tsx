@@ -1,24 +1,15 @@
-export default function Picture(props: any) {
+export default function Picture({ imgUrl }) {
   return (
     <>
       <style jsx>
         {`
-          @media only screen and (max-width: 720px) {
-            img {
-              display: none;
-            }
+          .banner-img {
+            width: auto;
+            height: 100%;
           }
         `}
       </style>
-      <img
-        style={{
-          height: "51.6vh",
-          maxHeight: "914px",
-          paddingLeft: "60%",
-          transform: "translateY(-63%)"
-        }}
-        src={props.src}
-      />
+      <img className="banner-img" src={imgUrl} />
     </>
   );
 }

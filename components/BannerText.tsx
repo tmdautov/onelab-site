@@ -1,46 +1,54 @@
 import React from "react";
 import { Button } from "antd";
+import theme from "../styles/theme";
 
-const BannerText = (props: any) => {
-    return (
-        <>
-            <style jsx>
-                {`
-                    .banner-text {
-                        position: relative;
-                        left: 15%;
-                        transform: translateY(15%);
-                        width: 30%;
-                    }
-                    h1 {
-                        font-weight: 800;
-                        font-size: 200%;
-                    }
-                    
-                    span {
-                        height: 14vh;
-                        font-size: 120%;
-                        line-height: 150%;
-                        color: #1A1A1A;
-                    
-                    }
-                `}
-            </style>
-            <div className="banner-text">
-                <h1>ONE LAB</h1>
-                <div className="description-text">
-                    <span>{props.description}</span>
-                </div>
-                <Button type="primary"
-                    style={
-                        { position: "relative", top: "4vh", width: "30.625vh", height: "56px", color: "#fff", background: "#000", }
-                    }
-                >
-                    Подать заявку
-                </Button>
-            </div>
-        </>
-    )
+function BannerText({ title, description, url }) {
+  return (
+    <>
+      <style jsx>
+        {`
+          .banner-text {
+            max-width: 60%;
+            height: 80%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            color: ${theme.colors.black};
+            box-sizing: border-box;
+            padding-bottom: 50px; //FIXME: px to vh
+          }
+          h1 {
+            font-weight: bold;
+            font-size: 38px;
+            line-height: 150%;
+
+            text-transform: uppercase;
+          }
+          .description-text {
+            font-size: 1.25vw; //FIXME: vw to rem
+            line-height: 150%;
+
+            text-align: left;
+          }
+          button {
+            width: 240px;
+            height: 56px;
+            border-radius: 6px;
+            background: ${theme.colors.black};
+            color: ${theme.colors.white};
+            border: none;
+          }
+        `}
+      </style>
+      <div className="banner-text">
+        <h1>{title}</h1>
+        <p className="description-text">{description}</p>
+        <button>Подать заявку</button>
+      </div>
+    </>
+  );
 }
 
 export default BannerText;
