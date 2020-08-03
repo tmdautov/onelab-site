@@ -8,14 +8,18 @@ export default function Picture(props: any) {
               display: none;
             }
           }
+          
+          img {
+            position:
+          }
         `}
       </style>
       <img
         style={{
           height: "51.6vh",
           maxHeight: "914px",
-          paddingLeft: "60%",
-          transform: "translateY(-63%)"
+          paddingLeft: "45%",
+          transform: "translateY(-3%)"
         }}
         src={props.src}
       />

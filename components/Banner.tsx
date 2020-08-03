@@ -14,24 +14,28 @@ const Banner = () => {
         }
         .banner {
           width: 100%;
-          height: 425px; //FIXME: px to vh
+          height: 56.3vh;
           display: flex;
           align-items: center;
+          flex-direction: row;
 
           background: linear-gradient(180deg, #ffffff 0%, #f6f6f6 100%);
         }
       `}</style>
-      <Slider {...sliderSetting} className="banner_container">
-        {bannerSrc.map((e) => {
-          return (
-            <div className="banner">
-              <Wrapper>
-                
-              </Wrapper>
-            </div>
-          );
-        })}
-      </Slider>
+      <div className="banner_container">
+        <Slider {...sliderSetting}>
+          {bannerSrc.map((e) => {
+            return (
+              <div className="banner">
+                <Wrapper>
+                  <BannerText description={e.description} />
+                  <Picture src={e.src} />
+                </Wrapper>
+              </div>
+            );
+          })}
+        </Slider>
+      </div>
     </>
   );
 };

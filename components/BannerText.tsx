@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "antd";
+import theme from "../styles/theme";
 
 const BannerText = (props: any) => {
     return (
@@ -7,22 +7,43 @@ const BannerText = (props: any) => {
             <style jsx>
                 {`
                     .banner-text {
-                        position: relative;
-                        left: 15%;
-                        transform: translateY(15%);
+                        transform: translate(20%, 200%);
                         width: 30%;
+                        height: 6.1vh
                     }
+                    
                     h1 {
-                        font-weight: 800;
-                        font-size: 200%;
+                        font-weight: bold;
+                        font-size: 280%;
+                        transform: translateY(-46%);
                     }
                     
                     span {
-                        height: 14vh;
-                        font-size: 120%;
+                        font-size: 1.2rem;
                         line-height: 150%;
                         color: #1A1A1A;
                     
+                    }
+
+                    .banner-button {
+                        width: 50%!important;
+                        display: flex;
+                        justify-content: flex-end;
+                    }
+                    
+                    button {
+                        transform: translate(-18%, 60%);
+                        border-radius: 6px;
+                        border: none;
+                        background: ${theme.colors.black};
+                        width: 12.96vw;
+                        height: 6.96vh;
+                        font-weight: 500;
+                        line-height: 150%;
+                        text-align: center;
+                        color: ${theme.colors.white};
+                        cursor: pointer;
+                        transition: background-color 0.5s ease, color 0.5s ease;
                     }
                 `}
             </style>
@@ -31,13 +52,11 @@ const BannerText = (props: any) => {
                 <div className="description-text">
                     <span>{props.description}</span>
                 </div>
-                <Button type="primary"
-                    style={
-                        { position: "relative", top: "4vh", width: "30.625vh", height: "56px", color: "#fff", background: "#000", }
-                    }
-                >
-                    Подать заявку
-                </Button>
+                <div className="banner-button"> 
+                    <button>
+                        Подать заявку
+                    </button>
+                </div>
             </div>
         </>
     )

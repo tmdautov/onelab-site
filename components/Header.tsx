@@ -58,11 +58,18 @@ function Header() {
           border: none;
           background: ${theme.colors.white};
           width: 12.5vw;
-          height: 2.917vw; //FIXME: Fix vw to vh
+          height: 5.96vh;
           font-weight: 500;
           line-height: 150%;
           text-align: center;
           color: ${theme.colors.black};
+          cursor: pointer;
+          transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        button:hover {
+          color: ${theme.colors.white};
+          background: #f70f0f;
         }
 
         .logo {
