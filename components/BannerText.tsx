@@ -38,7 +38,15 @@ function BannerText({ title, description, url }) {
             background: ${theme.colors.black};
             color: ${theme.colors.white};
             border: none;
+            cursor: pointer;
+            transition: background-color 0.5s ease, color 0.5s ease;
           }
+  
+          button:hover {
+            color: ${theme.colors.white};
+            background: #f70f0f;
+          }
+
         `}
       </style>
       <div className="banner-text">

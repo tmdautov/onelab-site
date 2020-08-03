@@ -19,7 +19,7 @@ const DirectionsContainer = () => {
             <style jsx>
                 {`
                     .directions-holder {
-                        margin-bottom: 9.55vh;
+                        padding-bottom: 9.55vh;
                     }
                 `}
             </style>

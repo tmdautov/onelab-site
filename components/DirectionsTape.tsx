@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import { directionsSetting } from "../services/sliderSetting";
 import DirectionCard from "./DirectionCard";
 import Wrapper from "./Wrapper";
+import theme from "../styles/theme";
 
 interface ProductTapeProps {
   catalog: ProductItem[];
@@ -21,6 +22,8 @@ const DirectionsTape: React.FC<ProductTapeProps> = (props) => {
             .directions-container {
               padding-top: 9.55vh;
               width: 100%;
+
+              background: ${theme.colors.white};
             }
                     
             h1 {

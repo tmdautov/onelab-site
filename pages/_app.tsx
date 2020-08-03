@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }) {
                 font-family: ${theme.fontFamily}; //FIXME: Fix font family
                 font-style: normal;
                 font-weight: normal;
-                background: ${theme.colors.backgroundColor};
+                background: ${theme.colors.white};
               }
               ::root {
                 font-size: 16px;

@@ -1,7 +1,5 @@
 import React from "react"
 import { ProductItem } from "../types"
-import Wrapper from "./Wrapper"
-import theme from "../styles/theme"
 import { CalendarOutlined } from "@ant-design/icons"
 
 interface DirectionCardProps {
@@ -16,7 +14,7 @@ const DirectionCard: React.FC<DirectionCardProps> = (props) => {
                     .direction-card {
                         width: 22.52vw;
                         height: 66.578vh;
-                        background: ${theme.colors.white};
+                        background: #F9F9F9;
                     }
 
                     h1 {
@@ -46,7 +44,7 @@ const DirectionCard: React.FC<DirectionCardProps> = (props) => {
                 <h1>{props.product.name}</h1>
                 <label style={{ marginBottom: "3.6vh" }}>{props.product.code}</label>
                 <span style={{marginBottom: "4.6vh"}}>
-                    <CalendarOutlined />
+                    <CalendarOutlined style={{marginRight: "3%"}} />
                     <label>{props.product.date}</label>
                 </span>
                 <p className="brief-description">{props.product.briefDescription}</p>

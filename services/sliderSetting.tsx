@@ -1,6 +1,7 @@
 import Wrapper from "../components/Wrapper";
 import theme from "../styles/theme";
 import { RightCircleOutlined, LeftCircleOutlined } from "@ant-design/icons";
+import React from "react";
 
 export const sliderSetting = {
   dots: true,
@@ -93,38 +94,49 @@ export const directionsSetting = {
 };
 
 function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
+  const { style, onClick } = props;
+
+  const [disabled, setDisabled] = React.useState(false);
+  const [isFocus, setIsFocus] = React.useState(false);
+
+  React.useEffect(() => {
+    console.log(props.currentSlide + " " + props.slideCount);
+    props.currentSlide === props.slideCount - 3 ? setDisabled(true) : setDisabled(false);
+  }, [props.currentSlide]);
+
   return (
     <>
-    <style jsx>
-      {`
-        .custom-next-button:hover {
-          transition: opacity 0.5s ease;
-          opacity: 0.5!important;
-        }
-      `}
-    </style>
     <RightCircleOutlined 
       className="custom-next-button"
       onClick={onClick}
       style={{
-        ...style, width: "2.6vw", height: "5.3vh", fontSize: "36px", left: "94.5%",
-        position: "absolute", transform: "translate(20%, -150%)", bottom: "101%",
+        ...style, width: "2.6vw", height: "5.3vh", fontSize: "36px", left: "94.5%", color: (isFocus && !disabled) ? "#d10001" : theme.colors.black,
+        position: "absolute", transform: "translate(20%, -150%)", bottom: "101%", transition: "opacity 0.5s ease, color 0.5s ease",
+        opacity: disabled ? "0.5" : "1",
       }}
+      onMouseOver={() => setIsFocus(true)}
+      onMouseOut={() => setIsFocus(false)}
     />
     </>
   );
 }
 
 function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
+  const { style, onClick } = props;
+
+  const [disabled, setDisabled] = React.useState(true);
+  const [isFocus, setIsFocus] = React.useState(true);
+
+  React.useEffect(() => {
+    props.currentSlide === 0 ? setDisabled(true) : setDisabled(false);
+  }, [props.currentSlide]);
   return (
     <>
       <style jsx>
         {`
           .custom-next-button:hover {
             transition: opacity 0.5s ease;
-            opacity: 0.5!important;
+            color: #d10001!important;
           }
         `}
       </style>
@@ -132,9 +144,12 @@ function SamplePrevArrow(props) {
         className="custom-next-button"
         onClick={onClick}
         style={{
-          ...style, width: "2.6vw", height: "5.3vh", fontSize: "36px", left: "89.5%",
-          position: "absolute", transform: "translate(20%, -150%)", bottom: "101%",
+          ...style, width: "2.6vw", height: "5.3vh", fontSize: "36px", left: "89.5%", color: (isFocus && !disabled) ? "#d10001" : theme.colors.black,
+          position: "absolute", transform: "translate(20%, -150%)", bottom: "101%", transition: "opacity 0.5s ease, color 0.5s ease",
+          opacity: disabled ? "0.5" : "1",
         }}
+        onMouseOver={() => setIsFocus(true)}
+        onMouseOut={() => setIsFocus(false)}
       />
     </>
   );
