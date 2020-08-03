@@ -7,7 +7,7 @@ export default function Home() {
     <>
       <style jsx global>{`
         .slick-dots {
-          bottom: 0!important;
+          bottom: 0 !important;
           position: relative;
           transform: translate(-26.845%, -250%);
           //top: 80%;
@@ -16,8 +16,7 @@ export default function Home() {
       `}</style>
       <Banner />
       <Profits />
-      {/*<Profits />
-      <ProductPage />*/}
+      {/* <ProductPage /> */}
     </>
   );
 }

@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "antd";
 import theme from "../styles/theme";
 
 function BannerText({ title, description, url }) {
