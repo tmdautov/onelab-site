@@ -18,7 +18,7 @@ const DirectionCard: React.FC<DirectionCardProps> = (props) => {
                     }
 
                     h1 {
-                        font-size: 1.15vw;
+                        font-size: 1.25rem;
                         margin-bottom: 2.12vh;
                     }
 
@@ -29,14 +29,14 @@ const DirectionCard: React.FC<DirectionCardProps> = (props) => {
                     }
 
                     label {
-                        font-size: 0.85em;
+                        font-size: 0.85rem;
                     }
 
                     .brief-description {
                         width: 19.35vw;
                         height: 27.85vh;
                         line-height: 150%;
-                        font-size: 0.95em;
+                        font-size: 0.95rem;
                     }
                 `}
             </style>

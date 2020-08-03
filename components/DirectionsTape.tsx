@@ -38,7 +38,7 @@ const DirectionsTape: React.FC<ProductTapeProps> = (props) => {
         <Slider {...directionsSetting}>
           {props.catalog.map(e => {
             return (
-              <div style={{ width: "16.659%", }}>
+              <div style={{ width: "23.369vw", }}>
                 <DirectionCard product={e} />
               </div>
             )

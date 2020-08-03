@@ -11,6 +11,7 @@ export default function Home() {
       <Profits />
       <DirectionsContainer />
       {/*TODO: link buttons, description page, form*/}
+      {/*FIX: Fix font-size inside directions*/}
     </>
   );
 }

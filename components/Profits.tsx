@@ -126,7 +126,7 @@ const Profits = () => {
           .grid-container {
             justify-content: center;
             display: grid;
-            grid-template-columns: 26vw 26vw 26vw;
+            grid-template-columns: 23vw 23vw 23vw;
             grid-template-rows: 21.22vh;
             column-gap: 3.183vh;
             row-gap: 1.5625vw;

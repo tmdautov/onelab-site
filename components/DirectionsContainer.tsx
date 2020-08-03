@@ -20,6 +20,8 @@ const DirectionsContainer = () => {
                 {`
                     .directions-holder {
                         padding-bottom: 9.55vh;
+                        height: 101vh;
+                        width: 100%;
                     }
                 `}
             </style>
