@@ -1,5 +1,4 @@
 export default function Picture({ imgUrl }) {
-  console.log(imgUrl);
   return (
     <>
       <style jsx>
