@@ -1,7 +1,7 @@
 export type ProductItem = {
     name: string,
     image: string[];
-    price: number;
+    date: string;
     code: number;
     briefDescription: string;
   }

@@ -1,5 +1,6 @@
 import Wrapper from "../components/Wrapper";
 import theme from "../styles/theme";
+import { RightCircleOutlined, LeftCircleOutlined } from "@ant-design/icons";
 
 export const sliderSetting = {
   dots: true,
@@ -9,14 +10,13 @@ export const sliderSetting = {
   speed: 500,
   autoplay: true,
   autoplaySpeed: 10000,
-  pauseOnFocus: true,
   arrows: false,
   appendDots: (dots) => (
     <>
       <style jsx>{`
         .dots-container {
           width: 100%;
-          height: 120px; //FIXME: Make it responsive px to vh
+          height: 15.91vh;
 
           position: absolute;
           bottom: 0;
@@ -45,7 +45,7 @@ export const sliderSetting = {
           width: 32px;
           height: 32px;
 
-          margin-right: 16px; //FIXME: px to rem
+          margin-right: 1rem; //FIXME: px to rem
           cursor: pointer;
 
           box-sizing: border-box;
@@ -64,3 +64,78 @@ export const sliderSetting = {
     </div>
   ),
 };
+
+
+
+export const directionsSetting = {
+  dots: false,
+  infinite: false,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  speed: 500,
+  autoplay: false,
+  arrows: true,
+  className: "directions-element",
+  variableWidth: true,
+  customPaging: (i) => (
+    <div>
+      <style jsx>
+        {`
+          .slick-active {
+            opacity: 0.6;
+          }
+        `}
+      </style>
+    </div>
+  ),
+  nextArrow: <SampleNextArrow />,
+  prevArrow: <SamplePrevArrow />,
+};
+
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <>
+    <style jsx>
+      {`
+        .custom-next-button:hover {
+          transition: opacity 0.5s ease;
+          opacity: 0.5!important;
+        }
+      `}
+    </style>
+    <RightCircleOutlined 
+      className="custom-next-button"
+      onClick={onClick}
+      style={{
+        ...style, width: "2.6vw", height: "5.3vh", fontSize: "36px", left: "94.5%",
+        position: "absolute", transform: "translate(20%, -150%)", bottom: "101%",
+      }}
+    />
+    </>
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <>
+      <style jsx>
+        {`
+          .custom-next-button:hover {
+            transition: opacity 0.5s ease;
+            opacity: 0.5!important;
+          }
+        `}
+      </style>
+      <LeftCircleOutlined 
+        className="custom-next-button"
+        onClick={onClick}
+        style={{
+          ...style, width: "2.6vw", height: "5.3vh", fontSize: "36px", left: "89.5%",
+          position: "absolute", transform: "translate(20%, -150%)", bottom: "101%",
+        }}
+      />
+    </>
+  );
+}

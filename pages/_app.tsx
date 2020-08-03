@@ -3,7 +3,6 @@ import Footer from "../components/Footer";
 import Layout from "../components/Layout";
 
 import "../styles/reset.css";
-import "react-multi-carousel/lib/styles.css";
 import React from "react";
 import { Provider } from "react-redux";
 import store from "../store/store";
