@@ -3,7 +3,6 @@ import Picture from "./Picture";
 import BannerText from "./BannerText";
 import Slider from "react-slick";
 import { sliderSetting } from "../services/sliderSetting";
-import { bannerSrc } from "../services/bannerSrc";
 import Wrapper from "./Wrapper";
 import getBanners from "../services/banner.service";
 

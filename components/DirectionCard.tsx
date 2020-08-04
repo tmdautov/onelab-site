@@ -1,6 +1,8 @@
 import React from "react"
 import { ProductItem } from "../types"
 import { CalendarOutlined } from "@ant-design/icons"
+import Link from "next/link"
+import theme from "../styles/theme"
 
 interface DirectionCardProps {
     product: ProductItem;
@@ -13,13 +15,13 @@ const DirectionCard: React.FC<DirectionCardProps> = (props) => {
                 {`
                     .direction-card {
                         width: 22.52vw;
-                        height: 66.578vh;
+                        height: 75.578vh;
                         background: #F9F9F9;
                     }
 
                     h1 {
                         font-size: 1.25rem;
-                        margin-bottom: 2.12vh;
+                        margin-bottom: 1.12vh;
                     }
 
                     .flex-holder {
@@ -33,10 +35,44 @@ const DirectionCard: React.FC<DirectionCardProps> = (props) => {
                     }
 
                     .brief-description {
-                        width: 19.35vw;
-                        height: 27.85vh;
+                        width: 16.85vw;
+                        height: 40.85vh;
                         line-height: 150%;
                         font-size: 0.95rem;
+                    }
+
+                    .button-holder {
+                        padding-top: 3.74vh;
+                    }
+
+                    .button-holder button {
+                        width: 8.589vw;
+                        height: 7.127vh;
+                        margin-right: 0.55vw;
+                        transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease;
+                        cursor: pointer;
+                        font-size: 0.95rem;
+                        font-weight: 500;
+                        border-radius: 6px;
+                    }
+
+                    .description-btn {
+                        border: 2px solid ${theme.colors.black};
+                    }
+
+                    .description-btn:hover {
+                       border: 2px solid ${theme.colors.red};
+                       color: ${theme.colors.red};
+                    }
+
+                    .scroll-btn {
+                        color: ${theme.colors.white};
+                        background: ${theme.colors.black};
+                        border: none;
+                    }
+
+                    .scroll-btn:hover {
+                        background: ${theme.colors.red};
                     }
                 `}
             </style>
@@ -48,6 +84,12 @@ const DirectionCard: React.FC<DirectionCardProps> = (props) => {
                     <label>{props.product.date}</label>
                 </span>
                 <p className="brief-description">{props.product.briefDescription}</p>
+                <div className="button-holder">
+                    <Link href={`/products/[code]`} as={`/products/${props.product.code}`}>
+                        <button className="description-btn">Подробнее</button>
+                    </Link>
+                    <button className="scroll-btn">Участвовать</button>
+                </div>
             </div>
         </div>
     )
