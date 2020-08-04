@@ -39,6 +39,7 @@ const RequestForm = () => {
       course: Yup.string().required(),
     }),
     onSubmit: (values) => {
+      console.log("testing issue");
       let fd = new FormData();
       for (let key in values) {
         fd.append(key, values[key]);
