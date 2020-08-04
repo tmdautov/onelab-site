@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import DirectionsTape from "./DirectionsTape";
-import { directions } from "../services/placeholder";
+import getDirections from "../services/directions.service";
 
 const DirectionsContainer = () => {
+  const [directions, setDirections] = useState([]);
+  useEffect(() => {
+    async function fetchDirections() {
+      setDirections(await getDirections());
+    }
+    fetchDirections();
+  }, []);
   return (
     <div className="directions-holder">
       <style jsx>
