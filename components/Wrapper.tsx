@@ -3,7 +3,7 @@ function Wrapper({ children }) {
     <>
       <style jsx>{`
         .wrapper {
-          width: 100%;
+          width: 70vw;
           padding: 0 15vw;
           height: 100%;
 
