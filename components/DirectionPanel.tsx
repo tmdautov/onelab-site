@@ -4,10 +4,9 @@ import { useSelector } from "react-redux";
 
 interface ProductPanelProps {
     product: DirectionItem;
-    onAddFeatured: (DirectionItem) => void;
 }
 
-const DirectionPanel = ({product, onAddFeatured}) => {
+const DirectionPanel = ({product}) => {
     const featured = useSelector<FeaturedState, FeaturedState["featured"]>(
         (state) => state.featured
     );
@@ -29,10 +28,6 @@ const DirectionPanel = ({product, onAddFeatured}) => {
         (product.price !== undefined) ? setPrice(product.price) : setPrice(null)
     }, [price]);
 
-    const isInFeatured = (product: DirectionItem): boolean => {
-        return !!featured.find((line) => line.product === product);
-    }
-
     const [description, setDescription] = React.useState("");
 
     React.useEffect(() => {
@@ -48,25 +43,6 @@ const DirectionPanel = ({product, onAddFeatured}) => {
             </style>
             <h1>Что такое {name}?</h1>
             <div>{description}</div>
-            {!isInFeatured(product) ?
-                <button
-                    onClick={() => {
-                        onAddFeatured(product);
-                    }}
-                >
-                    Добавить в избранное
-                </button>
-                :
-                <button
-                    disabled
-                >
-                    Добавлено в избранное
-                </button>
-            }
-            
-            <button>
-                Добавить в корзину
-            </button>
         </div>
     )
 }

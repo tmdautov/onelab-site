@@ -5,10 +5,9 @@ import DirectionPanel from "./DirectionPanel";
 
 interface ProductProps {
     product: DirectionItem;
-    onAddFeatured: (DirectionItem) => void;
 }
 
-const Direction: React.FC<ProductProps> = ({product, onAddFeatured}) => {
+const Direction: React.FC<ProductProps> = ({product}) => {
 
     const [name, setName] = React.useState("");
 
@@ -51,7 +50,7 @@ const Direction: React.FC<ProductProps> = ({product, onAddFeatured}) => {
                 <div className="direction-container">
                     <h1>{name}</h1>
                     <label>Код направления: {code}</label>
-                    <DirectionPanel product={product} onAddFeatured={onAddFeatured} />
+                    <DirectionPanel product={product} />
                 </div>
             </Wrapper>
         </div>

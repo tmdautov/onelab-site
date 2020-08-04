@@ -1,15 +1,14 @@
 import React from "react";
 import { Card, List, Button } from "antd";
-import Link from "next/link";
-import { ProductItem } from "../types";
 import Slider from "react-slick";
 import { directionsSetting } from "../services/sliderSetting";
 import DirectionCard from "./DirectionCard";
 import Wrapper from "./Wrapper";
 import theme from "../styles/theme";
+import { DirectionItem } from "../types";
 
 interface ProductTapeProps {
-  catalog: ProductItem[];
+  catalog: DirectionItem[];
 }
 
 const { Meta } = Card;

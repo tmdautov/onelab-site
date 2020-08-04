@@ -2,17 +2,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { FeaturedState } from "../types";
 import DirectionsTape from "./DirectionsTape";
-import Wrapper from "./Wrapper";
+import { directions } from "../services/placeholder";
 
 const DirectionsContainer = () => {
-
-    const featured = useSelector<FeaturedState, FeaturedState["featured"]>(
-        (state) => state.featured
-    );
-
-    const catalog = useSelector<FeaturedState, FeaturedState["catalog"]>(
-        (state) => state.catalog
-    );
 
     return (
         <div className="directions-holder">
@@ -24,7 +16,7 @@ const DirectionsContainer = () => {
                     }
                 `}
             </style>
-            <DirectionsTape catalog={catalog}/>
+            <DirectionsTape catalog={directions}/>
         </div>
     )
 }

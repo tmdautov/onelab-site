@@ -4,8 +4,6 @@ import Layout from "../components/Layout";
 
 import "../styles/reset.css";
 import React from "react";
-import { Provider } from "react-redux";
-import store from "../store/store";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -14,7 +12,6 @@ import theme from "../styles/theme";
 export default function App({ Component, pageProps }) {
   return (
     <React.StrictMode>
-      <Provider store={store}>
         <Layout>
           <style jsx global>
             {`
@@ -37,7 +34,6 @@ export default function App({ Component, pageProps }) {
           </style>
           <Component {...pageProps} />
         </Layout>
-      </Provider>
     </React.StrictMode>
   );
 }
