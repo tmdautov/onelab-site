@@ -1,61 +1,49 @@
 import React from "react";
-import { DirectionItem } from "../types";
 import Wrapper from "./Wrapper";
 import DirectionPanel from "./DirectionPanel";
 
-interface ProductProps {
-    product: DirectionItem;
-}
+function Direction({ product }) {
+  const [name, setName] = React.useState("");
 
-const Direction: React.FC<ProductProps> = ({product}) => {
+  React.useEffect(() => {
+    product.name !== undefined ? setName(product.name) : setName("null");
+  }, [name]);
 
-    const [name, setName] = React.useState("");
+  const [code, setCode] = React.useState(0);
 
-    React.useEffect(() => {
-        (product.name !== undefined) ? setName(product.name) : setName("null");
-    }, [name]);
+  React.useEffect(() => {
+    product.code !== undefined ? setCode(product.code) : setName("Null");
+  }, [code]);
 
-    
+  return (
+    <div className="direction">
+      <style jsx>
+        {`
+          .direction {
+            padding: 3%;
+          }
 
-    const [code, setCode] = React.useState(0);
-    
-    React.useEffect(() => {
-        (product.code !== undefined) ? setCode(product.code) : setName("Null")
-    }, [code]);
+          .direction-container {
+            text-align: center;
+            justify-content: middle;
+          }
 
-    return (
-        <div className="direction">
-            <style jsx>
-                {`
-                    .direction {
-                        padding: 3%;
-                    }
-
-                    .direction-container {
-                        text-align: center;
-                        justify-content: middle;
-                    }
-
-                    
-
-                    h1 {
-                        font-weight: 800;
-                        font-size: 2.3rem;
-                        margin-bottom: 1.55vh;
-                    }
-                    
-                `}
-            </style>
-            <Wrapper>
-                <div className="direction-container">
-                    <h1>{name}</h1>
-                    <label>Код направления: {code}</label>
-                    <DirectionPanel product={product} />
-                </div>
-            </Wrapper>
+          h1 {
+            font-weight: 800;
+            font-size: 2.3rem;
+            margin-bottom: 1.55vh;
+          }
+        `}
+      </style>
+      <Wrapper>
+        <div className="direction-container">
+          <h1>{name}</h1>
+          <label>Код направления: {code}</label>
+          <DirectionPanel product={product} />
         </div>
-    )
-
+      </Wrapper>
+    </div>
+  );
 }
 
 export default Direction;
