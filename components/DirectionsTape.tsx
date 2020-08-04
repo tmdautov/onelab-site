@@ -5,8 +5,8 @@ import DirectionCard from "./DirectionCard";
 import Wrapper from "./Wrapper";
 import theme from "../styles/theme";
 
-function DirectionsTape(props) {
-  return props.catalog !== undefined ? (
+function DirectionsTape({ directions }) {
+  return directions !== undefined ? (
     <div className="directions-container">
       <style jsx>
         {`
@@ -27,7 +27,7 @@ function DirectionsTape(props) {
       <Wrapper>
         <h1>Направления стажировок</h1>
         <Slider {...directionsSetting}>
-          {props.catalog.map((e) => {
+          {directions.map((direction) => {
             return (
               <div
                 style={{
@@ -35,7 +35,7 @@ function DirectionsTape(props) {
                     "16.666%" /*FIXME: Add better solution to improve responsiveness*/,
                 }}
               >
-                <DirectionCard product={e} />
+                <DirectionCard direction={direction} />
               </div>
             );
           })}

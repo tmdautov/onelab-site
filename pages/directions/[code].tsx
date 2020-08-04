@@ -2,18 +2,18 @@ import React from "react";
 import Direction from "../../components/Direction";
 import { directions } from "../../services/placeholder";
 
-export default function Products({ product }) {
-  return <Direction product={product} />;
+export default function Directions({ direction }) {
+  return <Direction direction={direction} />;
 }
 
-Products.getInitialProps = async (ctx) => {
+Directions.getInitialProps = async (ctx) => {
   const code = Number(ctx.query.code);
 
-  const product = directions.find((product) => {
-    if (product.code === code) return product;
+  const direction = directions.find((direction) => {
+    if (direction.code === code) return direction;
   });
 
   return {
-    product,
+    direction,
   };
 };

@@ -2,17 +2,17 @@ import React from "react";
 import Wrapper from "./Wrapper";
 import DirectionPanel from "./DirectionPanel";
 
-function Direction({ product }) {
+function Direction({ direction }) {
   const [name, setName] = React.useState("");
 
   React.useEffect(() => {
-    product.name !== undefined ? setName(product.name) : setName("null");
+    direction.name !== undefined ? setName(direction.name) : setName("null");
   }, [name]);
 
   const [code, setCode] = React.useState(0);
 
   React.useEffect(() => {
-    product.code !== undefined ? setCode(product.code) : setName("Null");
+    direction.code !== undefined ? setCode(direction.code) : setName("Null");
   }, [code]);
 
   return (
@@ -39,7 +39,7 @@ function Direction({ product }) {
         <div className="direction-container">
           <h1>{name}</h1>
           <label>Код направления: {code}</label>
-          <DirectionPanel product={product} />
+          <DirectionPanel direction={direction} />
         </div>
       </Wrapper>
     </div>

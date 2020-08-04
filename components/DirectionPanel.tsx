@@ -1,39 +1,35 @@
 import React from "react";
 
-const DirectionPanel = ({ product }) => {
+const DirectionPanel = ({ direction }) => {
   const [name, setName] = React.useState("");
 
   React.useEffect(() => {
-    product.name !== undefined ? setName(product.name) : setName("Null");
+    direction.name !== undefined ? setName(direction.name) : setName("Null");
   }, [name]);
 
   const [code, setCode] = React.useState("");
 
   React.useEffect(() => {
-    product.code !== undefined ? setCode(product.code) : setName("Null");
+    direction.code !== undefined ? setCode(direction.code) : setName("Null");
   }, [code]);
 
   const [price, setPrice] = React.useState(0);
 
   React.useEffect(() => {
-    product.price !== undefined ? setPrice(product.price) : setPrice(null);
+    direction.price !== undefined ? setPrice(direction.price) : setPrice(null);
   }, [price]);
 
   const [description, setDescription] = React.useState("");
 
   React.useEffect(() => {
-    product.briefDescription !== undefined
-      ? setDescription(product.briefDescription)
+    direction.briefDescription !== undefined
+      ? setDescription(direction.briefDescription)
       : setDescription("Null");
   }, [description]);
 
   return (
     <div>
-      <style>
-        {`
-
-                `}
-      </style>
+      <style>{``}</style>
       <h1>Что такое {name}?</h1>
       <div>{description}</div>
     </div>

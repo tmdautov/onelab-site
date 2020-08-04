@@ -3,7 +3,7 @@ import { CalendarOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import theme from "../styles/theme";
 
-function DirectionCard(props) {
+function DirectionCard({ direction }) {
   return (
     <div className="direction-card">
       <style jsx>
@@ -70,17 +70,17 @@ function DirectionCard(props) {
         `}
       </style>
       <div className="flex-holder">
-        <h1>{props.product.name}</h1>
-        <label style={{ marginBottom: "3.6vh" }}>{props.product.code}</label>
+        <h1>{direction.name}</h1>
+        <label style={{ marginBottom: "3.6vh" }}>{direction.code}</label>
         <span style={{ marginBottom: "4.6vh" }}>
           <CalendarOutlined style={{ marginRight: "3%" }} />
-          <label>{props.product.date}</label>
+          <label>{direction.date}</label>
         </span>
-        <p className="brief-description">{props.product.briefDescription}</p>
+        <p className="brief-description">{direction.briefDescription}</p>
         <div className="button-holder">
           <Link
             href={`/directions/[code]`}
-            as={`/directions/${props.product.code}`}
+            as={`/directions/${direction.code}`}
           >
             <button className="description-btn">Подробнее</button>
           </Link>

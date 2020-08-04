@@ -13,7 +13,7 @@ const DirectionsContainer = () => {
           }
         `}
       </style>
-      <DirectionsTape catalog={directions} />
+      <DirectionsTape directions={directions} />
     </div>
   );
 };
