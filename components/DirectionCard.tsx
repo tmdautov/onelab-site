@@ -82,7 +82,7 @@ const DirectionCard: React.FC<DirectionCardProps> = (props) => {
                 </span>
                 <p className="brief-description">{props.product.briefDescription}</p>
                 <div className="button-holder">
-                    <Link href={`/products/[code]`} as={`/products/${props.product.code}`}>
+                    <Link href={`/directions/[code]`} as={`/directions/${props.product.code}`}>
                         <button className="description-btn">Подробнее</button>
                     </Link>
                     <button className="scroll-btn">Участвовать</button>

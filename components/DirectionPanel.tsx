@@ -9,7 +9,7 @@ interface ProductPanelProps {
     onAddFeatured: (ProductItem) => void;
 }
 
-const ProductPanel = ({product, onAddFeatured}) => {
+const DirectionPanel = ({product, onAddFeatured}) => {
     const featured = useSelector<FeaturedState, FeaturedState["featured"]>(
         (state) => state.featured
     );
@@ -43,38 +43,34 @@ const ProductPanel = ({product, onAddFeatured}) => {
 
     return (
         <div>
-            <h1>{name}</h1>
-            <label>Код товара: {code}</label>
-            <h1 style={
-                { paddingTop: "30px", }
-            }>{price} ₸</h1>
+            <style>
+                {`
+
+                `}
+            </style>
+            <h1>Что такое {name}?</h1>
+            <div>{description}</div>
             {!isInFeatured(product) ?
-                <Button
-                    type="default"
+                <button
                     onClick={() => {
                         onAddFeatured(product);
                     }}
                 >
                     Добавить в избранное
-                </Button>
+                </button>
                 :
-                <Button
-                    type="default"
+                <button
                     disabled
                 >
                     Добавлено в избранное
-                </Button>
+                </button>
             }
             
-            <Button
-                type="default"
-            >
+            <button>
                 Добавить в корзину
-            </Button>
-            <Divider />
-            <TextArea disabled value={description} autoSize style={{color: "black", resize: "none"}}/>
+            </button>
         </div>
     )
 }
 
-export default ProductPanel;
+export default DirectionPanel;

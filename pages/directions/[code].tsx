@@ -1,13 +1,10 @@
 import React from "react";
-import { useRouter } from "next/router";
-import { useSelector, useDispatch } from "react-redux";
-import { FeaturedState, ProductItem } from "../../types";
+import { useDispatch } from "react-redux";
+import {  ProductItem } from "../../types";
 import { addFeatured } from "../../store/actions";
-import { Row, Col, Button } from "antd";
-import ImageContainer from "../../components/ImageContainer";
-import ImageModal from "../../components/ImageModal";
+import { Row, } from "antd";
 import { products } from "../../services/placeholder";
-import Product from "../../components/Product";
+import Direction from "../../components/Direction";
 
 export default function Products({ product }) {
 
@@ -19,7 +16,7 @@ export default function Products({ product }) {
 
     return (
         <Row justify="space-around" align="middle">
-            <Product product={product} onAddFeatured={onAddFeatured}/>
+            <Direction product={product} onAddFeatured={onAddFeatured}/>
         </Row>
     )
 }
