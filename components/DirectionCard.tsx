@@ -15,7 +15,6 @@ const DirectionCard: React.FC<DirectionCardProps> = (props) => {
                 {`
                     .direction-card {
                         width: 22.52vw;
-                        height: 75.578vh;
                         background: #F9F9F9;
                     }
 
@@ -36,7 +35,6 @@ const DirectionCard: React.FC<DirectionCardProps> = (props) => {
 
                     .brief-description {
                         width: 16.85vw;
-                        height: 40.85vh;
                         line-height: 150%;
                         font-size: 0.95rem;
                     }
@@ -46,12 +44,11 @@ const DirectionCard: React.FC<DirectionCardProps> = (props) => {
                     }
 
                     .button-holder button {
-                        width: 8.589vw;
+                        width: 45%;
                         height: 7.127vh;
                         margin-right: 0.55vw;
                         transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease;
                         cursor: pointer;
-                        font-size: 0.95rem;
                         font-weight: 500;
                         border-radius: 6px;
                     }

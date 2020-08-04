@@ -4,7 +4,7 @@ export const products = [
         "https://cdn-1.dar.kz/darbiz/catalogs/f71/7afbf83b-f716-11e9-9163-0a580a0203c3-L.webp",
         "https://cdn-1.dar.kz/darbiz/catalogs/f71/7b0a96bf-f716-11e9-9163-0a580a0203c3-L.webp",
         "https://cdn-1.dar.kz/darbiz/catalogs/f71/7b1d4aab-f716-11e9-9163-0a580a0203c3-L.webp",
-    ], date: "12.02.2020 - 12.04.2020", code: 6914881, briefDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",},
+    ], date: "12.02.2020 - 12.04.2020", code: 6914881, briefDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Я бродяга по жизни, вор по нужде, кайфарик по масти, романтик в душе. Салам кидаю братве. Ассаламалейкум, братва",},
     {name: "Backend Development", image: [
         "https://cdn-1.dar.kz/darbiz/catalogs/4f8/c9019c14-4f89-11e9-8f29-0a580a0207bd-L.webp",
         "https://cdn-1.dar.kz/darbiz/catalogs/4f8/ca2e2f0e-4f89-11e9-8782-0a580a02081f-L.webp",
