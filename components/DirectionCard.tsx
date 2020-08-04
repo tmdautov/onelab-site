@@ -18,6 +18,12 @@ function DirectionCard({ direction }) {
             margin-bottom: 1.12vh;
           }
 
+          p {
+            line-height: 150%;
+            color: ${theme.colors.black};
+            margin-bottom: 1.12vh;
+          }
+
           .flex-holder {
             padding: 4.244vh;
             display: flex;
@@ -28,7 +34,7 @@ function DirectionCard({ direction }) {
             font-size: 0.85rem;
           }
 
-          .brief-description {
+          .description {
             width: 16.85vw;
             line-height: 150%;
             font-size: 0.95rem;
@@ -70,18 +76,15 @@ function DirectionCard({ direction }) {
         `}
       </style>
       <div className="flex-holder">
-        <h1>{direction.name}</h1>
-        <label style={{ marginBottom: "3.6vh" }}>{direction.code}</label>
+        <h1>{direction.title}</h1>
+        <p>{direction.subtitle}</p>
         <span style={{ marginBottom: "4.6vh" }}>
           <CalendarOutlined style={{ marginRight: "3%" }} />
           <label>{direction.date}</label>
         </span>
-        <p className="brief-description">{direction.briefDescription}</p>
+        <p className="description">{direction.description}</p>
         <div className="button-holder">
-          <Link
-            href={`/directions/[code]`}
-            as={`/directions/${direction.code}`}
-          >
+          <Link href={`/directions/[id]`} as={`/directions/${direction._id}`}>
             <button className="description-btn">Подробнее</button>
           </Link>
           <button className="scroll-btn">Участвовать</button>

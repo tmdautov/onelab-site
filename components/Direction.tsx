@@ -3,18 +3,6 @@ import Wrapper from "./Wrapper";
 import DirectionPanel from "./DirectionPanel";
 
 function Direction({ direction }) {
-  const [name, setName] = React.useState("");
-
-  React.useEffect(() => {
-    direction.name !== undefined ? setName(direction.name) : setName("null");
-  }, [name]);
-
-  const [code, setCode] = React.useState(0);
-
-  React.useEffect(() => {
-    direction.code !== undefined ? setCode(direction.code) : setName("Null");
-  }, [code]);
-
   return (
     <div className="direction">
       <style jsx>
@@ -37,8 +25,7 @@ function Direction({ direction }) {
       </style>
       <Wrapper>
         <div className="direction-container">
-          <h1>{name}</h1>
-          <label>Код направления: {code}</label>
+          <h1>{direction.title}</h1>
           <DirectionPanel direction={direction} />
         </div>
       </Wrapper>

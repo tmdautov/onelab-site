@@ -7,10 +7,10 @@ export default function Directions({ direction }) {
 }
 
 Directions.getInitialProps = async (ctx) => {
-  const code = Number(ctx.query.code);
+  const id = Number(ctx.query.id);
 
   const direction = directions.find((direction) => {
-    if (direction.code === code) return direction;
+    if (direction._id === id) return direction;
   });
 
   return {
