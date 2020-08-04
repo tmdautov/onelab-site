@@ -1,17 +1,16 @@
-export type ProductItem = {
-    name: string,
-    image: string[];
+export type DirectionItem = {
+    name: string;
     date: string;
     code: number;
     briefDescription: string;
   }
   
 export interface FeaturedLine {
-    product: ProductItem;
+    product: DirectionItem;
     //product: string;
 }
   
 export interface FeaturedState {
-    catalog: ProductItem[];
+    catalog: DirectionItem[];
     featured: FeaturedLine[];
 }

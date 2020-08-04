@@ -1,12 +1,10 @@
 import React from "react";
-import { Button, Divider } from "antd";
-import { ProductItem, FeaturedState } from "../types";
+import { FeaturedState, DirectionItem } from "../types";
 import { useSelector } from "react-redux";
-import TextArea from "antd/lib/input/TextArea";
 
 interface ProductPanelProps {
-    product: ProductItem;
-    onAddFeatured: (ProductItem) => void;
+    product: DirectionItem;
+    onAddFeatured: (DirectionItem) => void;
 }
 
 const DirectionPanel = ({product, onAddFeatured}) => {
@@ -31,7 +29,7 @@ const DirectionPanel = ({product, onAddFeatured}) => {
         (product.price !== undefined) ? setPrice(product.price) : setPrice(null)
     }, [price]);
 
-    const isInFeatured = (product: ProductItem): boolean => {
+    const isInFeatured = (product: DirectionItem): boolean => {
         return !!featured.find((line) => line.product === product);
     }
 

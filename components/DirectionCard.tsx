@@ -1,11 +1,11 @@
 import React from "react"
-import { ProductItem } from "../types"
+import { DirectionItem } from "../types"
 import { CalendarOutlined } from "@ant-design/icons"
 import Link from "next/link"
 import theme from "../styles/theme"
 
 interface DirectionCardProps {
-    product: ProductItem;
+    product: DirectionItem;
 }
 
 const DirectionCard: React.FC<DirectionCardProps> = (props) => {

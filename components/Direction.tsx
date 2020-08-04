@@ -1,11 +1,11 @@
 import React from "react";
-import { ProductItem } from "../types";
+import { DirectionItem } from "../types";
 import Wrapper from "./Wrapper";
 import DirectionPanel from "./DirectionPanel";
 
 interface ProductProps {
-    product: ProductItem;
-    onAddFeatured: (ProductItem) => void;
+    product: DirectionItem;
+    onAddFeatured: (DirectionItem) => void;
 }
 
 const Direction: React.FC<ProductProps> = ({product, onAddFeatured}) => {

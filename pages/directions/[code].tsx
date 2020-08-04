@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import {  ProductItem } from "../../types";
+import {  DirectionItem } from "../../types";
 import { addFeatured } from "../../store/actions";
 import { Row, } from "antd";
 import { products } from "../../services/placeholder";
@@ -10,7 +10,7 @@ export default function Products({ product }) {
 
     const dispatch = useDispatch();
 
-    const onAddFeatured = (product: ProductItem) => {
+    const onAddFeatured = (product: DirectionItem) => {
         dispatch(addFeatured(product));
     };
 
@@ -25,7 +25,7 @@ Products.getInitialProps = async (ctx) => {
 
     const code = Number(ctx.query.code);
 
-    const product: ProductItem = products.find((product) => {
+    const product: DirectionItem = products.find((product) => {
         if (product.code === code)
             return product;
     })
