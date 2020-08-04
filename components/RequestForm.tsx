@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import getDirections from "../services/directions.service";
@@ -7,6 +7,8 @@ import Wrapper from "./Wrapper";
 import theme from "../styles/theme";
 
 const RequestForm = () => {
+  const [cv, setCv] = useState(null);
+  let formRef = useRef(null);
   const Form = useFormik({
     initialValues: {
       name: "",
@@ -41,9 +43,9 @@ const RequestForm = () => {
       for (let key in values) {
         fd.append(key, values[key]);
       }
-      fd.append("file", document.getElementById("cv").files[0]);
-      RequestsService.post(fd).then();
-      document.getElementById("form").reset();
+      fd.append("file", cv);
+      RequestsService.post(fd);
+      formRef.current.reset();
       Form.resetForm();
     },
   });
@@ -100,7 +102,7 @@ const RequestForm = () => {
           }
         `}</style>
         <h1>ПОДАЧА ЗАЯВКИ</h1>
-        <form id="form" onSubmit={Form.handleSubmit}>
+        <form onSubmit={Form.handleSubmit} ref={formRef}>
           <input
             name="name"
             type="text"
@@ -160,7 +162,12 @@ const RequestForm = () => {
             <option>3</option>
             <option>4</option>
           </select>
-          <input id="cv" name="file" type="file" onChange={Form.handleChange} />
+          <input
+            id="cv"
+            name="file"
+            type="file"
+            onChange={(e) => setCv(e.target.files[0])}
+          />
           <button type="submit">Отправить</button>
         </form>
       </div>
