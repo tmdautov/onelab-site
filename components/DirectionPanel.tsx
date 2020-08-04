@@ -7,9 +7,6 @@ interface ProductPanelProps {
 }
 
 const DirectionPanel = ({product}) => {
-    const featured = useSelector<FeaturedState, FeaturedState["featured"]>(
-        (state) => state.featured
-    );
     const [name, setName] = React.useState("");
 
     React.useEffect(() => {
