@@ -13,10 +13,8 @@ function DirectionsTape({ directions }) {
           .directions-container {
             padding-top: 9.55vh;
             width: 100%;
-
             background: ${theme.colors.white};
           }
-
           h1 {
             font-weight: 800;
             font-size: 2.375vw;

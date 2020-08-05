@@ -66,6 +66,38 @@ export const sliderSetting = {
   ),
 };
 
+export function directionSettings() {
+
+  const size = useWindowSize();
+
+  const directionSetting = {
+    dots: false,
+    infinite: false,
+    slidesToShow: size.width <= "1000" ? 1 : 3,
+    slidesToScroll: 1,
+    speed: 500,
+    autoplay: false,
+    arrows: true,
+    className: "directions-element",
+    variableWidth: true,
+    customPaging: (i) => (
+      <div>
+        <style jsx>
+          {`
+            .slick-active {
+              opacity: 0.6;
+            }
+          `}
+        </style>
+      </div>
+    ),
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+  }
+  return {
+    ...directionSetting
+  };
+}
 
 
 export const directionsSetting = {
@@ -96,12 +128,16 @@ export const directionsSetting = {
 function SampleNextArrow(props) {
   const { style, onClick } = props;
 
+  const size = useWindowSize();
+  
+  const i = size.width <= "1000" ? 1 : 3;
+
   const [disabled, setDisabled] = React.useState(false);
   const [isFocus, setIsFocus] = React.useState(false);
 
   React.useEffect(() => {
     console.log(props.currentSlide + " " + props.slideCount);
-    props.currentSlide === props.slideCount - 3 ? setDisabled(true) : setDisabled(false);
+    props.currentSlide === props.slideCount - i ? setDisabled(true) : setDisabled(false);
   }, [props.currentSlide]);
 
   return (
@@ -110,8 +146,8 @@ function SampleNextArrow(props) {
       className="custom-next-button"
       onClick={onClick}
       style={{
-        ...style, width: "2.6vw", height: "5.3vh", fontSize: "36px", left: "94.5%", color: (isFocus && !disabled) ? "#d10001" : theme.colors.black,
-        position: "absolute", transform: "translate(20%, -150%)", bottom: "101%", transition: "opacity 0.5s ease, color 0.5s ease",
+        ...style, width: "2.6vw", height: "5.3vh", fontSize: "36px", left: size.width <= "1000" ? "53%" : "94.5%", color: (isFocus && !disabled) ? "#d10001" : theme.colors.black,
+        position: "absolute", transform: size.width <= "1000" ? "translate(20%, 0%)" : "translate(20%, -150%)", bottom: "101%", transition: "opacity 0.5s ease, color 0.5s ease",
         opacity: disabled ? "0.5" : "1",
       }}
       onMouseOver={() => setIsFocus(true)}
@@ -124,6 +160,10 @@ function SampleNextArrow(props) {
 function SamplePrevArrow(props) {
   const { style, onClick } = props;
 
+  const size = useWindowSize();
+
+  console.log(size.width);
+
   const [disabled, setDisabled] = React.useState(true);
   const [isFocus, setIsFocus] = React.useState(true);
 
@@ -134,18 +174,15 @@ function SamplePrevArrow(props) {
     <>
       <style jsx>
         {`
-          .custom-next-button:hover {
-            transition: opacity 0.5s ease;
-            color: #d10001!important;
-          }
+
         `}
       </style>
       <LeftCircleOutlined 
         className="custom-next-button"
         onClick={onClick}
         style={{
-          ...style, width: "2.6vw", height: "5.3vh", fontSize: "36px", left: "89.5%", color: (isFocus && !disabled) ? "#d10001" : theme.colors.black,
-          position: "absolute", transform: "translate(20%, -150%)", bottom: "101%", transition: "opacity 0.5s ease, color 0.5s ease",
+          ...style, width: "2.6vw", height: "5.3vh", fontSize: "36px", left: size.width <= "1000" ? "38%" : "89.5%", color: (isFocus && !disabled) ? "#d10001" : theme.colors.black,
+          position: "absolute", transform: size.width <= "1000" ? "translate(20%, 0%)" : "translate(20%, -150%)", bottom: "101%", transition: "opacity 0.5s ease, color 0.5s ease",
           opacity: disabled ? "0.5" : "1",
         }}
         onMouseOver={() => setIsFocus(true)}
@@ -153,4 +190,25 @@ function SamplePrevArrow(props) {
       />
     </>
   );
+}
+
+export function useWindowSize() {
+  const [windowSize, setWindowSize] = React.useState({
+    width: undefined,
+  });
+
+  React.useEffect(() => {
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+      });
+    }
+    
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return windowSize;
 }

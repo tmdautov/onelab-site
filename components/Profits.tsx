@@ -19,8 +19,8 @@ const Profits = () => {
           style={{
             width: "2.6vw",
             height: "5.3vh",
-            fontSize: "36px",
-            margin: "24px 0",
+            fontSize: "234%",
+            margin: "3.183vh 0",
           }}
         />
       ),
@@ -33,8 +33,8 @@ const Profits = () => {
           style={{
             width: "2.6vw",
             height: "5.3vh",
-            fontSize: "36px",
-            margin: "24px 0",
+            fontSize: "234%",
+            margin: "3.183vh 0",
           }}
         />
       ),
@@ -47,8 +47,8 @@ const Profits = () => {
           style={{
             width: "2.6vw",
             height: "5.3vh",
-            fontSize: "36px",
-            margin: "24px 0",
+            fontSize: "234%",
+            margin: "3.183vh 0",
           }}
         />
       ),
@@ -61,8 +61,8 @@ const Profits = () => {
           style={{
             width: "2.6vw",
             height: "5.3vh",
-            fontSize: "36px",
-            margin: "24px 0",
+            fontSize: "234%",
+            margin: "3.183vh 0",
           }}
         />
       ),
@@ -75,8 +75,8 @@ const Profits = () => {
           style={{
             width: "2.6vw",
             height: "5.3vh",
-            fontSize: "36px",
-            margin: "24px 0",
+            fontSize: "234%",
+            margin: "3.183vh 0",
           }}
         />
       ),
@@ -89,8 +89,8 @@ const Profits = () => {
           style={{
             width: "2.6vw",
             height: "5.3vh",
-            fontSize: "36px",
-            margin: "24px 0",
+            fontSize: "234%",
+            margin: "3.183vh 0",
           }}
         />
       ),
@@ -130,6 +130,13 @@ const Profits = () => {
             grid-template-rows: 21.22vh;
             column-gap: 3.183vh;
             row-gap: 1.5625vw;
+          }
+
+          @media only screen and (max-width: 1000px) {
+            .grid-container {
+              display: flex;
+              flex-direction: column;
+            }
           }
         `}
       </style>
