@@ -1,10 +1,7 @@
 import QuestionAnswer from "./QuestionAnswer";
 import theme from "../styles/theme";
-<<<<<<< HEAD
-=======
 import { getQuestions } from "../services/qa.service";
 import { useState, useEffect } from "react";
->>>>>>> d73dfc074296d010351eac36b1d40937d53bbde3
 
 const QuestionsContainer = () => {
     const [questions, setQuestions] = useState([]);
@@ -52,11 +49,7 @@ const QuestionsContainer = () => {
                     font-weight: 500;
                 }
                 
-<<<<<<< HEAD
-                @media (max-width: 1000px) {
-=======
                 @media (max-width: 1024px) {
->>>>>>> d73dfc074296d010351eac36b1d40937d53bbde3
                     .container {
                         margin-bottom: 3.183vh;
                     }
@@ -75,15 +68,9 @@ const QuestionsContainer = () => {
             </style>
             <div className="questions-container">
                 <div style={{marginBottom: "3.325vw"}}>
-<<<<<<< HEAD
-                    {theMostPopularQuestions.map(e => {
-                        return (
-                            <QuestionAnswer question={e.question} answer={e.answer} />
-=======
                     {questions.filter(qa => qa.important).map(qa => {
                         return (
                             <QuestionAnswer question={qa.question} answer={qa.answer} />
->>>>>>> d73dfc074296d010351eac36b1d40937d53bbde3
                         )
                     })}
                 </div>

@@ -56,7 +56,7 @@ const QuestionAnswer = ({question, answer}) => {
                 {!hidden ? <DownOutlined style={{float: "right"}}/> : <RightOutlined style={{float: "right"}} />}
             </button>
             <div className={!hidden ? "content active" : "content"}>
-                <p>{answer}</p>
+                <p style={{padding: "5% 0",}}>Ответ: {answer}</p>
             </div>
         </>
     )
