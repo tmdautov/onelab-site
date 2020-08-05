@@ -168,12 +168,14 @@ function SamplePrevArrow(props) {
 
 export function useWindowSize() {
   const [windowSize, setWindowSize] = React.useState({
+    height: undefined,
     width: undefined,
   });
 
   React.useEffect(() => {
     function handleResize() {
       setWindowSize({
+        height: window.innerHeight,
         width: window.innerWidth,
       });
     }
