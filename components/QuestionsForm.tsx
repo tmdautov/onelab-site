@@ -44,7 +44,7 @@ const QuestionsForm = () => {
                       font-weight: 500;
                     }
 
-                    @media (max-width: 1000px) {
+                    @media (max-width: 1024px) {
                         button {
                             margin: 0 30%;
                             width: 40%;

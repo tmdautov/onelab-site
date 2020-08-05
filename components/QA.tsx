@@ -24,7 +24,7 @@ const QAForm = () => {
                         flex-direction: row;
                     }
 
-                    @media (max-width: 1000px) {
+                    @media (max-width: 1024px) {
                         .qa-form h1 {
                             text-align: center;
                         }

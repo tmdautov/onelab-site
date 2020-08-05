@@ -36,7 +36,7 @@ function Banner() {
           justify-content: space-between;
         }
 
-        @media (max-width: 1000px) {
+        @media (max-width: 1024px) {
           .banner_container {
             padding-top: 10%;
           }

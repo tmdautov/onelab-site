@@ -21,6 +21,7 @@ const Profits = () => {
             height: "5.3vh",
             fontSize: "234%",
             margin: "3.183vh 0",
+            padding: "0 5% 0 2%",
           }}
         />
       ),
@@ -35,6 +36,7 @@ const Profits = () => {
             height: "5.3vh",
             fontSize: "234%",
             margin: "3.183vh 0",
+            padding: "0 5% 0 2%",
           }}
         />
       ),
@@ -49,6 +51,7 @@ const Profits = () => {
             height: "5.3vh",
             fontSize: "234%",
             margin: "3.183vh 0",
+            padding: "0 5% 0 2%",
           }}
         />
       ),
@@ -63,6 +66,7 @@ const Profits = () => {
             height: "5.3vh",
             fontSize: "234%",
             margin: "3.183vh 0",
+            padding: "0 5% 0 2%",
           }}
         />
       ),
@@ -77,6 +81,7 @@ const Profits = () => {
             height: "5.3vh",
             fontSize: "234%",
             margin: "3.183vh 0",
+            padding: "0 5% 0 2%",
           }}
         />
       ),
@@ -91,6 +96,7 @@ const Profits = () => {
             height: "5.3vh",
             fontSize: "234%",
             margin: "3.183vh 0",
+            padding: "0 5% 0 2%",
           }}
         />
       ),
@@ -131,7 +137,7 @@ const Profits = () => {
             row-gap: 1.5625vw;
           }
 
-          @media only screen and (max-width: 1000px) {
+          @media only screen and (max-width: 1024px) {
             .grid-container {
               display: flex;
               flex-direction: column;

@@ -24,7 +24,7 @@ function DirectionsTape({ directions }) {
             margin-bottom: 9.55vh;
           }
 
-          @media screen only and (max-width: 1000px) {
+          @media screen only and (max-width: 1024px) {
             .directions-container {
               text-align: center;
             }
@@ -39,7 +39,7 @@ function DirectionsTape({ directions }) {
               <div
                 style={{
                   width:
-                    size.width <= "1000" ? 
+                    size.width <= "1024" ? 
                     "16.666%"
                     :
                     "23.35vw" /*FIXME: Add better solution to improve responsiveness*/,

@@ -101,7 +101,7 @@ function Header() {
           display: none;
         }
 
-        @media (max-width: 1000px) {
+        @media (max-width: 1024px) {
 
           header {
             position: fixed;
@@ -159,7 +159,7 @@ function Header() {
                 </a>
               </Link>
             </div>
-            <ul className={hidden && size.width <= "1000" ? "hidden" : null }>
+            <ul className={hidden && size.width <= "1024" ? "hidden" : null }>
               <li>
                 <Link href="/">
                   <a onClick={() => setHidden(true)}>Направления</a>

@@ -42,7 +42,7 @@ const QuestionAnswer = ({question, answer}) => {
                 .active {
                     max-height: 100%;
                 } 
-                @media (max-width: 1000px) {
+                @media (max-width: 1024px) {
                     .collapsible {
                         width: 100%;
                     }
