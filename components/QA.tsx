@@ -1,9 +1,9 @@
 import React from "react";
 import Wrapper from "./Wrapper";
 import QuestionsContainer from "./QuestionsContainer";
+import QuestionsForm from "./QuestionsForm";
 
 const QAForm = () => {
-
     return (
         <div className="qa-form">
             <style jsx>
@@ -39,9 +39,7 @@ const QAForm = () => {
                 <h1> ВОПРОС - ОТВЕТ</h1>
                 <div className="flex-holder">
                     <QuestionsContainer />
-                    <div className="questions-form">
-                        form
-                    </div>
+                    <QuestionsForm />
                 </div>
             </Wrapper>
         </div>

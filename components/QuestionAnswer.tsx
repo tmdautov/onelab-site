@@ -9,7 +9,7 @@ const QuestionAnswer = ({question, answer}) => {
                 {`
                .collapsible {
                     width: 35.127vw;
-                    height: 8.753vh;
+                    height: 9.55vh;
                     text-align: left;
                     padding-left: 3%;
                     border: 0.5px solid #B2B2B2;
@@ -57,7 +57,7 @@ const QuestionAnswer = ({question, answer}) => {
             `}
             </style>
             <button className="collapsible" onClick={() => setHidden(!hidden)}>{question}</button>
-            <div className={hidden ? "content active" : "content hidden"}>
+            <div className={!hidden ? "content active" : "content hidden"}>
                 <p>{answer}</p>
             </div>
         </>

@@ -1,4 +1,5 @@
 import QuestionAnswer from "./QuestionAnswer";
+import theme from "../styles/theme";
 
 const QuestionsContainer = () => {
 
@@ -11,30 +12,61 @@ const QuestionsContainer = () => {
     ];
 
     return (
-        <>
+        <div className="container">
             <style jsx>
                 {` 
+
+                .container {
+                    margin-right: 1.5625vw;
+                }
+
                 .question-container {
                     display: flex;
                     flex-direction: row;
+                    margin-right: 1.5625vw;
+                }
+
+                button {
+                    border: 2px solid ${theme.colors.black}; 
+                    color: ${theme.colors.black};
+                    padding: 3% 2%;
+                    width: 15.625vw;
+                    height: 7.427vh;
+                    margin: auto;
+                    border-radius: 6px;
+                    outline: none;
+                    cursor: pointer;
+                    font-weight: 500;
                 }
                 
                 @media (max-width: 1000px) {
+                    .container {
+                        margin-bottom: 3.183vh;
+                    }
+
                     .question-container {
                         display: flex;
                         flex-direction: column;
+                    }
+
+                    button {
+                        margin: 0 30%;
+                        width: 40%;
                     }
                 }
             `}
             </style>
             <div className="questions-container">
-                {theMostPopularQuestions.map(e => {
-                    return (
-                        <QuestionAnswer question={e.question} answer={e.answer} />
-                    )
-                })}
+                <div style={{marginBottom: "3.325vw"}}>
+                    {theMostPopularQuestions.map(e => {
+                        return (
+                            <QuestionAnswer question={e.question} answer={e.answer} />
+                        )
+                    })}
+                </div>
+                <button type="button">Смотреть все</button>
             </div>
-        </>
+        </div>
     )
 }
 
