@@ -20,7 +20,7 @@ const Profits = () => {
             width: "2.6vw",
             height: "5.3vh",
             fontSize: "234%",
-            margin: "3.183vh 0",
+            padding: "0 3% 3% 0 ",
           }}
         />
       ),
@@ -34,7 +34,7 @@ const Profits = () => {
             width: "2.6vw",
             height: "5.3vh",
             fontSize: "234%",
-            margin: "3.183vh 0",
+            padding: "0 3% 3% 0 ",
           }}
         />
       ),
@@ -48,7 +48,7 @@ const Profits = () => {
             width: "2.6vw",
             height: "5.3vh",
             fontSize: "234%",
-            margin: "3.183vh 0",
+            padding: "0 3% 3% 0 ",
           }}
         />
       ),
@@ -62,7 +62,7 @@ const Profits = () => {
             width: "2.6vw",
             height: "5.3vh",
             fontSize: "234%",
-            margin: "3.183vh 0",
+            padding: "0 3% 3% 0 ",
           }}
         />
       ),
@@ -76,7 +76,7 @@ const Profits = () => {
             width: "2.6vw",
             height: "5.3vh",
             fontSize: "234%",
-            margin: "3.183vh 0",
+            padding: "0 3% 3% 0 ",
           }}
         />
       ),
@@ -90,7 +90,7 @@ const Profits = () => {
             width: "2.6vw",
             height: "5.3vh",
             fontSize: "234%",
-            margin: "3.183vh 0",
+            padding: "0 3% 3% 0 ",
           }}
         />
       ),

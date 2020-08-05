@@ -110,7 +110,6 @@ function SampleNextArrow(props) {
   const [isFocus, setIsFocus] = React.useState(false);
 
   React.useEffect(() => {
-    console.log(props.currentSlide + " " + props.slideCount);
     props.currentSlide === props.slideCount - i ? setDisabled(true) : setDisabled(false);
   }, [props.currentSlide]);
 
@@ -135,8 +134,6 @@ function SamplePrevArrow(props) {
   const { style, onClick } = props;
 
   const size = useWindowSize();
-
-  console.log(size.width);
 
   const [disabled, setDisabled] = React.useState(true);
   const [isFocus, setIsFocus] = React.useState(true);
