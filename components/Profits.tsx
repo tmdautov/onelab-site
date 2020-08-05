@@ -109,7 +109,6 @@ const Profits = () => {
           }
 
           h1 {
-            font-weight: 800;
             font-size: 2.3rem;
             margin-bottom: 9.55vh;
           }
@@ -141,7 +140,7 @@ const Profits = () => {
         `}
       </style>
       <div className="profits">
-        <h1>Что ты получишь?</h1>
+        <h1>МЫ ПРЕДЛАГАЕМ</h1>
         <div className="grid-container">
           {profits.map((e) => {
             return (

@@ -20,7 +20,6 @@ function DirectionsTape({ directions }) {
             background: ${theme.colors.white};
           }
           h1 {
-            font-weight: 800;
             font-size: 2.375rem;
             margin-bottom: 9.55vh;
           }
@@ -33,7 +32,7 @@ function DirectionsTape({ directions }) {
         `}
       </style>
       <Wrapper>
-        <h1>Направления стажировок</h1>
+        <h1>НАПРАВЛЕНИЯ СТАЖИРОВОК</h1>
         <Slider {...settings}>
           {directions.map((direction) => {
             return (
