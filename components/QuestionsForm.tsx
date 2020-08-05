@@ -24,10 +24,10 @@ const QuestionsForm = () => {
                     textarea {
                         resize: none;
                         width: 37.3625vw;
-                        height: 21.4989vh;
+                        height: 20.0989vh;
                         padding: 2.5%;
                         font-size: 16px;
-                        margin-bottom: 3.125vw;
+                        margin-bottom: 2.75vw;
                     }
 
                     button {
