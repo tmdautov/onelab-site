@@ -24,7 +24,11 @@ const QuestionsForm = () => {
                     textarea {
                         resize: none;
                         width: 37.3625vw;
+<<<<<<< HEAD
                         height: 20.0989vh;
+=======
+                        height: 21.4989vh;
+>>>>>>> d73dfc074296d010351eac36b1d40937d53bbde3
                         padding: 2.5%;
                         font-size: 16px;
                         margin-bottom: 2.75vw;
@@ -44,7 +48,11 @@ const QuestionsForm = () => {
                       font-weight: 500;
                     }
 
+<<<<<<< HEAD
                     @media (max-width: 1000px) {
+=======
+                    @media (max-width: 1024px) {
+>>>>>>> d73dfc074296d010351eac36b1d40937d53bbde3
                         button {
                             margin: 0 30%;
                             width: 40%;

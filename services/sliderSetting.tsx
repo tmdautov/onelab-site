@@ -73,7 +73,7 @@ export function directionSettings() {
   const directionSetting = {
     dots: false,
     infinite: false,
-    slidesToShow: size.width <= "1000" ? 1 : 3,
+    slidesToShow: size.width <= "1024" ? 1 : 3,
     slidesToScroll: 1,
     speed: 500,
     autoplay: false,
@@ -104,7 +104,7 @@ function SampleNextArrow(props) {
 
   const size = useWindowSize();
   
-  const i = size.width <= "1000" ? 1 : 3;
+  const i = size.width <= "1024" ? 1 : 3;
 
   const [disabled, setDisabled] = React.useState(false);
   const [isFocus, setIsFocus] = React.useState(false);
@@ -119,8 +119,8 @@ function SampleNextArrow(props) {
       className="custom-next-button"
       onClick={onClick}
       style={{
-        ...style, width: "2.6vw", height: "5.3vh", fontSize: "36px", left: size.width <= "1000" ? "53%" : "94.5%", color: (isFocus && !disabled) ? "#d10001" : theme.colors.black,
-        position: "absolute", transform: size.width <= "1000" ? "translate(20%, 0%)" : "translate(20%, -150%)", bottom: "101%", transition: "opacity 0.5s ease, color 0.5s ease",
+        ...style, width: "2.6vw", height: "5.3vh", fontSize: "36px", left: size.width <= "1024" ? "53%" : "94.5%", color: (isFocus && !disabled) ? "#d10001" : theme.colors.black,
+        position: "absolute", transform: size.width <= "1024" ? "translate(20%, 0%)" : "translate(20%, -150%)", bottom: "101%", transition: "opacity 0.5s ease, color 0.5s ease",
         opacity: disabled ? "0.5" : "1",
       }}
       onMouseOver={() => setIsFocus(true)}
@@ -152,8 +152,8 @@ function SamplePrevArrow(props) {
         className="custom-next-button"
         onClick={onClick}
         style={{
-          ...style, width: "2.6vw", height: "5.3vh", fontSize: "36px", left: size.width <= "1000" ? "38%" : "89.5%", color: (isFocus && !disabled) ? "#d10001" : theme.colors.black,
-          position: "absolute", transform: size.width <= "1000" ? "translate(20%, 0%)" : "translate(20%, -150%)", bottom: "101%", transition: "opacity 0.5s ease, color 0.5s ease",
+          ...style, width: "2.6vw", height: "5.3vh", fontSize: "36px", left: size.width <= "1024" ? "38%" : "89.5%", color: (isFocus && !disabled) ? "#d10001" : theme.colors.black,
+          position: "absolute", transform: size.width <= "1024" ? "translate(20%, 0%)" : "translate(20%, -150%)", bottom: "101%", transition: "opacity 0.5s ease, color 0.5s ease",
           opacity: disabled ? "0.5" : "1",
         }}
         onMouseOver={() => setIsFocus(true)}
@@ -165,12 +165,14 @@ function SamplePrevArrow(props) {
 
 export function useWindowSize() {
   const [windowSize, setWindowSize] = React.useState({
+    height: undefined,
     width: undefined,
   });
 
   React.useEffect(() => {
     function handleResize() {
       setWindowSize({
+        height: window.innerHeight,
         width: window.innerWidth,
       });
     }

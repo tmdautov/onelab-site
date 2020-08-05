@@ -20,12 +20,10 @@ const QuestionAnswer = ({question, answer}) => {
                     font-size: 0.95rem;
                     font-weight: 700;
                 }
-
                 .collapsible:focus {
                     border-left: none;
                     border-right: none;
                 }
-
                 .content {
                     padding: 0 1.17vw;
                     width: 32.727vw;
@@ -34,25 +32,20 @@ const QuestionAnswer = ({question, answer}) => {
                     max-height: 0;
                     overflow: hidden;
                 }
-
                 .content p {
                     padding: 5px;
                 }
-
                 .hidden {
                     max-height: 0;
                     overflow: hidden;
                 }
-
                 .active {
                     max-height: 100%;
                 } 
-
-                @media (max-width: 1000px) {
+                @media (max-width: 1024px) {
                     .collapsible {
                         width: 100%;
                     }
-
                     .content {
                         width: 96%;
                     }

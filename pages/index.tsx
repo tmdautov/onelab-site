@@ -11,7 +11,7 @@ export default function Home() {
       <Banner />
       <Profits />
       <DirectionsContainer />
-      <QA />  
+      <QA />
       <RequestForm />
       {/* FIXME: Fix Profits and DirectionsContainer overflow by x*/}
       {/*TODO: link buttons, description page, form*/}

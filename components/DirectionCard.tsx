@@ -69,7 +69,7 @@ function DirectionCard({ direction }) {
                         background: ${theme.colors.red};
                     }
 
-                    @media only screen and (max-width: 769px) {
+                    @media only screen and (max-width: 1024px) {
                         .direction-card {
                             width: 100%;
                         }
