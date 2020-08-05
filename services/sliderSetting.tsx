@@ -99,32 +99,6 @@ export function directionSettings() {
   };
 }
 
-
-export const directionsSetting = {
-  dots: false,
-  infinite: false,
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  speed: 500,
-  autoplay: false,
-  arrows: true,
-  className: "directions-element",
-  variableWidth: true,
-  customPaging: (i) => (
-    <div>
-      <style jsx>
-        {`
-          .slick-active {
-            opacity: 0.6;
-          }
-        `}
-      </style>
-    </div>
-  ),
-  nextArrow: <SampleNextArrow />,
-  prevArrow: <SamplePrevArrow />,
-};
-
 function SampleNextArrow(props) {
   const { style, onClick } = props;
 

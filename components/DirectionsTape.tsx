@@ -1,11 +1,15 @@
 import React from "react";
 import Slider from "react-slick";
-import { directionsSetting } from "../services/sliderSetting";
+import { directionSettings, useWindowSize } from "../services/sliderSetting";
 import DirectionCard from "./DirectionCard";
 import Wrapper from "./Wrapper";
 import theme from "../styles/theme";
 
 function DirectionsTape({ directions }) {
+
+  const settings = directionSettings();
+  const size = useWindowSize();
+
   return directions !== undefined ? (
     <div className="directions-container">
       <style jsx>
@@ -17,20 +21,29 @@ function DirectionsTape({ directions }) {
           }
           h1 {
             font-weight: 800;
-            font-size: 2.375vw;
+            font-size: 2.375rem;
             margin-bottom: 9.55vh;
+          }
+
+          @media screen only and (max-width: 1000px) {
+            .directions-container {
+              text-align: center;
+            }
           }
         `}
       </style>
       <Wrapper>
         <h1>Направления стажировок</h1>
-        <Slider {...directionsSetting}>
+        <Slider {...settings}>
           {directions.map((direction) => {
             return (
               <div
                 style={{
                   width:
-                    "16.666%" /*FIXME: Add better solution to improve responsiveness*/,
+                    size.width <= "1000" ? 
+                    "16.666%"
+                    :
+                    "23.35vw" /*FIXME: Add better solution to improve responsiveness*/,
                 }}
               >
                 <DirectionCard direction={direction} />
