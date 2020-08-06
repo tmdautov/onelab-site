@@ -1,5 +1,5 @@
 import React from "react";
-import theme from "../styles/theme";
+import theme from "../../styles/theme";
 import { RightOutlined, DownOutlined } from "@ant-design/icons";
 
 const QuestionAnswer = ({question, answer}) => {

@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import Picture from "./Picture";
 import BannerText from "./BannerText";
 import Slider from "react-slick";
-import { sliderSetting } from "../services/sliderSetting";
-import Wrapper from "./Wrapper";
-import getBanners from "../services/banner.service";
+import { sliderSetting } from "../../services/sliderSetting";
+import Wrapper from "../Wrapper";
+import getBanners from "../../services/banner.service";
 
 function Banner() {
   const [banners, setBanners] = useState([]);

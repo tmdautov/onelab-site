@@ -1,6 +1,6 @@
 import QuestionAnswer from "./QuestionAnswer";
-import theme from "../styles/theme";
-import { getQuestions } from "../services/qa.service";
+import theme from "../../styles/theme";
+import { getQuestions } from "../../services/qa.service";
 import { useState, useEffect } from "react";
 
 const QuestionsContainer = () => {

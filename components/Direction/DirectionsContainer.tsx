@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DirectionsTape from "./DirectionsTape";
-import getDirections from "../services/directions.service";
+import getDirections from "../../services/directions.service";
 
 const DirectionsContainer = () => {
   const [directions, setDirections] = useState([]);

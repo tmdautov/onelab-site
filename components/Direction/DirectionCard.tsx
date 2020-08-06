@@ -1,7 +1,7 @@
 import React from "react";
 import { CalendarOutlined } from "@ant-design/icons";
 import Link from "next/link";
-import theme from "../styles/theme";
+import theme from "../../styles/theme";
 
 function DirectionCard({ direction }) {
   return (

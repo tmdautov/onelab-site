@@ -1,5 +1,5 @@
 import React from "react";
-import Direction from "../../components/Direction";
+import Direction from "../../components/Direction/Direction";
 import { getDirection } from "../../services/directions.service";
 
 export default function Directions({ direction }) {
