@@ -1,6 +1,21 @@
-import theme from "../styles/theme";
+
+import { useFormik } from "formik";
+import theme from "../../styles/theme";
+import { ValidationSchema } from "./ValidationSchema";
 
 const QuestionsForm = () => {
+    const Form = useFormik({
+        initialValues: {
+          name: "",
+          email: "",
+          phone: "",
+          question: "",
+        },
+        validationSchema: ValidationSchema,
+        onSubmit: (values) => {
+            console.log(JSON.stringify(values));
+        }
+      });
     return (
         <div className="questions-form">
             <style jsx>
@@ -60,33 +75,38 @@ const QuestionsForm = () => {
                     }
                 `}  
             </style>
-            <form onSubmit={() => console.log("boink")}>
-                <input
-                    name="name"
-                    type="text"
-                    placeholder="Ваше имя"
-                />
-                <div className="email-phone-holder">
+                <form onSubmit={Form.handleSubmit}>
                     <input
-                        name="email"
+                        name="name"
                         type="text"
-                        placeholder="Ваш e-mail"
-                        style={{
-                            marginRight: "10%",
-                        }}
+                        placeholder="Ваше имя"
+                        onChange={Form.handleChange}
                     />
-                    <input
-                        name="phone"
-                        type="text"
-                        placeholder="Ваш телефон"
+                    {Form.errors.email && Form.touched.email && <div>{Form.errors.email}</div>}
+                    <div className="email-phone-holder">
+                        <input
+                            name="email"
+                            type="text"
+                            placeholder="Ваш e-mail"
+                            style={{
+                                marginRight: "10%",
+                            }}
+                            onChange={Form.handleChange}
+                        />
+                        <input
+                            name="phone"
+                            type="text"
+                            placeholder="Ваш телефон"
+                            onChange={Form.handleChange}
+                        />
+                    </div>
+                    <textarea
+                        name="question"
+                        placeholder="Ваш вопрос"
+                        onChange={Form.handleChange}
                     />
-                </div>
-                <textarea
-                    name="question"
-                    placeholder="Ваш вопрос"
-                />
-                <button type="submit">Отправить</button>
-            </form>
+                    <button type="submit">Отправить</button>
+                </form>
         </div>
     )
 }
