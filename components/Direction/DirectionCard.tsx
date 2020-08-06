@@ -34,6 +34,7 @@ function DirectionCard({ direction }) {
             width: 16.85vw;
             height: 39.77vh;
             font-size: 0.95rem;
+            word-break: break-word;
           }
 
           .button-holder {
@@ -91,7 +92,11 @@ function DirectionCard({ direction }) {
         <label>{direction.subtitle}</label>
         <span style={{ marginBottom: "4.6vh" }}>
           <CalendarOutlined style={{ marginRight: "3%" }} />
-          <label>{direction.date}</label>
+          <label>{`${new Date(
+            direction.startDate
+          ).toLocaleDateString()} - ${new Date(
+            direction.endDate
+          ).toLocaleDateString()}`}</label>
         </span>
         <p className="description">{direction.description}</p>
         <div className="button-holder">
