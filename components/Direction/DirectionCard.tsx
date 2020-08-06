@@ -7,84 +7,85 @@ function DirectionCard({ direction }) {
   return (
     <div className="direction-card">
       <style jsx>
-                {`
-                    .direction-card {
-                        width: 22.52vw;
-                        min-height: 66.3vh;
-                        background: #F9F9F9;
-                    }
+        {`
+          .direction-card {
+            width: 22.52vw;
+            min-height: 66.3vh;
+            background: #f9f9f9;
+          }
 
-                    h1 {
-                        font-size: 1.25rem;
-                        margin-bottom: 1.12vh;
-                    }
+          h1 {
+            font-size: 1.25rem;
+            margin-bottom: 1.12vh;
+          }
 
-                    .flex-holder {
-                        padding: 4.244vh;
-                        display: flex;
-                        flex-direction: column;
-                    }
+          .flex-holder {
+            padding: 4.244vh;
+            display: flex;
+            flex-direction: column;
+          }
 
-                    label {
-                        font-size: 0.85rem;
-                        margin-bottom: 1.12vh;
-                    }
+          label {
+            font-size: 0.85rem;
+            margin-bottom: 1.12vh;
+          }
 
-                    .description {
-                        width: 16.85vw;
-                        height: 39.77vh;
-                        font-size: 0.95rem;
-                    }
+          .description {
+            width: 16.85vw;
+            height: 39.77vh;
+            font-size: 0.95rem;
+          }
 
-                    .button-holder {
-                        padding-top: 3.74vh;
-                    }
+          .button-holder {
+            padding-top: 3.74vh;
+          }
 
-                    .button-holder button {
-                        width: 45%;
-                        height: 7.127vh;
-                        margin-right: 0.55vw;
-                        transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease;
-                        cursor: pointer;
-                        font-weight: 500;
-                        border-radius: 6px;
-                    }
+          .button-holder button {
+            width: 45%;
+            height: 7.127vh;
+            margin-right: 0.55vw;
+            transition: background-color 0.5s ease, color 0.5s ease,
+              border 0.5s ease;
+            cursor: pointer;
+            font-weight: 500;
+            border-radius: 6px;
+          }
 
-                    .description-btn {
-                        border: 2px solid ${theme.colors.black};
-                    }
+          .description-btn {
+            border: 2px solid ${theme.colors.black};
+          }
 
-                    .description-btn:hover {
-                       border: 2px solid ${theme.colors.red};
-                       color: ${theme.colors.red};
-                    }
+          .description-btn:hover {
+            border: 2px solid ${theme.colors.red};
+            color: ${theme.colors.red};
+          }
 
-                    .scroll-btn {
-                        color: ${theme.colors.white};
-                        background: ${theme.colors.black};
-                        border: none;
-                    }
+          .scroll-btn {
+            color: ${theme.colors.white};
+            background: ${theme.colors.black};
+            border: none;
+          }
 
-                    .scroll-btn:hover {
-                        background: ${theme.colors.red};
-                    }
+          .scroll-btn:hover {
+            background: ${theme.colors.red};
+          }
 
-                    @media only screen and (max-width: 1024px) {
-                        .direction-card {
-                            width: 100%;
-                        }
+          @media only screen and (max-width: 1024px) {
+            .direction-card {
+              width: 100%;
+            }
 
-                        .description {
-                            width: 100%;
-                        }
+            .description {
+              width: 100%;
+            }
 
-                        .button-holder button {
-                            font-size: 0.75rem;
-                            font-weight: 500;
-                        }
-                    }
-                `}
-            </style>
+            .button-holder button {
+              font-size: 0.75rem;
+              font-weight: 500;
+            }
+          }
+        `}
+      </style>
       <div className="flex-holder">
         <h1>{direction.title}</h1>
         <label>{direction.subtitle}</label>
@@ -97,7 +98,9 @@ function DirectionCard({ direction }) {
           <Link href={`/directions/[id]`} as={`/directions/${direction._id}`}>
             <button className="description-btn">Подробнее</button>
           </Link>
-          <button className="scroll-btn">Участвовать</button>
+          <Link href="/#request">
+            <button className="scroll-btn">Участвовать</button>
+          </Link>
         </div>
       </div>
     </div>

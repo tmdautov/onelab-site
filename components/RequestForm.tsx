@@ -47,7 +47,7 @@ const RequestForm = () => {
   }, []);
   return (
     <Wrapper>
-      <div className="request-form">
+      <div className="request-form" id="request">
         <style jsx>{`
           .request-form {
             width: 50%;

@@ -11,7 +11,7 @@ const DirectionsContainer = () => {
     fetchDirections();
   }, []);
   return (
-    <div className="directions-holder">
+    <div className="directions-holder" id="directions">
       <style jsx>
         {`
           .directions-holder {

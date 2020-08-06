@@ -54,19 +54,19 @@ function Footer() {
             </div>
             <ul>
               <li>
-                <Link href="/">
+                <Link href="/#directions">
                   <a>Направления</a>
                 </Link>
               </li>
               <em className="border"></em>
               <li>
-                <Link href="/contacts">
+                <Link href="/#">
                   <a>Порядок приема</a>
                 </Link>
               </li>
               <em className="border"></em>
               <li>
-                <Link href="/faq">
+                <Link href="/#">
                   <a>Как проходит обучение</a>
                 </Link>
               </li>

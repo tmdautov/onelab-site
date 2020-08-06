@@ -1,5 +1,6 @@
 import React from "react";
 import theme from "../../styles/theme";
+import Link from "next/link";
 
 function BannerText({ title, description, url, buttonText }) {
   return (
@@ -51,8 +52,9 @@ function BannerText({ title, description, url, buttonText }) {
       <div className="banner-text">
         <h1>{title}</h1>
         <p className="description-text">{description}</p>
-        {/* TODO: Add button url */}
-        <button>{buttonText}</button>
+        <Link href={url}>
+          <button>{buttonText}</button>
+        </Link>
       </div>
     </>
   );

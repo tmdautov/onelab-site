@@ -7,7 +7,6 @@ import React from "react";
 import { useWindowSize } from "../services/sliderSetting";
 
 function Header() {
-
   const [hidden, setHidden] = React.useState(true);
   const size = useWindowSize();
 
@@ -102,12 +101,11 @@ function Header() {
         }
 
         @media (max-width: 1024px) {
-
           header {
             position: fixed;
             z-index: 100;
           }
-          
+
           .border {
             height: 1px;
             width: 100%;
@@ -118,7 +116,7 @@ function Header() {
             flex-direction: column;
             top: 12.6vh;
             right: 0;
-            width: 100%!important;
+            width: 100% !important;
             position: absolute;
             transition: max-height 0.5s ease;
             background: ${theme.colors.black};
@@ -131,10 +129,12 @@ function Header() {
           }
 
           .li-btn button {
-            width: 100%!important;
+            width: 100% !important;
           }
 
-          .adaptive { display: block; }
+          .adaptive {
+            display: block;
+          }
 
           ul li {
             padding: 15%;
@@ -159,36 +159,44 @@ function Header() {
                 </a>
               </Link>
             </div>
-            <ul className={hidden && size.width <= "1024" ? "hidden" : null }>
+            <ul className={hidden && size.width <= "1024" ? "hidden" : null}>
               <li>
-                <Link href="/">
+                <Link href="/#directions">
                   <a onClick={() => setHidden(true)}>Направления</a>
                 </Link>
               </li>
               <em className="border" />
               <li>
-                <Link href="/contacts">
+                <Link href="/#">
                   <a onClick={() => setHidden(true)}>Порядок приема</a>
                 </Link>
               </li>
               <em className="border" />
 
               <li>
-                <Link href="/faq">
+                <Link href="/#">
                   <a onClick={() => setHidden(true)}>Как проходит обучение</a>
                 </Link>
               </li>
               <em className="border adaptive" />
               <li className="li-btn">
-                <button>Я хочу обучаться!</button>
+                <Link href="/#request">
+                  <button>Подать заявку</button>
+                </Link>
               </li>
             </ul>
             <div className="header-button">
-              <button>Я хочу обучаться!</button>
+              <Link href="/#request">
+                <button>Подать заявку</button>
+              </Link>
             </div>
             <div className="menu-holder">
-              <MenuOutlined 
-                style={{ color: theme.colors.white, fontSize: "234%", cursor: "pointer" }}
+              <MenuOutlined
+                style={{
+                  color: theme.colors.white,
+                  fontSize: "234%",
+                  cursor: "pointer",
+                }}
                 onClick={() => setHidden(!hidden)}
               />
             </div>
