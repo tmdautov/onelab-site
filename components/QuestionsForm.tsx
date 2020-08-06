@@ -4,26 +4,33 @@ const QuestionsForm = () => {
     return (
         <div className="questions-form">
             <style jsx>
-                {`
+                {`  
+
+                    .questions-form {
+                        width: 50%;
+                    }
+
+                    form {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
                     input {
                         margin-bottom: 4.244031830238727vh;
-                        padding: 2.5%;
-                        width: 37.2625vw;
+                        padding: 3% 2%;
+                        width: 100%:
                     }
 
                     .email-phone-holder {
                         display: flex;
-                        justify-content: space-between; 
                     }
 
                     .email-phone-holder input {
-                        width: 18.75vw;
-                        margin-right: 1.5625vw;
+                        width: 40%;
                     }
 
                     textarea {
                         resize: none;
-                        width: 37.3625vw;
                         height: 21.4989vh;
                         padding: 2.5%;
                         font-size: 16px;
@@ -34,9 +41,7 @@ const QuestionsForm = () => {
                       background-color: ${theme.colors.black};
                       color: ${theme.colors.white};
                       padding: 3% 2%;
-                      width: 15.625vw;
-                      height: 7.427vh;
-                      margin: auto;
+                      width: 50%;
                       border: none;
                       border-radius: 6px;
                       outline: none;
@@ -45,22 +50,12 @@ const QuestionsForm = () => {
                     }
 
                     @media (max-width: 1024px) {
+                        .questions-form {
+                            width: 100%;
+                        }
+
                         button {
-                            margin: 0 30%;
-                            width: 40%;
-                        }
-
-                        input {
-                            width: 93%;
-                        }
-                        
-                        .email-phone-holder input {
-                            width: 50%;
-                            margin-right: 1%;
-                        }
-
-                        textarea {
-                            width: 93.5%;
+                            margin: auto;
                         }
                     }
                 `}  
@@ -76,6 +71,9 @@ const QuestionsForm = () => {
                         name="email"
                         type="text"
                         placeholder="Ваш e-mail"
+                        style={{
+                            marginRight: "10%",
+                        }}
                     />
                     <input
                         name="phone"

@@ -28,6 +28,7 @@ const QuestionsContainer = () => {
 
                 .container {
                     margin-right: 1.5625vw;
+                    width: 50%;
                 }
 
                 .question-container {
@@ -40,9 +41,8 @@ const QuestionsContainer = () => {
                     border: 2px solid ${theme.colors.black}; 
                     color: ${theme.colors.black};
                     padding: 3% 2%;
-                    width: 15.625vw;
-                    height: 7.427vh;
-                    margin: auto;
+                    width: 50%;
+                    margin: auto 0;
                     border-radius: 6px;
                     outline: none;
                     cursor: pointer;
@@ -52,6 +52,7 @@ const QuestionsContainer = () => {
                 @media (max-width: 1024px) {
                     .container {
                         margin-bottom: 3.183vh;
+                        width: 100%;
                     }
 
                     .question-container {
@@ -67,14 +68,16 @@ const QuestionsContainer = () => {
             `}
             </style>
             <div className="questions-container">
-                <div style={{marginBottom: "3.325vw"}}>
-                    {questions.filter(qa => qa.important).map(qa => {
-                        return (
-                            <QuestionAnswer question={qa.question} answer={qa.answer} />
-                        )
-                    })}
+                <div style={{ display: "flex", flexDirection: "column", }}>
+                    <div style={{ marginBottom: "2.75vw", }}>
+                        {questions.filter(qa => qa.important).map(qa => {
+                            return (
+                                <QuestionAnswer question={qa.question} answer={qa.answer} />
+                            )
+                        })}
+                    </div>
+                    <button type="button">Смотреть все</button>
                 </div>
-                <button type="button">Смотреть все</button>
             </div>
         </div>
     )

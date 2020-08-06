@@ -42,7 +42,7 @@ function DirectionsTape({ directions }) {
                     size.width <= "1024" ? 
                     "80vw"
                     :
-                    "23.35vw" /*FIXME: Add better solution to improve responsiveness*/,
+                    "20%" /*FIXME: Add better solution to improve responsiveness*/,
                 }}
               >
                 <DirectionCard direction={direction} />
