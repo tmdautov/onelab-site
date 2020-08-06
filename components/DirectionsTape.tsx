@@ -40,7 +40,7 @@ function DirectionsTape({ directions }) {
                 style={{
                   width:
                     size.width <= "1024" ? 
-                    "16.666%"
+                    "80vw"
                     :
                     "23.35vw" /*FIXME: Add better solution to improve responsiveness*/,
                 }}
