@@ -12,6 +12,7 @@ function DirectionCard({ direction }) {
                         width: 22.52vw;
                         min-height: 66.3vh;
                         background: #F9F9F9;
+                        word-wrap: break-word; 
                     }
 
                     h1 {
