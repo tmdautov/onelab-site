@@ -2,7 +2,7 @@ import React from "react";
 import theme from "../../styles/theme";
 import Link from "next/link";
 
-function BannerText({ title, description, url, buttonText }) {
+function BannerText({ title, description }) {
   return (
     <>
       <style jsx>
@@ -13,48 +13,30 @@ function BannerText({ title, description, url, buttonText }) {
 
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-start;
 
             color: ${theme.colors.black};
             box-sizing: border-box;
-            padding-bottom: 50px; //FIXME: px to vh
+            padding-bottom: 3.125rem; //FIXME: rem to vh
           }
           h1 {
             font-weight: bold;
-            font-size: 38px;
+            font-size: 2.375rem;
             line-height: 150%;
 
             text-transform: uppercase;
           }
           .description-text {
-            font-size: 1.25vw; //FIXME: vw to rem
+            font-size: 1.5rem;
             line-height: 150%;
 
             text-align: left;
-          }
-          button {
-            width: 240px;
-            height: 56px;
-            border-radius: 6px;
-            background: ${theme.colors.black};
-            color: ${theme.colors.white};
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.5s ease, color 0.5s ease;
-          }
-
-          button:hover {
-            color: ${theme.colors.white};
-            background: #f70f0f;
           }
         `}
       </style>
       <div className="banner-text">
         <h1>{title}</h1>
         <p className="description-text">{description}</p>
-        <Link href={url}>
-          <button>{buttonText}</button>
-        </Link>
       </div>
     </>
   );
