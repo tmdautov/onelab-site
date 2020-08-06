@@ -15,6 +15,7 @@ function BannerContainer({ banner }) {
           cursor: pointer;
           padding-top: 3rem; //FIXME: rem to vh
         }
+        
         .banner_flex {
           height: 100%;
           width: 100%;
