@@ -92,6 +92,12 @@ const RequestForm = () => {
           .phone-email-inputs input {
             width: 40%;
           }
+
+          @media (max-width: 1024px) {
+            .request-form {
+              width: 100%;
+            }
+          }
         `}</style>
         <h1>ПОДАЧА ЗАЯВКИ</h1>
         <form onSubmit={Form.handleSubmit} ref={formRef}>
