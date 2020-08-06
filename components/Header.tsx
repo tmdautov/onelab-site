@@ -2,8 +2,15 @@ import Link from "next/link";
 import LabLogo from "../public/assets/svg/logo";
 import theme from "../styles/theme";
 import Wrapper from "./Wrapper";
+import { MenuOutlined } from "@ant-design/icons";
+import React from "react";
+import { useWindowSize } from "../services/sliderSetting";
 
 function Header() {
+
+  const [hidden, setHidden] = React.useState(true);
+  const size = useWindowSize();
+
   return (
     <>
       <style jsx>{`
@@ -76,39 +83,114 @@ function Header() {
         .logo {
           width: 9.531vw;
         }
+
+        .menu-holder {
+          display: none;
+        }
+
+        .hidden {
+          max-height: 0;
+          overflow: hidden;
+        }
+
+        .li-btn {
+          display: none;
+        }
+
+        .adaptive {
+          display: none;
+        }
+
+        @media (max-width: 1024px) {
+
+          header {
+            position: fixed;
+            z-index: 100;
+          }
+          
+          .border {
+            height: 1px;
+            width: 100%;
+            margin: 3.18vh 0;
+          }
+
+          ul {
+            flex-direction: column;
+            top: 12.6vh;
+            right: 0;
+            width: 100%!important;
+            position: absolute;
+            transition: max-height 0.5s ease;
+            background: ${theme.colors.black};
+          }
+
+          .li-btn {
+            display: block;
+            position: relative;
+            bottom: 50px;
+          }
+
+          .li-btn button {
+            width: 100%!important;
+          }
+
+          .adaptive { display: block; }
+
+          ul li {
+            padding: 15%;
+          }
+          .header-button {
+            display: none;
+          }
+
+          .menu-holder {
+            display: block;
+            float: right;
+          }
+        }
       `}</style>
       <header>
         <Wrapper>
           <nav>
             <div className="logo">
               <Link href="/">
-                <a>
+                <a onClick={() => setHidden(true)}>
                   <LabLogo />
                 </a>
               </Link>
             </div>
-            <ul>
+            <ul className={hidden && size.width <= "1024" ? "hidden" : null }>
               <li>
                 <Link href="/">
-                  <a>Направления</a>
+                  <a onClick={() => setHidden(true)}>Направления</a>
                 </Link>
               </li>
               <em className="border" />
               <li>
                 <Link href="/contacts">
-                  <a>Порядок приема</a>
+                  <a onClick={() => setHidden(true)}>Порядок приема</a>
                 </Link>
               </li>
               <em className="border" />
 
               <li>
                 <Link href="/faq">
-                  <a>Как проходит обучение</a>
+                  <a onClick={() => setHidden(true)}>Как проходит обучение</a>
                 </Link>
+              </li>
+              <em className="border adaptive" />
+              <li className="li-btn">
+                <button>Я хочу обучаться!</button>
               </li>
             </ul>
             <div className="header-button">
               <button>Я хочу обучаться!</button>
+            </div>
+            <div className="menu-holder">
+              <MenuOutlined 
+                style={{ color: theme.colors.white, fontSize: "234%", cursor: "pointer" }}
+                onClick={() => setHidden(!hidden)}
+              />
             </div>
           </nav>
         </Wrapper>

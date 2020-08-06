@@ -35,6 +35,12 @@ function Banner() {
           display: flex;
           justify-content: space-between;
         }
+
+        @media (max-width: 1024px) {
+          .banner_container {
+            padding-top: 10%;
+          }
+        }
       `}</style>
       <div className="banner_container">
         <Slider {...sliderSetting}>

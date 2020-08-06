@@ -9,6 +9,12 @@ function Wrapper({ children }) {
 
           box-sizing: border-box;
         }
+
+        @media (max-width: 1000px) {
+          .wrapper {
+            padding: 0 7.5vw;
+          }
+        }
       `}</style>
       <div className="wrapper">{children}</div>
     </>

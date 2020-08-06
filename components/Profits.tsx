@@ -19,8 +19,9 @@ const Profits = () => {
           style={{
             width: "2.6vw",
             height: "5.3vh",
-            fontSize: "36px",
-            margin: "24px 0",
+            fontSize: "234%",
+            margin: "3.183vh 0",
+            padding: "0 5% 0 2%",
           }}
         />
       ),
@@ -33,8 +34,9 @@ const Profits = () => {
           style={{
             width: "2.6vw",
             height: "5.3vh",
-            fontSize: "36px",
-            margin: "24px 0",
+            fontSize: "234%",
+            margin: "3.183vh 0",
+            padding: "0 5% 0 2%",
           }}
         />
       ),
@@ -47,8 +49,9 @@ const Profits = () => {
           style={{
             width: "2.6vw",
             height: "5.3vh",
-            fontSize: "36px",
-            margin: "24px 0",
+            fontSize: "234%",
+            margin: "3.183vh 0",
+            padding: "0 5% 0 2%",
           }}
         />
       ),
@@ -61,8 +64,9 @@ const Profits = () => {
           style={{
             width: "2.6vw",
             height: "5.3vh",
-            fontSize: "36px",
-            margin: "24px 0",
+            fontSize: "234%",
+            margin: "3.183vh 0",
+            padding: "0 5% 0 2%",
           }}
         />
       ),
@@ -75,8 +79,9 @@ const Profits = () => {
           style={{
             width: "2.6vw",
             height: "5.3vh",
-            fontSize: "36px",
-            margin: "24px 0",
+            fontSize: "234%",
+            margin: "3.183vh 0",
+            padding: "0 5% 0 2%",
           }}
         />
       ),
@@ -89,8 +94,9 @@ const Profits = () => {
           style={{
             width: "2.6vw",
             height: "5.3vh",
-            fontSize: "36px",
-            margin: "24px 0",
+            fontSize: "234%",
+            margin: "3.183vh 0",
+            padding: "0 5% 0 2%",
           }}
         />
       ),
@@ -109,7 +115,6 @@ const Profits = () => {
           }
 
           h1 {
-            font-weight: 800;
             font-size: 2.3rem;
             margin-bottom: 9.55vh;
           }
@@ -131,10 +136,17 @@ const Profits = () => {
             column-gap: 3.183vh;
             row-gap: 1.5625vw;
           }
+
+          @media only screen and (max-width: 1024px) {
+            .grid-container {
+              display: flex;
+              flex-direction: column;
+            }
+          }
         `}
       </style>
       <div className="profits">
-        <h1>Что ты получишь?</h1>
+        <h1>МЫ ПРЕДЛАГАЕМ</h1>
         <div className="grid-container">
           {profits.map((e) => {
             return (
