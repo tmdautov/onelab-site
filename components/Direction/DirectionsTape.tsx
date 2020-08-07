@@ -1,9 +1,9 @@
 import React from "react";
 import Slider from "react-slick";
-import { directionSettings, useWindowSize } from "../services/sliderSetting";
+import { directionSettings, useWindowSize } from "../../services/sliderSetting";
 import DirectionCard from "./DirectionCard";
-import Wrapper from "./Wrapper";
-import theme from "../styles/theme";
+import Wrapper from "../Wrapper";
+import theme from "../../styles/theme";
 
 function DirectionsTape({ directions }) {
 

@@ -24,6 +24,10 @@ export default function App({ Component, pageProps }) {
               font-size: 16px;
             }
 
+            html {
+              scroll-behavior: smooth;
+            }
+
             button {
               font-family: ${theme.fontFamily}; //FIXME: Fix font family
               font-style: normal;

@@ -1,8 +1,8 @@
-import Banner from "../components/Banner";
+import Banner from "../components/Banner/Banner";
 import Profits from "../components/Profits";
-import DirectionsContainer from "../components/DirectionsContainer";
+import DirectionsContainer from "../components/Direction/DirectionsContainer";
 import RequestForm from "../components/RequestForm";
-import QA from "../components/QA/QA";
+import QA from "../components/Questions/QA";
 
 export default function Home() {
   return (

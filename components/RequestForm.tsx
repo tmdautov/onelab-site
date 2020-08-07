@@ -2,9 +2,9 @@ import React, { useEffect, useState, useRef } from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import getDirections from "../services/directions.service";
-import { RequestsService } from "../services/requests.service";
 import Wrapper from "./Wrapper";
 import theme from "../styles/theme";
+import postRequest from "../services/requests.service";
 
 const RequestForm = () => {
   const [cv, setCv] = useState(null);
@@ -21,31 +21,22 @@ const RequestForm = () => {
       course: "",
     },
     validationSchema: Yup.object().shape({
-      name: Yup.string()
-        .max(24, "Too Long!")
-        .required("Required"),
-      surname: Yup.string()
-        .max(24, "Too Long!")
-        .required("Required"),
+      name: Yup.string().max(24, "Too Long!").required("Required"),
+      surname: Yup.string().max(24, "Too Long!").required("Required"),
       fathername: Yup.string().max(24, "Too Long!"),
-      phone: Yup.string()
-        .max(20)
-        .required(),
-      email: Yup.string()
-        .email()
-        .required(),
+      phone: Yup.string().max(20).required(),
+      email: Yup.string().email().required(),
       direction: Yup.string().required(),
       university: Yup.string().required(),
       course: Yup.string().required(),
     }),
     onSubmit: (values) => {
-      console.log("testing issue");
       let fd = new FormData();
       for (let key in values) {
         fd.append(key, values[key]);
       }
       fd.append("file", cv);
-      RequestsService.post(fd);
+      postRequest(fd);
       formRef.current.reset();
       Form.resetForm();
     },
@@ -56,7 +47,7 @@ const RequestForm = () => {
   }, []);
   return (
     <Wrapper>
-      <div className="request-form">
+      <div className="request-form" id="request">
         <style jsx>{`
           .request-form {
             width: 50%;

@@ -1,6 +1,10 @@
 import React from "react";
+<<<<<<< HEAD:components/QA/QuestionAnswer.tsx
+=======
 import theme from "../../styles/theme";
+>>>>>>> 5b74a206d57d6a0d9adcf60d32e0e531f6f30edc:components/Questions/QuestionAnswer.tsx
 import { RightOutlined, DownOutlined } from "@ant-design/icons";
+import theme from "../../styles/theme";
 
 const QuestionAnswer = ({question, answer}) => {
     const [hidden, setHidden] = React.useState(true);
