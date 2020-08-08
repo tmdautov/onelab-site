@@ -1,6 +1,6 @@
-const URL = "https://oneshop-back.herokuapp.com";
+const API_URL = "https://oneshop-back.herokuapp.com";
 export async function getQuestions() {
-    return fetch(`${URL}/qa`).then(async (response) => {
+    return fetch(`${API_URL}/qa/`).then(async (response) => {
         if (response.ok) {
             return response.json();
         }
@@ -12,8 +12,11 @@ export async function getQuestions() {
 };
 
 export default async function postQuestion(fd) {
-    return fetch(`${URL}/qa/`, {
+    return fetch(`${API_URL}/qa/`, {
         method: "POST",
+        headers: {
+            'Content-type': 'application/json',
+        },
         body: fd,
     }).then(async (response) => {
         if (response.ok) {
@@ -21,7 +24,7 @@ export default async function postQuestion(fd) {
         } 
         else {
             const error = await response.json();
-            console.log(error.message);
+            throw new Error(error.message);
         }
     });
 }
