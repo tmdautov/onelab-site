@@ -3,6 +3,7 @@ import Profits from "../components/Profits";
 import DirectionsContainer from "../components/Direction/DirectionsContainer";
 import RequestForm from "../components/RequestForm";
 import QA from "../components/QA/QA";
+import AcceptingOrder from "../components/Requirements/AcceptingOrder";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Profits />
       <DirectionsContainer />
       <QA />
+      <AcceptingOrder />
       <RequestForm />
       {/* FIXME: Fix Profits and DirectionsContainer overflow by x*/}
       {/*TODO: link buttons, description page, form*/}

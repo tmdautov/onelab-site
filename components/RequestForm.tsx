@@ -85,12 +85,26 @@ const RequestForm = () => {
             border: none;
             border-radius: 10px;
             outline: none;
+            margin: 2% auto auto auto;
           }
           .request-form button:hover {
             cursor: pointer;
           }
           .phone-email-inputs input {
             width: 40%;
+          }
+
+          .error-message {
+            color: ${theme.colors.red};
+            margin: 2% auto;
+          }
+
+          .error-input {
+              border: 1px solid ${theme.colors.red}!important;
+          }
+
+          .error-input:focus {
+              outline: none!important;
           }
 
           @media (max-width: 1024px) {
@@ -106,12 +120,14 @@ const RequestForm = () => {
             type="text"
             placeholder="Ваше имя"
             onChange={Form.handleChange}
+            className={Form.errors.name ? "error-input" : null}
           />
           <input
             name="surname"
             type="text"
             placeholder="Ваша фамилия"
             onChange={Form.handleChange}
+            className={Form.errors.surname ? "error-input" : null}
           />
           <input
             name="fathername"
@@ -125,18 +141,21 @@ const RequestForm = () => {
               type="text"
               placeholder="Ваш телефон"
               onChange={Form.handleChange}
+              className={Form.errors.phone ? "error-input" : null}
             />
             <input
               name="email"
               type="email"
               placeholder="Ваша почта"
               onChange={Form.handleChange}
+              className={Form.errors.email ? "error-input" : null}
             />
           </div>
           <select
             name="direction"
             placeholder="Выберите направление"
             onChange={Form.handleChange}
+            className={Form.errors.direction ? "error-input" : null}
           >
             <option>Выбрать</option>
             {directions.map((direction) => (
@@ -148,11 +167,13 @@ const RequestForm = () => {
             type="text"
             placeholder="Ваш университет"
             onChange={Form.handleChange}
+          className={Form.errors.university ? "error-input" : null}
           />
           <select
             name="course"
             placeholder="Выберите курс обучения"
             onChange={Form.handleChange}
+            className={Form.errors.course ? "error-input" : null}
           >
             <option>Выбрать</option>
             <option>1</option>
@@ -166,6 +187,14 @@ const RequestForm = () => {
             type="file"
             onChange={(e) => setCv(e.target.files[0])}
           />
+          {Form.errors.course ||
+            Form.errors.direction ||
+            Form.errors.email ||
+            Form.errors.fathername ||
+            Form.errors.name ||
+            Form.errors.phone ||
+            Form.errors.surname ||
+            Form.errors.university ? <div className="error-message">Заполните все поля, отмеченные красным</div> : <div></div>}
           <button type="submit">Отправить</button>
         </form>
       </div>

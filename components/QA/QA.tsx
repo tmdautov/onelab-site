@@ -11,7 +11,6 @@ const QAForm = () => {
                     .qa-form {
                         padding: 9.55vh 0;
                         background: #FAFAFA;
-                        margin-bottom: 9.55vh;
                     }
 
                     .qa-form h1 {

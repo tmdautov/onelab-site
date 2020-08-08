@@ -5,8 +5,13 @@ import Social from "./Social";
 
 function Footer() {
   return (
-    <>
+    <div className="footer-container">
       <style jsx>{`
+
+        .footer-container {
+          padding: 9.55vh 0 0 0;
+        }
+
         footer {
           width: 100%;
           background: ${theme.colors.black};
@@ -74,7 +79,7 @@ function Footer() {
           </nav>
         </Wrapper>
       </footer>
-    </>
+    </div>
   );
 }
 
