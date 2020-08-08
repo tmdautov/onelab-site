@@ -8,9 +8,6 @@ function Footer() {
     <div className="footer-container">
       <style jsx>{`
 
-        .footer-container {
-          padding: 9.55vh 0 0 0;
-        }
 
         footer {
           width: 100%;

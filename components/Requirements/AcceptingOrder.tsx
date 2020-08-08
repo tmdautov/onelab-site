@@ -31,7 +31,7 @@ const AcceptingOrder = () => {
                         font-weight: 600;
                         font-size: 2.375rem;
                         padding: 5% 0 2%;
-                        margin-bottom: 3%;
+                        margin-bottom: 5%;
                     }
 
                     .flex-holder {
@@ -95,7 +95,7 @@ const AcceptingOrder = () => {
                 `}
             </style>
             <Wrapper>
-                <h1>Порядок приема</h1>
+                <h1>ПОРЯДОК ПРИЁМА</h1>
                 <div className="flex-holder">
                     {orders.map((order, index)=> {
                         return (

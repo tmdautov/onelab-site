@@ -73,8 +73,7 @@ const RequestForm = () => {
           }
           .request-form h1 {
             font-weight: 600;
-            font-size: 2.375vw;
-            margin-bottom: 9.55vh;
+            font-size: 2.375rem;
           }
           .request-form button {
             background-color: ${theme.colors.black};
