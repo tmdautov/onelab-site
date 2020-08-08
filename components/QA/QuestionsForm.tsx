@@ -1,21 +1,29 @@
-
+import React from "react";
 import { useFormik } from "formik";
 import theme from "../../styles/theme";
-import { ValidationSchema } from "./ValidationSchema";
+import ValidationSchema from "./ValidationSchema";
+import postQuestion from "../../services/qa.service";
 
 const QuestionsForm = () => {
+    const formRef = React.useRef(null);
     const Form = useFormik({
         initialValues: {
-          name: "",
-          email: "",
-          phone: "",
-          question: "",
+            name: "",
+            email: "",
+            phone: "",
+            question: "",
         },
         validationSchema: ValidationSchema,
         onSubmit: (values) => {
-            console.log(JSON.stringify(values));
-        }
-      });
+            let fd = new FormData();
+            for (let key in values) {
+              fd.append(key, values[key]);
+            }
+            postQuestion(fd);
+            formRef.current.reset();
+            Form.resetForm();
+        },
+    });
     return (
         <div className="questions-form">
             <style jsx>
@@ -73,40 +81,40 @@ const QuestionsForm = () => {
                             margin: auto;
                         }
                     }
-                `}  
+                `}
             </style>
-                <form onSubmit={Form.handleSubmit}>
+            <form onSubmit={Form.handleSubmit} ref={formRef}>
+                <input
+                    name="name"
+                    type="text"
+                    placeholder="Ваше имя"
+                    onChange={Form.handleChange}
+                />
+                {Form.errors.email && Form.touched.email && <div>{Form.errors.email}</div>}
+                <div className="email-phone-holder">
                     <input
-                        name="name"
+                        name="email"
+                        type="email"
+                        placeholder="Ваш e-mail"
+                        style={{
+                            marginRight: "10%",
+                        }}
+                        onChange={Form.handleChange}
+                    />
+                    <input
+                        name="phone"
                         type="text"
-                        placeholder="Ваше имя"
+                        placeholder="Ваш телефон"
                         onChange={Form.handleChange}
                     />
-                    {Form.errors.email && Form.touched.email && <div>{Form.errors.email}</div>}
-                    <div className="email-phone-holder">
-                        <input
-                            name="email"
-                            type="text"
-                            placeholder="Ваш e-mail"
-                            style={{
-                                marginRight: "10%",
-                            }}
-                            onChange={Form.handleChange}
-                        />
-                        <input
-                            name="phone"
-                            type="text"
-                            placeholder="Ваш телефон"
-                            onChange={Form.handleChange}
-                        />
-                    </div>
-                    <textarea
-                        name="question"
-                        placeholder="Ваш вопрос"
-                        onChange={Form.handleChange}
-                    />
-                    <button type="submit">Отправить</button>
-                </form>
+                </div>
+                <textarea
+                    name="question"
+                    placeholder="Ваш вопрос"
+                    onChange={Form.handleChange}
+                />
+                <button type="submit">Отправить</button>
+            </form>
         </div>
     )
 }

@@ -2,7 +2,7 @@ import Banner from "../components/Banner/Banner";
 import Profits from "../components/Profits";
 import DirectionsContainer from "../components/Direction/DirectionsContainer";
 import RequestForm from "../components/RequestForm";
-import QA from "../components/Questions/QA";
+import QA from "../components/QA/QA";
 
 export default function Home() {
   return (
