@@ -198,19 +198,13 @@ const RequestForm = () => {
             <option>3</option>
             <option>4</option>
           </select>
-          {/* <input
-            id="cv"
-            name="file"
-            type="file"
-            onChange={(e) => setCv(e.target.files[0])}
-          /> */}
-          <Dropzone onDrop={(acceptedFiles) => setCv(acceptedFiles)}>
+          <Dropzone onDrop={(acceptedFiles) => setCv(acceptedFiles[0])}>
             {({ getRootProps, getInputProps }) => (
               <section>
                 <div {...getRootProps()} className="dropzone">
                   <input {...getInputProps()} />
                   {cv ? (
-                    cv.map((file) => <p>{file.name}</p>)
+                    <p>{cv.name}</p>
                   ) : (
                     <>
                       <p>Подгрузите резюме</p>
