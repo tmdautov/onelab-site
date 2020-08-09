@@ -6,7 +6,7 @@ function Layout({ children }) {
     <>
       <style jsx>{`
         .Layout {
-          width: 100vw;
+          // width: 100vw; //Removed due to the overflow by x
           height: 1px;
           min-height: 100vh;
 
