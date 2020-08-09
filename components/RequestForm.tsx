@@ -5,6 +5,7 @@ import getDirections from "../services/directions.service";
 import Wrapper from "./Wrapper";
 import theme from "../styles/theme";
 import postRequest from "../services/requests.service";
+import Dropzone from "react-dropzone";
 
 const RequestForm = () => {
   const [cv, setCv] = useState(null);
@@ -55,8 +56,12 @@ const RequestForm = () => {
             margin: 10% 0;
             margin: auto;
           }
-          .request-form h1 {
+          .request-form h1,
+          .request-form p {
             text-align: center;
+          }
+          .request-form h1 {
+            margin-bottom: 5%;
           }
           form {
             display: flex;
@@ -66,6 +71,9 @@ const RequestForm = () => {
           form select {
             margin-top: 5%;
             padding: 2.5%;
+            border: 1px solid #bdbdbd;
+            box-sizing: border-box;
+            border-radius: 4px;
           }
           .phone-email-inputs {
             display: flex;
@@ -99,11 +107,20 @@ const RequestForm = () => {
           }
 
           .error-input {
-              border: 1px solid ${theme.colors.red}!important;
+            border: 1px solid ${theme.colors.red}!important;
           }
 
           .error-input:focus {
-              outline: none!important;
+            outline: none !important;
+          }
+
+          .dropzone {
+            border: 1.5px dashed #bdbdbd;
+            box-sizing: border-box;
+            border-radius: 7.5px;
+            padding: 7%;
+            margin-top: 4%;
+            cursor: pointer;
           }
 
           @media (max-width: 1024px) {
@@ -113,6 +130,7 @@ const RequestForm = () => {
           }
         `}</style>
         <h1>ПОДАЧА ЗАЯВКИ</h1>
+        <p>Все поля обязательные</p>
         <form onSubmit={Form.handleSubmit} ref={formRef}>
           <input
             name="name"
@@ -156,7 +174,7 @@ const RequestForm = () => {
             onChange={Form.handleChange}
             className={Form.errors.direction ? "error-input" : null}
           >
-            <option>Выбрать</option>
+            <option>Выберите направление</option>
             {directions.map((direction) => (
               <option key={direction.id}>{direction.title}</option>
             ))}
@@ -166,7 +184,7 @@ const RequestForm = () => {
             type="text"
             placeholder="Ваш университет"
             onChange={Form.handleChange}
-          className={Form.errors.university ? "error-input" : null}
+            className={Form.errors.university ? "error-input" : null}
           />
           <select
             name="course"
@@ -174,26 +192,49 @@ const RequestForm = () => {
             onChange={Form.handleChange}
             className={Form.errors.course ? "error-input" : null}
           >
-            <option>Выбрать</option>
+            <option>На каком крусе вы учитесь</option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
             <option>4</option>
           </select>
-          <input
+          {/* <input
             id="cv"
             name="file"
             type="file"
             onChange={(e) => setCv(e.target.files[0])}
-          />
+          /> */}
+          <Dropzone onDrop={(acceptedFiles) => setCv(acceptedFiles)}>
+            {({ getRootProps, getInputProps }) => (
+              <section>
+                <div {...getRootProps()} className="dropzone">
+                  <input {...getInputProps()} />
+                  {cv ? (
+                    cv.map((file) => <p>{file.name}</p>)
+                  ) : (
+                    <>
+                      <p>Подгрузите резюме</p>
+                      <p>Перетащите файл или Укажите путь</p>
+                    </>
+                  )}
+                </div>
+              </section>
+            )}
+          </Dropzone>
           {Form.errors.course ||
-            Form.errors.direction ||
-            Form.errors.email ||
-            Form.errors.fathername ||
-            Form.errors.name ||
-            Form.errors.phone ||
-            Form.errors.surname ||
-            Form.errors.university ? <div className="error-message">Заполните все поля, отмеченные красным</div> : <div></div>}
+          Form.errors.direction ||
+          Form.errors.email ||
+          Form.errors.fathername ||
+          Form.errors.name ||
+          Form.errors.phone ||
+          Form.errors.surname ||
+          Form.errors.university ? (
+            <div className="error-message">
+              Заполните все поля, отмеченные красным
+            </div>
+          ) : (
+            <div></div>
+          )}
           <button type="submit">Отправить</button>
         </form>
       </div>
