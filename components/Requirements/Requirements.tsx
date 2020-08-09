@@ -3,22 +3,37 @@ import Wrapper from "../Wrapper";
 import theme from "../../styles/theme";
 
 const Requirements = () => {
-    const [requirements, setRequirements] = useState([]);
-    
-    useEffect(() => {
-        const reqs = [
-            {title: "Образование", description: "Выпускники 3-4 курсов бакалавриата, а также магистранты IT-вузов"},
-            {title: "Знания", description: "Базовые знания своего направления, понимание ООП, алгоритм, структуры данных"},
-            {title: "Мотивация", description: "Есть огромное желание развиваться в IT-сфере, работать в команде, инициативность, дисциплина, самоотдача и саморазвитие"},
-            {title: "Небольшой опыт", description: "Портфолио на GitHub - будет преимуществом"},
-        ];
+  const [requirements, setRequirements] = useState([]);
 
-        setRequirements(reqs);
-    }, [requirements]);
-    return (
-        <div className="requirements">
-            <style jsx>
-                {`
+  useEffect(() => {
+    const reqs = [
+      {
+        title: "Образование",
+        description:
+          "Выпускники 3-4 курсов бакалавриата, а также магистранты IT-вузов",
+      },
+      {
+        title: "Знания",
+        description:
+          "Базовые знания своего направления, понимание ООП, алгоритм, структуры данных",
+      },
+      {
+        title: "Мотивация",
+        description:
+          "Есть огромное желание развиваться в IT-сфере, работать в команде, инициативность, дисциплина, самоотдача и саморазвитие",
+      },
+      {
+        title: "Небольшой опыт",
+        description: "Портфолио на GitHub - будет преимуществом",
+      },
+    ];
+
+    setRequirements(reqs);
+  }, []);
+  return (
+    <div className="requirements">
+      <style jsx>
+        {`
                     .requirements {
                         margin-bottom: 9.255vh;
                     }
@@ -66,22 +81,22 @@ const Requirements = () => {
                         }
                     }
                 `}
-            </style>
-            <Wrapper>
-                <h1>ТРЕБОВАНИЯ К ИДЕАЛЬНОМУ КАНДИДАТУ</h1>
-                <div className="flex-holder">
-                    {requirements.map(requirement => {
-                        return (
-                            <div className="requirement">
-                                <h1>{requirement.title}</h1>
-                                <p>{requirement.description}</p>
-                            </div>
-                        )
-                    })}
-                </div>
-            </Wrapper>
+      </style>
+      <Wrapper>
+        <h1>ТРЕБОВАНИЯ К ИДЕАЛЬНОМУ КАНДИДАТУ</h1>
+        <div className="flex-holder">
+          {requirements.map((requirement) => {
+            return (
+              <div className="requirement">
+                <h1>{requirement.title}</h1>
+                <p>{requirement.description}</p>
+              </div>
+            );
+          })}
         </div>
-    )
-}
+      </Wrapper>
+    </div>
+  );
+};
 
 export default Requirements;
