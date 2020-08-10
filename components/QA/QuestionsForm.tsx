@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import theme from "../../styles/theme";
 import ValidationSchema from "./ValidationSchema";
 import postQuestion from "../../services/qa.service";
+import { toast } from "react-toastify";
 
 const QuestionsForm = () => {
   const formRef = useRef(null);
@@ -15,9 +16,13 @@ const QuestionsForm = () => {
     },
     validationSchema: ValidationSchema,
     onSubmit: (values) => {
-      postQuestion(JSON.stringify(values));
-      formRef.current.reset();
-      Form.resetForm();
+      postQuestion(JSON.stringify(values))
+        .then(() => {
+          toast.success("Отправлено!");
+          formRef.current.reset();
+          Form.resetForm();
+        })
+        .catch((error) => toast.error(error.message));
     },
   });
   return (
@@ -95,7 +100,7 @@ const QuestionsForm = () => {
                     }
                     
                     .phone-message {
-                        transform: translate(103%, -120%);
+                        transform: translate(103%, -130%);
                     }
 
                     .question-message {
@@ -136,10 +141,12 @@ const QuestionsForm = () => {
             className={Form.errors.phone ? "error-input" : null}
           />
           {!Form.errors.email && Form.errors.phone && Form.touched.phone && (
-            <div className="error-message phone-message">{Form.errors.phone}</div>
+            <div className="error-message phone-message">
+              {Form.errors.phone}
+            </div>
           )}
           {Form.errors.email && Form.errors.phone && Form.touched.phone && (
-              <div className="error-message">Обязательно заполните эти поля</div>
+            <div className="error-message">Обязательно заполните эти поля</div>
           )}
         </div>
         {Form.errors.question && Form.touched.question && (
