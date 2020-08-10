@@ -9,6 +9,7 @@ function Direction({ direction }) {
         {`
           .direction {
             padding: 3%;
+            min-height: 49.5vh;
           }
 
           .direction-container {
@@ -20,6 +21,11 @@ function Direction({ direction }) {
             font-weight: 800;
             font-size: 2.3rem;
             margin-bottom: 1.55vh;
+          }
+          @media (max-width: 1024px) {
+            .direction {
+              margin-top: 15vh;
+            }
           }
         `}
       </style>

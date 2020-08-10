@@ -22,6 +22,7 @@ const Profits = () => {
             fontSize: "234%",
             margin: "3.183vh 0",
             padding: "0 5% 0 2%",
+            color: "#D10001",
           }}
         />
       ),
@@ -37,6 +38,7 @@ const Profits = () => {
             fontSize: "234%",
             margin: "3.183vh 0",
             padding: "0 5% 0 2%",
+            color: "#D10001",
           }}
         />
       ),
@@ -52,12 +54,13 @@ const Profits = () => {
             fontSize: "234%",
             margin: "3.183vh 0",
             padding: "0 5% 0 2%",
+            color: "#D10001",
           }}
         />
       ),
     },
     {
-      header: "Гарантируем трудоустройство",
+      header: "Трудоустройство",
       label: "лучшим выпускникам",
       icon: (
         <PoundOutlined
@@ -67,12 +70,13 @@ const Profits = () => {
             fontSize: "234%",
             margin: "3.183vh 0",
             padding: "0 5% 0 2%",
+            color: "#D10001",
           }}
         />
       ),
     },
     {
-      header: "Обучаем Data Science",
+      header: "Обучение Data Science",
       label: "с 2014 года",
       icon: (
         <SettingOutlined
@@ -82,13 +86,14 @@ const Profits = () => {
             fontSize: "234%",
             margin: "3.183vh 0",
             padding: "0 5% 0 2%",
+            color: "#D10001",
           }}
         />
       ),
     },
     {
-      header: "Более 1500 студентов",
-      label: "за 5 лет",
+      header: "Работа в команде",
+      label: "one.kz",
       icon: (
         <UserOutlined
           style={{
@@ -97,6 +102,7 @@ const Profits = () => {
             fontSize: "234%",
             margin: "3.183vh 0",
             padding: "0 5% 0 2%",
+            color: "#D10001",
           }}
         />
       ),

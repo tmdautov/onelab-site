@@ -118,14 +118,14 @@ function Header() {
             right: 0;
             width: 100% !important;
             position: absolute;
-            transition: max-height 0.5s ease;
+            transition: max-height 0.5s ease-out;
             background: ${theme.colors.black};
           }
 
           .li-btn {
             display: block;
             position: relative;
-            bottom: 50px;
+            bottom: 5%;
           }
 
           .li-btn button {
@@ -167,21 +167,21 @@ function Header() {
               </li>
               <em className="border" />
               <li>
-                <Link href="/#">
+                <Link href="/#order">
                   <a onClick={() => setHidden(true)}>Порядок приема</a>
                 </Link>
               </li>
               <em className="border" />
 
               <li>
-                <Link href="/#">
+                <Link href="/#education">
                   <a onClick={() => setHidden(true)}>Как проходит обучение</a>
                 </Link>
               </li>
               <em className="border adaptive" />
               <li className="li-btn">
                 <Link href="/#request">
-                  <button>Подать заявку</button>
+                  <button onClick={() => setHidden(true)}>Подать заявку</button>
                 </Link>
               </li>
             </ul>

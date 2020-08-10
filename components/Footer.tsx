@@ -7,7 +7,10 @@ function Footer() {
   return (
     <div className="footer-container">
       <style jsx>{`
-
+        
+        .footer-container {
+          padding: 9.55vh 0 0 0;
+        }
 
         footer {
           width: 100%;
@@ -47,6 +50,13 @@ function Footer() {
           height: 3.45vh;
           background: ${theme.colors.white};
         }
+
+        @media (max-width: 1024px) {
+
+          ul {
+            display: none;
+          }
+        }
       `}</style>
       <footer>
         <Wrapper>
@@ -62,13 +72,13 @@ function Footer() {
               </li>
               <em className="border"></em>
               <li>
-                <Link href="/#">
+                <Link href="/#order">
                   <a>Порядок приема</a>
                 </Link>
               </li>
               <em className="border"></em>
               <li>
-                <Link href="/#">
+                <Link href="/#education">
                   <a>Как проходит обучение</a>
                 </Link>
               </li>

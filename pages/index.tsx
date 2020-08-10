@@ -5,6 +5,7 @@ import RequestForm from "../components/RequestForm";
 import QA from "../components/QA/QA";
 import AcceptingOrder from "../components/Requirements/AcceptingOrder";
 import Requirements from "../components/Requirements/Requirements";
+import EducationInfo from "../components/Requirements/EducationInfo";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <DirectionsContainer />
       <AcceptingOrder />
       <Requirements />
+      <EducationInfo />
       <QA />
       <RequestForm />
       {/* FIXME: Fix Profits and DirectionsContainer overflow by x*/}

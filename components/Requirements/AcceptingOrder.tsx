@@ -17,7 +17,7 @@ const AcceptingOrder = () => {
         },
     ]
     return (
-        <div className="accepting-order">
+        <div className="accepting-order" id="order">
             <style jsx>
                 {`
                     .accepting-order {

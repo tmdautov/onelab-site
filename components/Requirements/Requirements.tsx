@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Wrapper from "../Wrapper";
 import theme from "../../styles/theme";
+import Link from "next/link";
 
 const Requirements = () => {
   const [requirements, setRequirements] = useState([]);
@@ -31,7 +32,7 @@ const Requirements = () => {
     setRequirements(reqs);
   }, []);
   return (
-    <div className="requirements">
+    <div className="requirements" id="requirements">
       <style jsx>
         {`
                     .requirements {
@@ -70,6 +71,19 @@ const Requirements = () => {
                         margin: 0 3% 3% 0;
                     }
 
+                    button {
+                        background-color: ${theme.colors.black};
+                        color: ${theme.colors.white};
+                        padding: 3% 2%;
+                        width: 50%;
+                        border: none;
+                        border-radius: 6px;
+                        outline: none;
+                        cursor: pointer;
+                        font-weight: 500;
+                        margin: 3% 0 0 74%;
+                      }
+
                     @media (max-width: 1024px) {
                         .flex-holder {
                             display: flex;
@@ -78,6 +92,10 @@ const Requirements = () => {
 
                         .requirement h1 {
                             text-align: center;
+                        }
+
+                        button {
+                            margin: 3% 0 0 25%;
                         }
                     }
                 `}
@@ -93,6 +111,9 @@ const Requirements = () => {
               </div>
             );
           })}
+          <Link href="/#request">
+            <button>Подать заявку</button>
+          </Link>
         </div>
       </Wrapper>
     </div>

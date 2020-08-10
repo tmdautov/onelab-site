@@ -216,13 +216,13 @@ const RequestForm = () => {
             )}
           </Dropzone>
           {Form.errors.course ||
-          Form.errors.direction ||
-          Form.errors.email ||
-          Form.errors.fathername ||
-          Form.errors.name ||
-          Form.errors.phone ||
-          Form.errors.surname ||
-          Form.errors.university ? (
+            Form.errors.direction ||
+            Form.errors.email ||
+            Form.errors.fathername ||
+            Form.errors.name ||
+            Form.errors.phone ||
+            Form.errors.surname ||
+            Form.errors.university ? (
             <div className="error-message">
               Заполните все поля, отмеченные красным
             </div>
