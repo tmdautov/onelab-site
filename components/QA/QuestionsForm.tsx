@@ -82,7 +82,7 @@ const QuestionsForm = () => {
                     .error-message {
                         color: ${theme.colors.red};
                         position: absolute;
-                        z-index: 100;
+                        z-index: 1;
                         transform: translateY(-120%);
                     }
 
@@ -99,7 +99,7 @@ const QuestionsForm = () => {
                     }
 
                     .question-message {
-                        transform: translateY(900%);
+                        position: relative;
                     }
                 `}
       </style>
@@ -142,6 +142,9 @@ const QuestionsForm = () => {
               <div className="error-message">Обязательно заполните эти поля</div>
           )}
         </div>
+        {Form.errors.question && Form.touched.question && (
+            <div className="error-message question-message">{Form.errors.question}</div>
+        )}
         <textarea
           name="question"
           placeholder="Ваш вопрос"
@@ -149,9 +152,6 @@ const QuestionsForm = () => {
           className={Form.errors.question ? "error-input" : null}
         />
         <button type="submit">Отправить</button>
-        {Form.errors.question && Form.errors.question && (
-            <div className="error-message question-message">{Form.errors.question}</div>
-        )}
       </form>
     </div>
   );
