@@ -4,8 +4,10 @@ import "../styles/reset.css";
 import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "react-toastify/dist/ReactToastify.css";
 
 import theme from "../styles/theme";
+import { ToastContainer } from "react-toastify";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -35,6 +37,7 @@ export default function App({ Component, pageProps }) {
           `}
         </style>
         <Component {...pageProps} />
+        <ToastContainer autoClose={2000} />
       </Layout>
     </React.StrictMode>
   );
