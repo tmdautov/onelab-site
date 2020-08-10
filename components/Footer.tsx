@@ -15,7 +15,7 @@ function Footer() {
         footer {
           width: 100%;
           background: ${theme.colors.black};
-          height: 104px;
+          height: 13.79vh;
           width: 100%;
           min-width: 100%;
           display: flex;
