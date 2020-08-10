@@ -50,15 +50,15 @@ const RequestForm = () => {
   const [hasErrors, setHasErrors] = useState(false);
 
   useEffect(() => {
-    const isOk = Form.errors.course ||
+    if (Form.errors.course ||
       Form.errors.direction ||
       Form.errors.email ||
       Form.errors.fathername ||
       Form.errors.name ||
       Form.errors.phone ||
       Form.errors.surname ||
-      Form.errors.university;
-    setHasErrors(isOk)
+      Form.errors.university)
+      setHasErrors(true);
   }, [Form.errors]);
 
   return (
