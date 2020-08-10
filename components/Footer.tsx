@@ -9,7 +9,7 @@ function Footer() {
       <style jsx>{`
         
         .footer-container {
-          padding: 9.55vh 0 0 0;
+          margin-top: 9.55vh;
         }
 
         footer {

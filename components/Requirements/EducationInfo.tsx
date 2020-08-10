@@ -27,47 +27,42 @@ const EducationInfo = () => {
                         font-size: 2.375rem;
                         text-align: center;
                     }
-
                     p {
                         margin: 3% 0 8% 40%;
                         font-size: 1.25rem;
                     }
-
                     .flex-holder {
+                        justify-content: center;
                         display: grid;
-                        grid-template-columns: 30% 30% 30%;
-                        column-gap: 6%;
+                        grid-template-columns: 23vw 23vw 23vw;
+                        grid-template-rows: 21.22vh;
+                        column-gap: 3.183vh;
+                        row-gap: 1.5625vw;
                     }
-
                     .content-holder h3 {
                         font-size: 0.9rem;
-                        padding: 10% 10% 15% 30%;
+                        text-align: center;
                     }
-
                     @media (max-width: 1024px) {
                         .flex-holder {
                             display: flex;    
                             flex-direction: column;
                         }
-
                         p {
                             margin: 10%auto;
                             text-align: center;
                         }
-
                         .content-holder {
                             text-align: center;
                             display: flex;
                             flex-direction: column;
                         }
                         
-
                         .content-holder h3 {
                             font-size: 0.9rem;
                             padding: 0;
                             margin-bottom: 20%;
                         }
-
                         .icon {
                             margin: 0;
                         }
@@ -79,19 +74,38 @@ const EducationInfo = () => {
                 <p>{lessons} уроков, из которых: </p>
                 <div className="flex-holder">
                     <div className="content-holder">
-                        <TheoryIcon className="icon" style={{ marginRight: size.width <= "1024" ? "0" : "10%", marginBottom: "3%", }} />
+                        <TheoryIcon className="icon"
+                            style={{
+                                margin: "3.183vh 0",
+                                textAlign: "center",
+                                padding: size.width <= "1024" ? "0" : "0 0 0 39%",
+                                color: "#D10001",
+                            }}
+                        />
                         <h3>
                             20% - Теория
                         </h3>
                     </div>
                     <div className="content-holder">
-                        <PracticeIcon className="icon" style={{ marginBottom: "3%", }} />
+                        <PracticeIcon className="icon"
+                            style={{
+                                margin: "3.183vh 0",
+                                padding: size.width <= "1024" ? "0" : "0 0 0 39%",
+                                color: "#D10001",
+                            }}
+                        />
                         <h3>
                             40% - Практика
                         </h3>
                     </div>
                     <div className="content-holder">
-                        <ProjectIcon className="icon" style={{marginLeft: size.width <= "1024" ? "0" : "20%", marginBottom: "3%",}}/>
+                        <ProjectIcon className="icon"
+                            style={{
+                                margin: "3.183vh 0",
+                                padding: size.width <= "1024" ? "0" : "0 0 0 39%",
+                                color: "#D10001",
+                            }}
+                        />
                         <h3>
                             40% - Проектная работа
                         </h3>

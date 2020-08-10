@@ -6,6 +6,7 @@ import {
   SettingOutlined,
   PoundOutlined,
   SmileOutlined,
+  TeamOutlined,
 } from "@ant-design/icons";
 import theme from "../styles/theme";
 
@@ -95,7 +96,7 @@ const Profits = () => {
       header: "Работа в команде",
       label: "one.kz",
       icon: (
-        <UserOutlined
+        <TeamOutlined
           style={{
             width: "2.6vw",
             height: "5.3vh",
