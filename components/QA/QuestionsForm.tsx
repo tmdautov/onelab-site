@@ -83,7 +83,7 @@ const QuestionsForm = () => {
                         color: ${theme.colors.red};
                         position: absolute;
                         z-index: 1;
-                        transform: translateY(-120%);
+                        transform: translateY(-130%);
                     }
 
                     .error-input {
