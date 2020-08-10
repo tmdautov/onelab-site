@@ -6,7 +6,6 @@ import Wrapper from "./Wrapper";
 import theme from "../styles/theme";
 import postRequest from "../services/requests.service";
 import Dropzone from "react-dropzone";
-import { toast } from "react-toastify";
 
 const RequestForm = () => {
   const [cv, setCv] = useState(null);
@@ -38,22 +37,30 @@ const RequestForm = () => {
         fd.append(key, values[key]);
       }
       fd.append("file", cv);
-      postRequest(fd)
-        .then(() => {
-          toast.success("Успешно отправлено!");
-          formRef.current.reset();
-          Form.resetForm();
-          setCv(null);
-        })
-        .catch((error) => toast.error(error.message));
+      postRequest(fd);
+      formRef.current.reset();
+      Form.resetForm();
     },
   });
   const [directions, setDirections] = useState([]);
   useEffect(() => {
-    getDirections()
-      .then((res) => setDirections(res))
-      .catch((error) => toast.error(error.message));
+    getDirections().then((res) => setDirections(res));
   }, []);
+
+  const [hasErrors, setHasErrors] = useState(false);
+
+  useEffect(() => {
+    const isOk = Form.errors.course ||
+      Form.errors.direction ||
+      Form.errors.email ||
+      Form.errors.fathername ||
+      Form.errors.name ||
+      Form.errors.phone ||
+      Form.errors.surname ||
+      Form.errors.university;
+    setHasErrors(isOk)
+  }, [Form.errors]);
+
   return (
     <Wrapper>
       <div className="request-form" id="request">
@@ -62,7 +69,6 @@ const RequestForm = () => {
             width: 50%;
 
             margin: 10% 0;
-            margin-bottom: 9.55vh;
             margin: auto;
           }
           .request-form h1,
@@ -210,10 +216,7 @@ const RequestForm = () => {
           <Dropzone onDrop={(acceptedFiles) => setCv(acceptedFiles[0])}>
             {({ getRootProps, getInputProps }) => (
               <section>
-                <div
-                  {...getRootProps()}
-                  className={"dropzone" + (!cv ? " error-input" : "")}
-                >
+                <div {...getRootProps()} className={"dropzone" + (hasErrors && !cv ? " error-input" : "")}>
                   <input {...getInputProps()} />
                   {cv ? (
                     <p>{cv.name}</p>
@@ -227,15 +230,7 @@ const RequestForm = () => {
               </section>
             )}
           </Dropzone>
-          {Form.errors.course ||
-          Form.errors.direction ||
-          Form.errors.email ||
-          Form.errors.fathername ||
-          Form.errors.name ||
-          Form.errors.phone ||
-          Form.errors.surname ||
-          Form.errors.university ||
-          !cv ? (
+          {hasErrors ? (
             <div className="error-message">
               Заполните все поля, отмеченные красным
             </div>
