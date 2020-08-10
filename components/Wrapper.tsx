@@ -5,7 +5,6 @@ function Wrapper({ children }) {
         .wrapper {
           width: 100%;
           padding: 0 15vw;
-          height: 100%;
 
           box-sizing: border-box;
         }

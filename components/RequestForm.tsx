@@ -54,6 +54,7 @@ const RequestForm = () => {
             width: 50%;
 
             margin: 10% 0;
+            margin-bottom: 9.55vh;
             margin: auto;
           }
           .request-form h1,
