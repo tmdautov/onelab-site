@@ -1,4 +1,4 @@
-const API_URL = "https://oneshop-back.herokuapp.com";
+const API_URL = 'https://oneshop-back.herokuapp.com';
 
 export default async function getBanners() {
   return fetch(`${API_URL}/media-images`).then(async (response) => {

@@ -1,7 +1,8 @@
-import Wrapper from "../components/Wrapper";
-import theme from "../styles/theme";
-import { RightCircleOutlined, LeftCircleOutlined } from "@ant-design/icons";
-import React from "react";
+import React from 'react';
+import { RightCircleOutlined, LeftCircleOutlined } from '@ant-design/icons';
+
+import Wrapper from '../components/Wrapper';
+import theme from '../styles/theme';
 
 export const sliderSetting = {
   dots: true,
@@ -72,12 +73,12 @@ export function directionSettings() {
   const directionSetting = {
     dots: false,
     infinite: false,
-    slidesToShow: size.width <= "1024" ? 1 : 3,
+    slidesToShow: size.width <= '1024' ? 1 : 3,
     slidesToScroll: 1,
     speed: 500,
     autoplay: false,
     arrows: true,
-    className: "directions-element",
+    className: 'directions-element',
     variableWidth: true,
     customPaging: (i) => (
       <div>
@@ -103,15 +104,13 @@ function SampleNextArrow(props) {
 
   const size = useWindowSize();
 
-  const i = size.width <= "1024" ? 1 : 3;
+  const i = size.width <= '1024' ? 1 : 3;
 
   const [disabled, setDisabled] = React.useState(false);
   const [isFocus, setIsFocus] = React.useState(false);
 
   React.useEffect(() => {
-    props.currentSlide === props.slideCount - i
-      ? setDisabled(true)
-      : setDisabled(false);
+    props.currentSlide === props.slideCount - i ? setDisabled(true) : setDisabled(false);
   }, [props.currentSlide]);
 
   return (
@@ -121,19 +120,16 @@ function SampleNextArrow(props) {
         onClick={onClick}
         style={{
           ...style,
-          width: "2.6vw",
-          height: "5.3vh",
-          fontSize: "36px",
-          left: size.width <= "1024" ? "53%" : "94.5%",
-          color: isFocus && !disabled ? "#d10001" : theme.colors.black,
-          position: "absolute",
-          transform:
-            size.width <= "1024"
-              ? "translate(20%, 0%)"
-              : "translate(20%, -150%)",
-          bottom: "101%",
-          transition: "opacity 0.5s ease, color 0.5s ease",
-          opacity: disabled ? "0.5" : "1",
+          width: '2.6vw',
+          height: '5.3vh',
+          fontSize: '36px',
+          left: size.width <= '1024' ? '53%' : '94.5%',
+          color: isFocus && !disabled ? '#d10001' : theme.colors.black,
+          position: 'absolute',
+          transform: size.width <= '1024' ? 'translate(20%, 0%)' : 'translate(20%, -150%)',
+          bottom: '101%',
+          transition: 'opacity 0.5s ease, color 0.5s ease',
+          opacity: disabled ? '0.5' : '1',
         }}
         onMouseOver={() => setIsFocus(true)}
         onMouseOut={() => setIsFocus(false)}
@@ -161,19 +157,16 @@ function SamplePrevArrow(props) {
         onClick={onClick}
         style={{
           ...style,
-          width: "2.6vw",
-          height: "5.3vh",
-          fontSize: "36px",
-          left: size.width <= "1024" ? "38%" : "89.5%",
-          color: isFocus && !disabled ? "#d10001" : theme.colors.black,
-          position: "absolute",
-          transform:
-            size.width <= "1024"
-              ? "translate(20%, 0%)"
-              : "translate(20%, -150%)",
-          bottom: "101%",
-          transition: "opacity 0.5s ease, color 0.5s ease",
-          opacity: disabled ? "0.5" : "1",
+          width: '2.6vw',
+          height: '5.3vh',
+          fontSize: '36px',
+          left: size.width <= '1024' ? '38%' : '89.5%',
+          color: isFocus && !disabled ? '#d10001' : theme.colors.black,
+          position: 'absolute',
+          transform: size.width <= '1024' ? 'translate(20%, 0%)' : 'translate(20%, -150%)',
+          bottom: '101%',
+          transition: 'opacity 0.5s ease, color 0.5s ease',
+          opacity: disabled ? '0.5' : '1',
         }}
         onMouseOver={() => setIsFocus(true)}
         onMouseOut={() => setIsFocus(false)}
@@ -196,10 +189,10 @@ export function useWindowSize() {
       });
     }
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
     handleResize();
 
-    return () => window.removeEventListener("resize", handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return windowSize;

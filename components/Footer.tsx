@@ -1,5 +1,6 @@
-import Wrapper from './Wrapper';
 import Link from 'next/link';
+
+import Wrapper from './Wrapper';
 import theme from '../styles/theme';
 import Social from './Social';
 

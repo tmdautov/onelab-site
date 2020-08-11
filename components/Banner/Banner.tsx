@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
+import { toast } from 'react-toastify';
+
 import { sliderSetting } from '../../services/sliderSetting';
 import getBanners from '../../services/banner.service';
 import BannerContainer from './BannerContainer';
-import { toast } from 'react-toastify';
 
 function Banner() {
   const [banners, setBanners] = useState([]);

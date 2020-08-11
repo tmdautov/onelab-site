@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from "react";
-import DirectionsTape from "./DirectionsTape";
-import getDirections from "../../services/directions.service";
-import { toast } from "react-toastify";
+import React, { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
+
+import DirectionsTape from './DirectionsTape';
+import getDirections from '../../services/directions.service';
 
 const DirectionsContainer = () => {
   const [directions, setDirections] = useState([]);
   useEffect(() => {
     async function fetchDirections() {
-      setDirections(
-        await getDirections().catch((error) => toast.error(error.message))
-      );
+      setDirections(await getDirections().catch((error) => toast.error(error.message)));
     }
     fetchDirections();
   }, []);

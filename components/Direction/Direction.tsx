@@ -1,6 +1,7 @@
 import React from 'react';
-import Wrapper from '../Wrapper';
+
 import DirectionPanel from './DirectionPanel';
+import Wrapper from '../Wrapper';
 
 function Direction({ direction }) {
   return (

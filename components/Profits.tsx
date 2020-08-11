@@ -8,6 +8,7 @@ import {
   SmileOutlined,
   TeamOutlined,
 } from '@ant-design/icons';
+
 import theme from '../styles/theme';
 
 const Profits = () => {

@@ -1,4 +1,4 @@
-const API_URL = "https://oneshop-back.herokuapp.com";
+const API_URL = 'https://oneshop-back.herokuapp.com';
 export async function getQuestions() {
   return fetch(`${API_URL}/qa/`).then(async (response) => {
     if (response.ok) {
@@ -12,9 +12,9 @@ export async function getQuestions() {
 
 export default async function postQuestion(fd) {
   return fetch(`${API_URL}/qa/`, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-type": "application/json",
+      'Content-type': 'application/json',
     },
     body: fd,
   }).then(async (response) => {

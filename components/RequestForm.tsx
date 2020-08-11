@@ -1,12 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
-import getDirections from '../services/directions.service';
-import Wrapper from './Wrapper';
-import theme from '../styles/theme';
-import postRequest from '../services/requests.service';
 import Dropzone from 'react-dropzone';
 import { toast } from 'react-toastify';
+
+import Wrapper from './Wrapper';
+import theme from '../styles/theme';
+import getDirections from '../services/directions.service';
+import postRequest from '../services/requests.service';
 
 const RequestForm = () => {
   const [cv, setCv] = useState(null);
@@ -40,17 +41,18 @@ const RequestForm = () => {
       }
       fd.append('file', cv);
       setLoading(true);
-      setTimeout(() => {
-        postRequest(fd)
-          .then(() => {
-            toast.success('Успешно отправлено!');
-            setLoading(false);
-            formRef.current.reset();
-            Form.resetForm();
-            setCv(null);
-          })
-          .catch((error) => toast.error(error.message));
-      }, 3000);
+      postRequest(fd)
+        .then(() => {
+          toast.success('Успешно отправлено!');
+          formRef.current.reset();
+          Form.resetForm();
+          setCv(null);
+          setLoading(false);
+        })
+        .catch((error) => {
+          toast.error(error.message);
+          setLoading(false);
+        });
     },
   });
   const [directions, setDirections] = useState([]);
