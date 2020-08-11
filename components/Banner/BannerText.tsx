@@ -17,7 +17,7 @@ function BannerText({ title, description }) {
 
             color: ${theme.colors.black};
             box-sizing: border-box;
-            padding-bottom: 3.125rem; //FIXME: rem to vh
+            padding-bottom: 3.125rem;
           }
           h1 {
             font-weight: bold;

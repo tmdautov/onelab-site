@@ -7,7 +7,6 @@ function Footer() {
   return (
     <div className="footer-container">
       <style jsx>{`
-        
         .footer-container {
           margin-top: 9.55vh;
         }
@@ -41,7 +40,7 @@ function Footer() {
         li a {
           color: ${theme.colors.white};
           text-decoration: none;
-          font-size: 0.938vw; //FIXME: Fix fs vw
+          font-size: 0.85em;
           line-height: 150%;
           text-transform: uppercase;
         }
@@ -52,7 +51,6 @@ function Footer() {
         }
 
         @media (max-width: 1024px) {
-
           ul {
             display: none;
           }

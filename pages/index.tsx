@@ -19,8 +19,6 @@ export default function Home() {
       <EducationInfo />
       <QA />
       <RequestForm />
-      {/* FIXME: Fix Profits and DirectionsContainer overflow by x*/}
-      {/*TODO: link buttons, description page, form*/}
       {/*FIXME: Fix font-size inside directions*/}
     </>
   );

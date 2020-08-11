@@ -13,7 +13,7 @@ function BannerContainer({ banner }) {
           background-size: cover;
           box-sizing: border-box;
           cursor: pointer;
-          padding-top: 3rem; //FIXME: rem to vh
+          padding-top: 3rem;
         }
         
         .banner_flex {
