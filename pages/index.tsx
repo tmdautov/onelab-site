@@ -6,11 +6,15 @@ import QA from '../components/QA/QA';
 import AcceptingOrder from '../components/Requirements/AcceptingOrder';
 import Requirements from '../components/Requirements/Requirements';
 import EducationInfo from '../components/Requirements/EducationInfo';
+import Head from 'next/head';
 
 export default function Home() {
   return (
     <>
       <style jsx global>{``}</style>
+      <Head>
+        <title>ONE Lab</title>
+      </Head>
       <Banner />
       <Profits />
       <DirectionsContainer />

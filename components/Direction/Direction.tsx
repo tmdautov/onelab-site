@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 
 import DirectionPanel from './DirectionPanel';
 import Wrapper from '../Wrapper';
@@ -30,6 +31,9 @@ function Direction({ direction }) {
           }
         `}
       </style>
+      <Head>
+        <title>Направление - {direction.title}</title>
+      </Head>
       <Wrapper>
         <div className="direction-container">
           <h1>{direction.title}</h1>
