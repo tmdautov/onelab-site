@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useFormik } from 'formik';
 import { toast } from 'react-toastify';
 
@@ -7,6 +7,7 @@ import ValidationSchema from './ValidationSchema';
 import postQuestion from '../../services/qa.service';
 
 const QuestionsForm = () => {
+  const [loading, setLoading] = useState(false);
   const formRef = useRef(null);
   const Form = useFormik({
     initialValues: {
@@ -17,13 +18,18 @@ const QuestionsForm = () => {
     },
     validationSchema: ValidationSchema,
     onSubmit: (values) => {
+      setLoading(true);
       postQuestion(JSON.stringify(values))
         .then(() => {
           toast.success('Отправлено!');
+          setLoading(false);
           formRef.current.reset();
           Form.resetForm();
         })
-        .catch((error) => toast.error(error.message));
+        .catch((error) => {
+          setLoading(false);
+          toast.error(error.message)
+        });
     },
   });
   return (

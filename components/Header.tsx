@@ -139,7 +139,7 @@ function Header() {
           }
 
           ul li {
-            padding: 15%;
+            padding: 10% 15%;
           }
           .header-button {
             display: none;
