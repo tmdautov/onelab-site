@@ -1,30 +1,30 @@
-import React, { useEffect, useState, useRef } from "react";
-import * as Yup from "yup";
-import { useFormik } from "formik";
-import getDirections from "../services/directions.service";
-import Wrapper from "./Wrapper";
-import theme from "../styles/theme";
-import postRequest from "../services/requests.service";
-import Dropzone from "react-dropzone";
+import React, { useEffect, useState, useRef } from 'react';
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
+import getDirections from '../services/directions.service';
+import Wrapper from './Wrapper';
+import theme from '../styles/theme';
+import postRequest from '../services/requests.service';
+import Dropzone from 'react-dropzone';
 
 const RequestForm = () => {
   const [cv, setCv] = useState(null);
   let formRef = useRef(null);
   const Form = useFormik({
     initialValues: {
-      name: "",
-      surname: "",
-      fathername: "",
-      phone: "",
-      email: "",
-      direction: "",
-      university: "",
-      course: "",
+      name: '',
+      surname: '',
+      fathername: '',
+      phone: '',
+      email: '',
+      direction: '',
+      university: '',
+      course: '',
     },
     validationSchema: Yup.object().shape({
-      name: Yup.string().max(24, "Too Long!").required("Required"),
-      surname: Yup.string().max(24, "Too Long!").required("Required"),
-      fathername: Yup.string().max(24, "Too Long!"),
+      name: Yup.string().max(24, 'Too Long!').required('Required'),
+      surname: Yup.string().max(24, 'Too Long!').required('Required'),
+      fathername: Yup.string().max(24, 'Too Long!'),
       phone: Yup.string().max(20).required(),
       email: Yup.string().email().required(),
       direction: Yup.string().required(),
@@ -36,7 +36,7 @@ const RequestForm = () => {
       for (let key in values) {
         fd.append(key, values[key]);
       }
-      fd.append("file", cv);
+      fd.append('file', cv);
       postRequest(fd);
       formRef.current.reset();
       Form.resetForm();
@@ -50,14 +50,16 @@ const RequestForm = () => {
   const [hasErrors, setHasErrors] = useState(false);
 
   useEffect(() => {
-    if (Form.errors.course ||
+    if (
+      Form.errors.course ||
       Form.errors.direction ||
       Form.errors.email ||
       Form.errors.fathername ||
       Form.errors.name ||
       Form.errors.phone ||
       Form.errors.surname ||
-      Form.errors.university)
+      Form.errors.university
+    )
       setHasErrors(true);
   }, [Form.errors]);
 
@@ -152,43 +154,37 @@ const RequestForm = () => {
             type="text"
             placeholder="Ваше имя"
             onChange={Form.handleChange}
-            className={Form.errors.name ? "error-input" : null}
+            className={Form.errors.name ? 'error-input' : null}
           />
           <input
             name="surname"
             type="text"
             placeholder="Ваша фамилия"
             onChange={Form.handleChange}
-            className={Form.errors.surname ? "error-input" : null}
+            className={Form.errors.surname ? 'error-input' : null}
           />
-          <input
-            name="fathername"
-            type="text"
-            placeholder="Ваше отчество"
-            onChange={Form.handleChange}
-          />
+          <input name="fathername" type="text" placeholder="Ваше отчество" onChange={Form.handleChange} />
           <div className="phone-email-inputs">
             <input
               name="phone"
               type="text"
               placeholder="Ваш телефон"
               onChange={Form.handleChange}
-              className={Form.errors.phone ? "error-input" : null}
+              className={Form.errors.phone ? 'error-input' : null}
             />
             <input
               name="email"
               type="email"
               placeholder="Ваша почта"
               onChange={Form.handleChange}
-              className={Form.errors.email ? "error-input" : null}
+              className={Form.errors.email ? 'error-input' : null}
             />
           </div>
           <select
             name="direction"
             placeholder="Выберите направление"
             onChange={Form.handleChange}
-            className={Form.errors.direction ? "error-input" : null}
-          >
+            className={Form.errors.direction ? 'error-input' : null}>
             <option>Выберите направление</option>
             {directions.map((direction) => (
               <option key={direction.id}>{direction.title}</option>
@@ -199,14 +195,13 @@ const RequestForm = () => {
             type="text"
             placeholder="Ваш университет"
             onChange={Form.handleChange}
-            className={Form.errors.university ? "error-input" : null}
+            className={Form.errors.university ? 'error-input' : null}
           />
           <select
             name="course"
             placeholder="Выберите курс обучения"
             onChange={Form.handleChange}
-            className={Form.errors.course ? "error-input" : null}
-          >
+            className={Form.errors.course ? 'error-input' : null}>
             <option>На каком крусе вы учитесь</option>
             <option>1</option>
             <option>2</option>
@@ -216,7 +211,7 @@ const RequestForm = () => {
           <Dropzone onDrop={(acceptedFiles) => setCv(acceptedFiles[0])}>
             {({ getRootProps, getInputProps }) => (
               <section>
-                <div {...getRootProps()} className={"dropzone" + (hasErrors && !cv ? " error-input" : "")}>
+                <div {...getRootProps()} className={'dropzone' + (hasErrors && !cv ? ' error-input' : '')}>
                   <input {...getInputProps()} />
                   {cv ? (
                     <p>{cv.name}</p>
@@ -230,13 +225,7 @@ const RequestForm = () => {
               </section>
             )}
           </Dropzone>
-          {hasErrors ? (
-            <div className="error-message">
-              Заполните все поля, отмеченные красным
-            </div>
-          ) : (
-            <div></div>
-          )}
+          {hasErrors ? <div className="error-message">Заполните все поля, отмеченные красным</div> : <div></div>}
           <button type="submit">Отправить</button>
         </form>
       </div>

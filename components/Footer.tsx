@@ -1,13 +1,12 @@
-import Wrapper from "./Wrapper";
-import Link from "next/link";
-import theme from "../styles/theme";
-import Social from "./Social";
+import Wrapper from './Wrapper';
+import Link from 'next/link';
+import theme from '../styles/theme';
+import Social from './Social';
 
 function Footer() {
   return (
     <div className="footer-container">
       <style jsx>{`
-        
         .footer-container {
           margin-top: 9.55vh;
         }
@@ -52,7 +51,6 @@ function Footer() {
         }
 
         @media (max-width: 1024px) {
-
           ul {
             display: none;
           }

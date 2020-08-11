@@ -1,6 +1,6 @@
-import Wrapper from "../Wrapper";
-import BannerText from "./BannerText";
-import Link from "next/link";
+import Wrapper from '../Wrapper';
+import BannerText from './BannerText';
+import Link from 'next/link';
 
 function BannerContainer({ banner }) {
   return (
@@ -15,7 +15,7 @@ function BannerContainer({ banner }) {
           cursor: pointer;
           padding-top: 3rem; //FIXME: rem to vh
         }
-        
+
         .banner_flex {
           height: 100%;
           width: 100%;
@@ -26,10 +26,7 @@ function BannerContainer({ banner }) {
         <Wrapper>
           <div className="banner_flex">
             <Link href={banner.url}>
-              <BannerText
-                title={banner.title}
-                description={banner.description}
-              />
+              <BannerText title={banner.title} description={banner.description} />
             </Link>
           </div>
         </Wrapper>

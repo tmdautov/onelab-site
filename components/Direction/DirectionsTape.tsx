@@ -1,12 +1,11 @@
-import React from "react";
-import Slider from "react-slick";
-import { directionSettings, useWindowSize } from "../../services/sliderSetting";
-import DirectionCard from "./DirectionCard";
-import Wrapper from "../Wrapper";
-import theme from "../../styles/theme";
+import React from 'react';
+import Slider from 'react-slick';
+import { directionSettings, useWindowSize } from '../../services/sliderSetting';
+import DirectionCard from './DirectionCard';
+import Wrapper from '../Wrapper';
+import theme from '../../styles/theme';
 
 function DirectionsTape({ directions }) {
-
   const settings = directionSettings();
   const size = useWindowSize();
 
@@ -38,13 +37,8 @@ function DirectionsTape({ directions }) {
             return (
               <div
                 style={{
-                  width:
-                    size.width <= "1024" ? 
-                    "80vw"
-                    :
-                    "20%" /*FIXME: Add better solution to improve responsiveness*/,
-                }}
-              >
+                  width: size.width <= '1024' ? '80vw' : '20%' /*FIXME: Add better solution to improve responsiveness*/,
+                }}>
                 <DirectionCard direction={direction} />
               </div>
             );

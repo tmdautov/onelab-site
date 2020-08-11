@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from "react";
-import Slider from "react-slick";
-import { sliderSetting } from "../../services/sliderSetting";
-import getBanners from "../../services/banner.service";
-import BannerContainer from "./BannerContainer";
-import { toast } from "react-toastify";
+import React, { useEffect, useState } from 'react';
+import Slider from 'react-slick';
+import { sliderSetting } from '../../services/sliderSetting';
+import getBanners from '../../services/banner.service';
+import BannerContainer from './BannerContainer';
+import { toast } from 'react-toastify';
 
 function Banner() {
   const [banners, setBanners] = useState([]);
   useEffect(() => {
     async function fetchBanners() {
-      setBanners(
-        await getBanners().catch((error) => toast.error(error.message))
-      );
+      setBanners(await getBanners().catch((error) => toast.error(error.message)));
     }
     fetchBanners();
   }, []);

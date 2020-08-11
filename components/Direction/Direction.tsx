@@ -1,6 +1,6 @@
-import React from "react";
-import Wrapper from "../Wrapper";
-import DirectionPanel from "./DirectionPanel";
+import React from 'react';
+import Wrapper from '../Wrapper';
+import DirectionPanel from './DirectionPanel';
 
 function Direction({ direction }) {
   return (
