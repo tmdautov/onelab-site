@@ -1,17 +1,15 @@
-import QuestionAnswer from "./QuestionAnswer";
-import theme from "../../styles/theme";
-import { getQuestions } from "../../services/qa.service";
-import { useState, useEffect } from "react";
-import { toast } from "react-toastify";
+import QuestionAnswer from './QuestionAnswer';
+import theme from '../../styles/theme';
+import { getQuestions } from '../../services/qa.service';
+import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 const QuestionsContainer = () => {
   const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
     async function fetchQuestions() {
-      setQuestions(
-        await getQuestions().catch((error) => toast.error(error.message))
-      );
+      setQuestions(await getQuestions().catch((error) => toast.error(error.message)));
     }
     fetchQuestions();
   }, []);
@@ -62,14 +60,12 @@ const QuestionsContainer = () => {
         `}
       </style>
       <div className="questions-container">
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ marginBottom: "2.75vw" }}>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <div style={{ marginBottom: '2.75vw' }}>
             {questions
               .filter((qa) => qa.important)
               .map((qa) => {
-                return (
-                  <QuestionAnswer question={qa.question} answer={qa.answer} />
-                );
+                return <QuestionAnswer question={qa.question} answer={qa.answer} />;
               })}
           </div>
           <button type="button">Смотреть все</button>

@@ -1,10 +1,10 @@
-import Link from "next/link";
-import LabLogo from "../public/assets/svg/logo";
-import theme from "../styles/theme";
-import Wrapper from "./Wrapper";
-import { MenuOutlined } from "@ant-design/icons";
-import React from "react";
-import { useWindowSize } from "../services/sliderSetting";
+import Link from 'next/link';
+import LabLogo from '../public/assets/svg/logo';
+import theme from '../styles/theme';
+import Wrapper from './Wrapper';
+import { MenuOutlined } from '@ant-design/icons';
+import React from 'react';
+import { useWindowSize } from '../services/sliderSetting';
 
 function Header() {
   const [hidden, setHidden] = React.useState(true);
@@ -160,7 +160,7 @@ function Header() {
                 </a>
               </Link>
             </div>
-            <ul className={hidden && size.width <= "1024" ? "hidden" : null}>
+            <ul className={hidden && size.width <= '1024' ? 'hidden' : null}>
               <li>
                 <Link href="/#directions">
                   <a onClick={() => setHidden(true)}>Направления</a>
@@ -195,8 +195,8 @@ function Header() {
               <MenuOutlined
                 style={{
                   color: theme.colors.white,
-                  fontSize: "234%",
-                  cursor: "pointer",
+                  fontSize: '234%',
+                  cursor: 'pointer',
                 }}
                 onClick={() => setHidden(!hidden)}
               />

@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import Wrapper from "../Wrapper";
-import theme from "../../styles/theme";
-import Link from "next/link";
+import { useState, useEffect } from 'react';
+import Wrapper from '../Wrapper';
+import theme from '../../styles/theme';
+import Link from 'next/link';
 
 const Requirements = () => {
   const [requirements, setRequirements] = useState([]);
@@ -9,23 +9,21 @@ const Requirements = () => {
   useEffect(() => {
     const reqs = [
       {
-        title: "Образование",
-        description:
-          "Выпускники 3-4 курсов бакалавриата, а также магистранты IT-вузов",
+        title: 'Образование',
+        description: 'Выпускники 3-4 курсов бакалавриата, а также магистранты IT-вузов',
       },
       {
-        title: "Знания",
-        description:
-          "Базовые знания своего направления, понимание ООП, алгоритм, структуры данных",
+        title: 'Знания',
+        description: 'Базовые знания своего направления, понимание ООП, алгоритм, структуры данных',
       },
       {
-        title: "Мотивация",
+        title: 'Мотивация',
         description:
-          "Есть огромное желание развиваться в IT-сфере, работать в команде, инициативность, дисциплина, самоотдача и саморазвитие",
+          'Есть огромное желание развиваться в IT-сфере, работать в команде, инициативность, дисциплина, самоотдача и саморазвитие',
       },
       {
-        title: "Небольшой опыт",
-        description: "Портфолио на GitHub - будет преимуществом",
+        title: 'Небольшой опыт',
+        description: 'Портфолио на GitHub - будет преимуществом',
       },
     ];
 

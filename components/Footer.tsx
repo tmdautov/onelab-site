@@ -1,7 +1,7 @@
-import Wrapper from "./Wrapper";
-import Link from "next/link";
-import theme from "../styles/theme";
-import Social from "./Social";
+import Wrapper from './Wrapper';
+import Link from 'next/link';
+import theme from '../styles/theme';
+import Social from './Social';
 
 function Footer() {
   return (
