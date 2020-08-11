@@ -40,7 +40,7 @@ function Footer() {
         li a {
           color: ${theme.colors.white};
           text-decoration: none;
-          font-size: 0.938vw; //FIXME: Fix fs vw
+          font-size: 0.85em;
           line-height: 150%;
           text-transform: uppercase;
         }

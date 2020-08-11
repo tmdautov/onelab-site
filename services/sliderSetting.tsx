@@ -46,7 +46,7 @@ export const sliderSetting = {
           width: 32px;
           height: 32px;
 
-          margin-right: 1rem; //FIXME: px to rem
+          margin-right: 1rem;
           cursor: pointer;
 
           box-sizing: border-box;
@@ -67,7 +67,6 @@ export const sliderSetting = {
 };
 
 export function directionSettings() {
-
   const size = useWindowSize();
 
   const directionSetting = {
@@ -93,9 +92,9 @@ export function directionSettings() {
     ),
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
-  }
+  };
   return {
-    ...directionSetting
+    ...directionSetting,
   };
 }
 
@@ -103,29 +102,42 @@ function SampleNextArrow(props) {
   const { style, onClick } = props;
 
   const size = useWindowSize();
-  
+
   const i = size.width <= "1024" ? 1 : 3;
 
   const [disabled, setDisabled] = React.useState(false);
   const [isFocus, setIsFocus] = React.useState(false);
 
   React.useEffect(() => {
-    props.currentSlide === props.slideCount - i ? setDisabled(true) : setDisabled(false);
+    props.currentSlide === props.slideCount - i
+      ? setDisabled(true)
+      : setDisabled(false);
   }, [props.currentSlide]);
 
   return (
     <>
-    <RightCircleOutlined 
-      className="custom-next-button"
-      onClick={onClick}
-      style={{
-        ...style, width: "2.6vw", height: "5.3vh", fontSize: "36px", left: size.width <= "1024" ? "53%" : "94.5%", color: (isFocus && !disabled) ? "#d10001" : theme.colors.black,
-        position: "absolute", transform: size.width <= "1024" ? "translate(20%, 0%)" : "translate(20%, -150%)", bottom: "101%", transition: "opacity 0.5s ease, color 0.5s ease",
-        opacity: disabled ? "0.5" : "1",
-      }}
-      onMouseOver={() => setIsFocus(true)}
-      onMouseOut={() => setIsFocus(false)}
-    />
+      <RightCircleOutlined
+        className="custom-next-button"
+        onClick={onClick}
+        style={{
+          ...style,
+          width: "2.6vw",
+          height: "5.3vh",
+          fontSize: "36px",
+          left: size.width <= "1024" ? "53%" : "94.5%",
+          color: isFocus && !disabled ? "#d10001" : theme.colors.black,
+          position: "absolute",
+          transform:
+            size.width <= "1024"
+              ? "translate(20%, 0%)"
+              : "translate(20%, -150%)",
+          bottom: "101%",
+          transition: "opacity 0.5s ease, color 0.5s ease",
+          opacity: disabled ? "0.5" : "1",
+        }}
+        onMouseOver={() => setIsFocus(true)}
+        onMouseOut={() => setIsFocus(false)}
+      />
     </>
   );
 }
@@ -143,17 +155,24 @@ function SamplePrevArrow(props) {
   }, [props.currentSlide]);
   return (
     <>
-      <style jsx>
-        {`
-
-        `}
-      </style>
-      <LeftCircleOutlined 
+      <style jsx>{``}</style>
+      <LeftCircleOutlined
         className="custom-next-button"
         onClick={onClick}
         style={{
-          ...style, width: "2.6vw", height: "5.3vh", fontSize: "36px", left: size.width <= "1024" ? "38%" : "89.5%", color: (isFocus && !disabled) ? "#d10001" : theme.colors.black,
-          position: "absolute", transform: size.width <= "1024" ? "translate(20%, 0%)" : "translate(20%, -150%)", bottom: "101%", transition: "opacity 0.5s ease, color 0.5s ease",
+          ...style,
+          width: "2.6vw",
+          height: "5.3vh",
+          fontSize: "36px",
+          left: size.width <= "1024" ? "38%" : "89.5%",
+          color: isFocus && !disabled ? "#d10001" : theme.colors.black,
+          position: "absolute",
+          transform:
+            size.width <= "1024"
+              ? "translate(20%, 0%)"
+              : "translate(20%, -150%)",
+          bottom: "101%",
+          transition: "opacity 0.5s ease, color 0.5s ease",
           opacity: disabled ? "0.5" : "1",
         }}
         onMouseOver={() => setIsFocus(true)}
@@ -176,7 +195,7 @@ export function useWindowSize() {
         width: window.innerWidth,
       });
     }
-    
+
     window.addEventListener("resize", handleResize);
     handleResize();
 
