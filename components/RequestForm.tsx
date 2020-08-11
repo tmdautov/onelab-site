@@ -1,12 +1,12 @@
-import React, { useEffect, useState, useRef } from "react";
-import * as Yup from "yup";
-import { useFormik } from "formik";
-import getDirections from "../services/directions.service";
-import Wrapper from "./Wrapper";
-import theme from "../styles/theme";
-import postRequest from "../services/requests.service";
-import Dropzone from "react-dropzone";
-import { toast } from "react-toastify";
+import React, { useEffect, useState, useRef } from 'react';
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
+import getDirections from '../services/directions.service';
+import Wrapper from './Wrapper';
+import theme from '../styles/theme';
+import postRequest from '../services/requests.service';
+import Dropzone from 'react-dropzone';
+import { toast } from 'react-toastify';
 
 const RequestForm = () => {
   const [cv, setCv] = useState(null);
@@ -38,18 +38,19 @@ const RequestForm = () => {
       for (let key in values) {
         fd.append(key, values[key]);
       }
-      fd.append("file", cv);
+      fd.append('file', cv);
       setLoading(true);
-      setTimeout(() => { postRequest(fd)
-        .then(() => {
-          toast.success("Успешно отправлено!");
-          formRef.current.reset();
-          Form.resetForm();
-          setCv(null);
-        })
-        .catch((error) => toast.error(error.message))
+      setTimeout(() => {
+        postRequest(fd)
+          .then(() => {
+            toast.success('Успешно отправлено!');
+            setLoading(false);
+            formRef.current.reset();
+            Form.resetForm();
+            setCv(null);
+          })
+          .catch((error) => toast.error(error.message));
       }, 3000);
-      setLoading(false);
     },
   });
   const [directions, setDirections] = useState([]);
@@ -73,8 +74,7 @@ const RequestForm = () => {
       Form.errors.university
     )
       setHasErrors(true);
-    else
-      setHasErrors(false);
+    else setHasErrors(false);
   }, [Form.errors]);
 
   return (
@@ -131,7 +131,6 @@ const RequestForm = () => {
           .phone-email-inputs input {
             width: 40%;
           }
-
           .error-message {
             color: ${theme.colors.red};
             margin: 2% auto;
@@ -152,6 +151,13 @@ const RequestForm = () => {
             padding: 7%;
             margin-top: 4%;
             cursor: pointer;
+          }
+
+          .request-form button:disabled,
+          button[disabled]{
+            border: 1px solid #999999;
+            background-color: #cccccc;
+            color: #666666;
           }
 
           @media (max-width: 1024px) {
@@ -225,12 +231,7 @@ const RequestForm = () => {
           <Dropzone onDrop={(acceptedFiles) => setCv(acceptedFiles[0])}>
             {({ getRootProps, getInputProps }) => (
               <section>
-                <div
-                  {...getRootProps()}
-                  className={
-                    "dropzone" + (hasErrors && !cv ? " error-input" : "")
-                  }
-                >
+                <div {...getRootProps()} className={'dropzone' + (hasErrors && !cv ? ' error-input' : '')}>
                   <input {...getInputProps()} />
                   {cv ? (
                     <p>{cv.name}</p>
@@ -245,7 +246,13 @@ const RequestForm = () => {
             )}
           </Dropzone>
           {hasErrors ? <div className="error-message">Заполните все поля, отмеченные красным</div> : <div></div>}
-          <button disabled={loading} type="submit">Отправить</button>
+          {loading ? (
+            <button disabled type="submit">
+              Отправить
+            </button>
+          ) : (
+            <button type="submit">Отправить</button>
+          )}
         </form>
       </div>
     </Wrapper>
