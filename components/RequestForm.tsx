@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 
 const RequestForm = () => {
   const [cv, setCv] = useState(null);
+  const [loading, setLoading] = useState(false);
   let formRef = useRef(null);
   const Form = useFormik({
     initialValues: {
@@ -38,14 +39,17 @@ const RequestForm = () => {
         fd.append(key, values[key]);
       }
       fd.append("file", cv);
-      postRequest(fd)
+      setLoading(true);
+      setTimeout(() => { postRequest(fd)
         .then(() => {
           toast.success("Успешно отправлено!");
           formRef.current.reset();
           Form.resetForm();
           setCv(null);
         })
-        .catch((error) => toast.error(error.message));
+        .catch((error) => toast.error(error.message))
+      }, 3000);
+      setLoading(false);
     },
   });
   const [directions, setDirections] = useState([]);
@@ -69,6 +73,8 @@ const RequestForm = () => {
       Form.errors.university
     )
       setHasErrors(true);
+    else
+      setHasErrors(false);
   }, [Form.errors]);
 
   return (
@@ -239,7 +245,7 @@ const RequestForm = () => {
             )}
           </Dropzone>
           {hasErrors ? <div className="error-message">Заполните все поля, отмеченные красным</div> : <div></div>}
-          <button type="submit">Отправить</button>
+          <button disabled={loading} type="submit">Отправить</button>
         </form>
       </div>
     </Wrapper>
