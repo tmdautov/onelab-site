@@ -1,4 +1,4 @@
-const API_URL = "https://oneshop-back.herokuapp.com";
+const API_URL = 'https://oneshop-back.herokuapp.com';
 
 export async function getDirection(id) {
   return fetch(`${API_URL}/directions/${id}`).then(async (response) => {

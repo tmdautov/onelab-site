@@ -1,13 +1,13 @@
-import Link from "next/link";
-import LabLogo from "../public/assets/svg/logo";
-import theme from "../styles/theme";
-import Wrapper from "./Wrapper";
-import { MenuOutlined } from "@ant-design/icons";
-import React from "react";
-import { useWindowSize } from "../services/sliderSetting";
+import { MenuOutlined } from '@ant-design/icons';
+import React from 'react';
+import Link from 'next/link';
+
+import LabLogo from '../public/assets/svg/logo';
+import theme from '../styles/theme';
+import Wrapper from './Wrapper';
+import { useWindowSize } from '../services/sliderSetting';
 
 function Header() {
-
   const [hidden, setHidden] = React.useState(true);
   const size = useWindowSize();
 
@@ -102,12 +102,12 @@ function Header() {
         }
 
         @media (max-width: 1024px) {
-
           header {
             position: fixed;
             z-index: 100;
+            height: 10vh;
           }
-          
+
           .border {
             height: 1px;
             width: 100%;
@@ -116,28 +116,30 @@ function Header() {
 
           ul {
             flex-direction: column;
-            top: 12.6vh;
+            top: 10vh;
             right: 0;
-            width: 100%!important;
+            width: 100% !important;
             position: absolute;
-            transition: max-height 0.5s ease;
+            transition: max-height 0.5s ease-out;
             background: ${theme.colors.black};
           }
 
           .li-btn {
             display: block;
             position: relative;
-            bottom: 50px;
+            bottom: 5%;
           }
 
           .li-btn button {
-            width: 100%!important;
+            width: 100% !important;
           }
 
-          .adaptive { display: block; }
+          .adaptive {
+            display: block;
+          }
 
           ul li {
-            padding: 15%;
+            padding: 10% 15%;
           }
           .header-button {
             display: none;
@@ -159,36 +161,44 @@ function Header() {
                 </a>
               </Link>
             </div>
-            <ul className={hidden && size.width <= "1024" ? "hidden" : null }>
+            <ul className={hidden && size.width <= '1024' ? 'hidden' : null}>
               <li>
-                <Link href="/">
+                <Link href="/#directions">
                   <a onClick={() => setHidden(true)}>Направления</a>
                 </Link>
               </li>
               <em className="border" />
               <li>
-                <Link href="/contacts">
+                <Link href="/#order">
                   <a onClick={() => setHidden(true)}>Порядок приема</a>
                 </Link>
               </li>
               <em className="border" />
 
               <li>
-                <Link href="/faq">
+                <Link href="/#education">
                   <a onClick={() => setHidden(true)}>Как проходит обучение</a>
                 </Link>
               </li>
               <em className="border adaptive" />
               <li className="li-btn">
-                <button>Я хочу обучаться!</button>
+                <Link href="/#request">
+                  <button onClick={() => setHidden(true)}>Подать заявку</button>
+                </Link>
               </li>
             </ul>
             <div className="header-button">
-              <button>Я хочу обучаться!</button>
+              <Link href="/#request">
+                <button>Подать заявку</button>
+              </Link>
             </div>
             <div className="menu-holder">
-              <MenuOutlined 
-                style={{ color: theme.colors.white, fontSize: "234%", cursor: "pointer" }}
+              <MenuOutlined
+                style={{
+                  color: theme.colors.white,
+                  fontSize: '234%',
+                  cursor: 'pointer',
+                }}
                 onClick={() => setHidden(!hidden)}
               />
             </div>

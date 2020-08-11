@@ -1,16 +1,21 @@
-import Wrapper from "./Wrapper";
-import Link from "next/link";
-import theme from "../styles/theme";
-import Social from "./Social";
+import Link from 'next/link';
+
+import Wrapper from './Wrapper';
+import theme from '../styles/theme';
+import Social from './Social';
 
 function Footer() {
   return (
-    <>
+    <div className="footer-container">
       <style jsx>{`
+        .footer-container {
+          margin-top: 9.55vh;
+        }
+
         footer {
           width: 100%;
           background: ${theme.colors.black};
-          height: 104px;
+          height: 13.79vh;
           width: 100%;
           min-width: 100%;
           display: flex;
@@ -36,7 +41,7 @@ function Footer() {
         li a {
           color: ${theme.colors.white};
           text-decoration: none;
-          font-size: 0.938vw; //FIXME: Fix fs vw
+          font-size: 0.85em;
           line-height: 150%;
           text-transform: uppercase;
         }
@@ -44,6 +49,12 @@ function Footer() {
           width: 1px;
           height: 3.45vh;
           background: ${theme.colors.white};
+        }
+
+        @media (max-width: 1024px) {
+          ul {
+            display: none;
+          }
         }
       `}</style>
       <footer>
@@ -54,19 +65,19 @@ function Footer() {
             </div>
             <ul>
               <li>
-                <Link href="/">
+                <Link href="/#directions">
                   <a>Направления</a>
                 </Link>
               </li>
               <em className="border"></em>
               <li>
-                <Link href="/contacts">
+                <Link href="/#order">
                   <a>Порядок приема</a>
                 </Link>
               </li>
               <em className="border"></em>
               <li>
-                <Link href="/faq">
+                <Link href="/#education">
                   <a>Как проходит обучение</a>
                 </Link>
               </li>
@@ -74,7 +85,7 @@ function Footer() {
           </nav>
         </Wrapper>
       </footer>
-    </>
+    </div>
   );
 }
 

@@ -1,11 +1,13 @@
-import Layout from "../components/Layout";
+import React from 'react';
+import { ToastContainer } from 'react-toastify';
 
-import "../styles/reset.css";
-import React from "react";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import '../styles/reset.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import 'react-toastify/dist/ReactToastify.css';
 
-import theme from "../styles/theme";
+import Layout from '../components/Layout';
+import theme from '../styles/theme';
 
 export default function App({ Component, pageProps }) {
   return (
@@ -13,9 +15,9 @@ export default function App({ Component, pageProps }) {
       <Layout>
         <style jsx global>
           {`
-            @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap");
+            @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
             body {
-              font-family: ${theme.fontFamily}; //FIXME: Fix font family
+              font-family: ${theme.fontFamily};
               font-style: normal;
               font-weight: normal;
               background: ${theme.colors.white};
@@ -24,13 +26,18 @@ export default function App({ Component, pageProps }) {
               font-size: 16px;
             }
 
+            html {
+              scroll-behavior: smooth;
+            }
+
             button {
-              font-family: ${theme.fontFamily}; //FIXME: Fix font family
+              font-family: ${theme.fontFamily};
               font-style: normal;
             }
           `}
         </style>
         <Component {...pageProps} />
+        <ToastContainer autoClose={2000} />
       </Layout>
     </React.StrictMode>
   );

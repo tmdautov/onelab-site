@@ -1,6 +1,7 @@
-import React from "react";
-import Direction from "../../components/Direction";
-import { getDirection } from "../../services/directions.service";
+import React from 'react';
+
+import Direction from '../../components/Direction/Direction';
+import { getDirection } from '../../services/directions.service';
 
 export default function Directions({ direction }) {
   return <Direction direction={direction} />;

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   UserOutlined,
   ExperimentOutlined,
@@ -6,97 +6,105 @@ import {
   SettingOutlined,
   PoundOutlined,
   SmileOutlined,
-} from "@ant-design/icons";
-import theme from "../styles/theme";
+  TeamOutlined,
+} from '@ant-design/icons';
+
+import theme from '../styles/theme';
 
 const Profits = () => {
   const profits = [
     {
-      header: "Сертификаты от",
-      label: "one.kz",
+      header: 'Сертификаты от',
+      label: 'one.kz',
       icon: (
         <FileDoneOutlined
           style={{
-            width: "2.6vw",
-            height: "5.3vh",
-            fontSize: "234%",
-            margin: "3.183vh 0",
-            padding: "0 5% 0 2%",
+            width: '2.6vw',
+            height: '5.3vh',
+            fontSize: '234%',
+            margin: '3.183vh 0',
+            padding: '0 5% 0 2%',
+            color: '#D10001',
           }}
         />
       ),
     },
     {
-      header: "Обучение на реальных кейсах",
-      label: "one.kz",
+      header: 'Обучение на реальных кейсах',
+      label: 'one.kz',
       icon: (
         <ExperimentOutlined
           style={{
-            width: "2.6vw",
-            height: "5.3vh",
-            fontSize: "234%",
-            margin: "3.183vh 0",
-            padding: "0 5% 0 2%",
+            width: '2.6vw',
+            height: '5.3vh',
+            fontSize: '234%',
+            margin: '3.183vh 0',
+            padding: '0 5% 0 2%',
+            color: '#D10001',
           }}
         />
       ),
     },
     {
-      header: "Живое общение",
-      label: "с ведущими разработчиками one.kz",
+      header: 'Живое общение',
+      label: 'с ведущими разработчиками one.kz',
       icon: (
         <SmileOutlined
           style={{
-            width: "2.6vw",
-            height: "5.3vh",
-            fontSize: "234%",
-            margin: "3.183vh 0",
-            padding: "0 5% 0 2%",
+            width: '2.6vw',
+            height: '5.3vh',
+            fontSize: '234%',
+            margin: '3.183vh 0',
+            padding: '0 5% 0 2%',
+            color: '#D10001',
           }}
         />
       ),
     },
     {
-      header: "Гарантируем трудоустройство",
-      label: "лучшим выпускникам",
+      header: 'Трудоустройство',
+      label: 'лучшим выпускникам',
       icon: (
         <PoundOutlined
           style={{
-            width: "2.6vw",
-            height: "5.3vh",
-            fontSize: "234%",
-            margin: "3.183vh 0",
-            padding: "0 5% 0 2%",
+            width: '2.6vw',
+            height: '5.3vh',
+            fontSize: '234%',
+            margin: '3.183vh 0',
+            padding: '0 5% 0 2%',
+            color: '#D10001',
           }}
         />
       ),
     },
     {
-      header: "Обучаем Data Science",
-      label: "с 2014 года",
+      header: 'Обучение Data Science',
+      label: 'с 2014 года',
       icon: (
         <SettingOutlined
           style={{
-            width: "2.6vw",
-            height: "5.3vh",
-            fontSize: "234%",
-            margin: "3.183vh 0",
-            padding: "0 5% 0 2%",
+            width: '2.6vw',
+            height: '5.3vh',
+            fontSize: '234%',
+            margin: '3.183vh 0',
+            padding: '0 5% 0 2%',
+            color: '#D10001',
           }}
         />
       ),
     },
     {
-      header: "Более 1500 студентов",
-      label: "за 5 лет",
+      header: 'Работа в команде',
+      label: 'one.kz',
       icon: (
-        <UserOutlined
+        <TeamOutlined
           style={{
-            width: "2.6vw",
-            height: "5.3vh",
-            fontSize: "234%",
-            margin: "3.183vh 0",
-            padding: "0 5% 0 2%",
+            width: '2.6vw',
+            height: '5.3vh',
+            fontSize: '234%',
+            margin: '3.183vh 0',
+            padding: '0 5% 0 2%',
+            color: '#D10001',
           }}
         />
       ),
