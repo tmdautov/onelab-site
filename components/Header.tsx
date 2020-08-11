@@ -1,10 +1,9 @@
-import { MenuOutlined } from '@ant-design/icons';
-import React from 'react';
 import Link from 'next/link';
-
 import LabLogo from '../public/assets/svg/logo';
 import theme from '../styles/theme';
 import Wrapper from './Wrapper';
+import { MenuOutlined } from '@ant-design/icons';
+import React from 'react';
 import { useWindowSize } from '../services/sliderSetting';
 
 function Header() {
@@ -32,7 +31,7 @@ function Header() {
           align-items: center;
         }
         .logo {
-          width: 25% !important;
+          width: 30%!important;
         }
         .logo svg {
           width: 100%;
@@ -80,10 +79,6 @@ function Header() {
           background: #f70f0f;
         }
 
-        .logo {
-          width: 9.531vw;
-        }
-
         .menu-holder {
           display: none;
         }
@@ -107,7 +102,7 @@ function Header() {
             z-index: 100;
             height: 10vh;
           }
-
+        
           .border {
             height: 1px;
             width: 100%;
@@ -139,7 +134,7 @@ function Header() {
           }
 
           ul li {
-            padding: 10% 15%;
+            padding: 10%;
           }
           .header-button {
             display: none;
@@ -196,7 +191,7 @@ function Header() {
               <MenuOutlined
                 style={{
                   color: theme.colors.white,
-                  fontSize: '234%',
+                  fontSize: '1.35rem',
                   cursor: 'pointer',
                 }}
                 onClick={() => setHidden(!hidden)}

@@ -1,6 +1,9 @@
+import { useWindowSize } from "../../../services/sliderSetting";
+
 const LabLogo = () => {
+    const size = useWindowSize();
   return (
-    <svg width="184" height="56" viewBox="0 0 184 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width={size.width <= "1024" ? "75%" : "11.94vw"} height="7.42vh" viewBox="0 0 184 56" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         fillRule="evenodd"
         clipRule="evenodd"
