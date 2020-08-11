@@ -104,6 +104,7 @@ function Header() {
           header {
             position: fixed;
             z-index: 100;
+            height: 10vh;
           }
 
           .border {
@@ -114,7 +115,7 @@ function Header() {
 
           ul {
             flex-direction: column;
-            top: 12.6vh;
+            top: 10vh;
             right: 0;
             width: 100% !important;
             position: absolute;

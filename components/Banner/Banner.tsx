@@ -23,7 +23,7 @@ function Banner() {
         }
         @media (max-width: 1024px) {
           .banner_container {
-            margin-top: 15vh;
+            margin-top: 10vh;
           }
         }
       `}</style>
