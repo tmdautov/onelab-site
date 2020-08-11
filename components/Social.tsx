@@ -1,5 +1,6 @@
 import React from 'react';
 import { InstagramFilled, FacebookFilled, LinkedinFilled } from '@ant-design/icons';
+
 import theme from '../styles/theme';
 
 const Social = () => {

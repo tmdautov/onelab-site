@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
+
 import Wrapper from '../Wrapper';
 import theme from '../../styles/theme';
-import Link from 'next/link';
 
 const Requirements = () => {
   const [requirements, setRequirements] = useState([]);

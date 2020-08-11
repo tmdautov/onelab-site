@@ -1,6 +1,6 @@
 import Wrapper from '../Wrapper';
 import { useState, useEffect } from 'react';
-import Icon from '@ant-design/icons';
+
 import TheoryIcon from '../../public/assets/svg/theoryIcon';
 import PracticeIcon from '../../public/assets/svg/practiceIcon';
 import ProjectIcon from '../../public/assets/svg/projectIcon';

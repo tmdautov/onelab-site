@@ -1,12 +1,13 @@
-import React, { useEffect, useState, useRef } from "react";
-import * as Yup from "yup";
-import { useFormik } from "formik";
-import getDirections from "../services/directions.service";
-import Wrapper from "./Wrapper";
-import theme from "../styles/theme";
-import postRequest from "../services/requests.service";
-import Dropzone from "react-dropzone";
-import { toast } from "react-toastify";
+import React, { useEffect, useState, useRef } from 'react';
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
+import Dropzone from 'react-dropzone';
+import { toast } from 'react-toastify';
+
+import Wrapper from './Wrapper';
+import theme from '../styles/theme';
+import getDirections from '../services/directions.service';
+import postRequest from '../services/requests.service';
 
 const RequestForm = () => {
   const [cv, setCv] = useState(null);
@@ -37,10 +38,10 @@ const RequestForm = () => {
       for (let key in values) {
         fd.append(key, values[key]);
       }
-      fd.append("file", cv);
+      fd.append('file', cv);
       postRequest(fd)
         .then(() => {
-          toast.success("Успешно отправлено!");
+          toast.success('Успешно отправлено!');
           formRef.current.reset();
           Form.resetForm();
           setCv(null);
@@ -219,12 +220,7 @@ const RequestForm = () => {
           <Dropzone onDrop={(acceptedFiles) => setCv(acceptedFiles[0])}>
             {({ getRootProps, getInputProps }) => (
               <section>
-                <div
-                  {...getRootProps()}
-                  className={
-                    "dropzone" + (hasErrors && !cv ? " error-input" : "")
-                  }
-                >
+                <div {...getRootProps()} className={'dropzone' + (hasErrors && !cv ? ' error-input' : '')}>
                   <input {...getInputProps()} />
                   {cv ? (
                     <p>{cv.name}</p>

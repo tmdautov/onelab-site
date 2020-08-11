@@ -1,9 +1,10 @@
 import React, { useRef } from 'react';
 import { useFormik } from 'formik';
+import { toast } from 'react-toastify';
+
 import theme from '../../styles/theme';
 import ValidationSchema from './ValidationSchema';
 import postQuestion from '../../services/qa.service';
-import { toast } from 'react-toastify';
 
 const QuestionsForm = () => {
   const formRef = useRef(null);

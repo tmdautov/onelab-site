@@ -1,8 +1,8 @@
-const API_URL = "https://oneshop-back.herokuapp.com";
+const API_URL = 'https://oneshop-back.herokuapp.com';
 
 export default async function postRequest(fd) {
   return fetch(`${API_URL}/requests/`, {
-    method: "POST",
+    method: 'POST',
     body: fd,
   }).then(async (response) => {
     if (response.ok) {

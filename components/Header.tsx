@@ -1,9 +1,10 @@
+import { MenuOutlined } from '@ant-design/icons';
+import React from 'react';
 import Link from 'next/link';
+
 import LabLogo from '../public/assets/svg/logo';
 import theme from '../styles/theme';
 import Wrapper from './Wrapper';
-import { MenuOutlined } from '@ant-design/icons';
-import React from 'react';
 import { useWindowSize } from '../services/sliderSetting';
 
 function Header() {

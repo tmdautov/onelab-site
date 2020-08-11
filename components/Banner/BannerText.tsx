@@ -1,6 +1,6 @@
 import React from 'react';
+
 import theme from '../../styles/theme';
-import Link from 'next/link';
 
 function BannerText({ title, description }) {
   return (

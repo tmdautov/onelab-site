@@ -1,8 +1,9 @@
+import { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
+
 import QuestionAnswer from './QuestionAnswer';
 import theme from '../../styles/theme';
 import { getQuestions } from '../../services/qa.service';
-import { useState, useEffect } from 'react';
-import { toast } from 'react-toastify';
 
 const QuestionsContainer = () => {
   const [questions, setQuestions] = useState([]);

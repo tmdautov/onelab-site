@@ -1,6 +1,7 @@
+import Link from 'next/link';
+
 import Wrapper from '../Wrapper';
 import BannerText from './BannerText';
-import Link from 'next/link';
 
 function BannerContainer({ banner }) {
   return (

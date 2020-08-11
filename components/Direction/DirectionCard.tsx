@@ -1,7 +1,8 @@
-import React from "react";
-import { CalendarOutlined } from "@ant-design/icons";
-import Link from "next/link";
-import theme from "../../styles/theme";
+import React from 'react';
+import { CalendarOutlined } from '@ant-design/icons';
+import Link from 'next/link';
+
+import theme from '../../styles/theme';
 
 function DirectionCard({ direction }) {
   return (
@@ -45,8 +46,7 @@ function DirectionCard({ direction }) {
             width: 45%;
             height: 7.127vh;
             margin-right: 0.55vw;
-            transition: background-color 0.5s ease, color 0.5s ease,
-              border 0.5s ease;
+            transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease;
             cursor: pointer;
             font-weight: 500;
             border-radius: 6px;
@@ -90,12 +90,10 @@ function DirectionCard({ direction }) {
       <div className="flex-holder">
         <h1>{direction.title}</h1>
         <label>{direction.subtitle}</label>
-        <span style={{ marginBottom: "4.6vh" }}>
-          <CalendarOutlined style={{ marginRight: "3%" }} />
-          <label>{`${new Date(
-            direction.startDate
-          ).toLocaleDateString()} - ${new Date(
-            direction.endDate
+        <span style={{ marginBottom: '4.6vh' }}>
+          <CalendarOutlined style={{ marginRight: '3%' }} />
+          <label>{`${new Date(direction.startDate).toLocaleDateString()} - ${new Date(
+            direction.endDate,
           ).toLocaleDateString()}`}</label>
         </span>
         <p className="description">{direction.description}</p>
