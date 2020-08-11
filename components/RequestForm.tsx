@@ -131,7 +131,7 @@ const RequestForm = () => {
             cursor: pointer;
           }
           .phone-email-inputs input {
-            width: 40%;
+            width: 49%;
           }
           .error-message {
             color: ${theme.colors.red};
@@ -156,7 +156,7 @@ const RequestForm = () => {
           }
 
           .request-form button:disabled,
-          button[disabled]{
+          button[disabled] {
             border: 1px solid #999999;
             background-color: #cccccc;
             color: #666666;

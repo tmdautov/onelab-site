@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  UserOutlined,
   ExperimentOutlined,
   FileDoneOutlined,
   SettingOutlined,
@@ -158,7 +157,7 @@ const Profits = () => {
         <div className="grid-container">
           {profits.map((e) => {
             return (
-              <div>
+              <div key={e.header}>
                 {e.icon}
                 <h2 className="header-profit">{e.header}</h2>
                 <label className="label-profit">{e.label}</label>
