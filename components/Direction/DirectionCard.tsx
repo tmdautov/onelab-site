@@ -39,13 +39,15 @@ function DirectionCard({ direction }) {
           }
 
           .button-holder {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
             padding-top: 3.74vh;
           }
 
           .button-holder button {
             width: 45%;
             height: 7.127vh;
-            margin-right: 0.55vw;
             transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease;
             cursor: pointer;
             font-weight: 500;
