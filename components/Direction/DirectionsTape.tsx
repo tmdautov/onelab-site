@@ -1,5 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
+import Skeleton from 'react-loading-skeleton';
 
 import { directionSettings, useWindowSize } from '../../services/sliderSetting';
 import DirectionCard from './DirectionCard';
@@ -37,8 +38,8 @@ function DirectionsTape({ directions }) {
             return (
               <div
                 style={{
-                  width: size.width <= '1024' ? '80vw' : (100 / directions.length).toString() + "%",
-                  maxWidth: "50%",
+                  width: size.width <= '1024' ? '80vw' : (100 / directions.length).toString() + '%',
+                  maxWidth: '50%',
                 }}>
                 <DirectionCard direction={direction} />
               </div>
@@ -48,7 +49,7 @@ function DirectionsTape({ directions }) {
       </Wrapper>
     </div>
   ) : (
-    <div> loading </div>
+    <Skeleton width="100%" />
   );
 }
 
