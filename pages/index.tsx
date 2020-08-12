@@ -6,10 +6,15 @@ import QA from '../components/QA/QA';
 import AcceptingOrder from '../components/Requirements/AcceptingOrder';
 import Requirements from '../components/Requirements/Requirements';
 import EducationInfo from '../components/Requirements/EducationInfo';
+import Head from 'next/head'
 
 export default function Home() {
   return (
     <>
+      <Head>
+        <title>One LAB</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <style jsx global>{``}</style>
       <Banner />
       <Profits />

@@ -5,12 +5,16 @@ import { toast } from 'react-toastify';
 import { sliderSetting } from '../../services/sliderSetting';
 import getBanners from '../../services/banner.service';
 import BannerContainer from './BannerContainer';
+import SkeletonBanner from '../Skeleton/SkeletonBanner';
 
 function Banner() {
   const [banners, setBanners] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
+    setLoading(true);
     async function fetchBanners() {
       setBanners(await getBanners().catch((error) => toast.error(error.message)));
+      setLoading(false);
     }
     fetchBanners();
   }, []);
@@ -27,11 +31,11 @@ function Banner() {
         }
       `}</style>
       <div className="banner_container">
-        <Slider {...sliderSetting}>
+        {!loading ? <Slider {...sliderSetting}>
           {banners.map((banner) => {
             return <BannerContainer banner={banner} />;
           })}
-        </Slider>
+        </Slider> : <SkeletonBanner />}
       </div>
     </>
   );

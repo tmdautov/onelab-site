@@ -31,7 +31,7 @@ function Header() {
           align-items: center;
         }
         .logo {
-          width: 30%!important;
+          width: 25%!important;
         }
         .logo svg {
           width: 100%;
@@ -41,7 +41,7 @@ function Header() {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          width: 50% !important;
+          width: 50%!important;
         }
         li a {
           color: ${theme.colors.white};
