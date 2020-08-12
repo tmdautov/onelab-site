@@ -1,9 +1,10 @@
 import Link from 'next/link';
+import { MenuOutlined } from '@ant-design/icons';
+import React from 'react';
+
 import LabLogo from '../public/assets/svg/logo';
 import theme from '../styles/theme';
 import Wrapper from './Wrapper';
-import { MenuOutlined } from '@ant-design/icons';
-import React from 'react';
 import { useWindowSize } from '../services/sliderSetting';
 
 function Header() {
@@ -31,7 +32,11 @@ function Header() {
           align-items: center;
         }
         .logo {
+<<<<<<< HEAD
           width: 25%!important;
+=======
+          width: 30% !important;
+>>>>>>> 6e786f726e8f15d13ef0540ce02a2dfe4ff30bb3
         }
         .logo svg {
           width: 100%;
@@ -102,7 +107,7 @@ function Header() {
             z-index: 100;
             height: 10vh;
           }
-        
+
           .border {
             height: 1px;
             width: 100%;

@@ -100,7 +100,7 @@ const AcceptingOrder = () => {
         <div className="flex-holder">
           {orders.map((order, index) => {
             return (
-              <div className="order">
+              <div className="order" key={index}>
                 <h1>{index + 1}</h1>
                 <h2>{order.title}</h2>
                 <p>{order.description}</p>

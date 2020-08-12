@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Banner from '../components/Banner/Banner';
 import Profits from '../components/Profits';
 import DirectionsContainer from '../components/Direction/DirectionsContainer';
@@ -6,7 +7,6 @@ import QA from '../components/QA/QA';
 import AcceptingOrder from '../components/Requirements/AcceptingOrder';
 import Requirements from '../components/Requirements/Requirements';
 import EducationInfo from '../components/Requirements/EducationInfo';
-import Head from 'next/head'
 
 export default function Home() {
   return (
@@ -16,6 +16,9 @@ export default function Home() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <style jsx global>{``}</style>
+      <Head>
+        <title>ONE Lab</title>
+      </Head>
       <Banner />
       <Profits />
       <DirectionsContainer />
