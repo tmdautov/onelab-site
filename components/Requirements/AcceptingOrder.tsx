@@ -2,7 +2,6 @@ import theme from '../../styles/theme';
 import Wrapper from '../Wrapper';
 import { useState, useEffect } from 'react';
 import Skeleton from 'react-loading-skeleton';
-import SkeletonOrder from '../Skeleton/Requirements/SkeletonOrder';
 
 const AcceptingOrder = () => {
   const orders = [
@@ -31,12 +30,14 @@ const AcceptingOrder = () => {
     }, 4000);
   }, []);
   return (
+    <>
+    {!loading ?
     <div className="accepting-order" id="order">
       <style jsx>
         {`
           .accepting-order {
-            background: linear-gradient(135.97deg, #484848 7.77%, #000010 93.38%);
             margin-bottom: 9.255vh;
+            background: linear-gradient(135.97deg, #484848 7.77%, #000010 93.38%);
             min-height: 58.73vh;
           }
 
@@ -110,15 +111,9 @@ const AcceptingOrder = () => {
         `}
       </style>
       <Wrapper>
-        {!loading ?
-          <h1>ПОРЯДОК ПРИЁМА</h1>
-          :
-          <h1>
-            <Skeleton width={300} />
-          </h1>
-        }
+        <h1>ПОРЯДОК ПРИЁМА</h1>
         <div className="flex-holder">
-          {!loading ? cards.map((order, index) => {
+          {cards.map((order, index) => {
             return (
               <div className="order" key={index}>
                 <h1>{index + 1}</h1>
@@ -126,12 +121,14 @@ const AcceptingOrder = () => {
                 <p>{order.description}</p>
               </div>
             );
-          }) : 
-          orders.map(() => <SkeletonOrder />)
-          }
+          })}
         </div>
       </Wrapper>
     </div>
+    :
+    <Skeleton width="100vw" height="44.44vh" style={{
+      marginBottom: "9.255vh"}} />}
+    </>
   );
 };
 

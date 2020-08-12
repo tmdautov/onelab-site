@@ -16,7 +16,7 @@ function Header() {
       <style jsx>{`
         header {
           background: ${theme.colors.black};
-          height: 15vh;
+          height: 10vh;
           width: 100%;
           display: flex;
           justify-content: center;
@@ -32,7 +32,7 @@ function Header() {
           align-items: center;
         }
         .logo {
-          width: 30!important;
+          width: 30%!important;
         }
         .logo svg {
           width: 100%;

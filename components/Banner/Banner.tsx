@@ -6,7 +6,6 @@ import Skeleton from 'react-loading-skeleton';
 import { sliderSetting } from '../../services/sliderSetting';
 import getBanners from '../../services/banner.service';
 import BannerContainer from './BannerContainer';
-import SkeletonBanner from '../Skeleton/Banner/SkeletonBanner';
 
 function Banner() {
   const [banners, setBanners] = useState([]);
