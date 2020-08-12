@@ -32,11 +32,7 @@ function Header() {
           align-items: center;
         }
         .logo {
-<<<<<<< HEAD
-          width: 25%!important;
-=======
-          width: 30% !important;
->>>>>>> 6e786f726e8f15d13ef0540ce02a2dfe4ff30bb3
+          width: 30!important;
         }
         .logo svg {
           width: 100%;
