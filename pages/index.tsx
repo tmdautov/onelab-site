@@ -1,3 +1,5 @@
+import Head from 'next/head';
+
 import Banner from '../components/Banner/Banner';
 import Profits from '../components/Profits';
 import DirectionsContainer from '../components/Direction/DirectionsContainer';
@@ -11,6 +13,9 @@ export default function Home() {
   return (
     <>
       <style jsx global>{``}</style>
+      <Head>
+        <title>ONE Lab</title>
+      </Head>
       <Banner />
       <Profits />
       <DirectionsContainer />
