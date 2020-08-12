@@ -5,19 +5,21 @@ import { toast } from 'react-toastify';
 import { sliderSetting } from '../../services/sliderSetting';
 import getBanners from '../../services/banner.service';
 import BannerContainer from './BannerContainer';
-import SkeletonBanner from '../Skeleton/SkeletonBanner';
+import SkeletonBanner from '../Skeleton/Banner/SkeletonBanner';
 
 function Banner() {
   const [banners, setBanners] = useState([]);
   const [loading, setLoading] = useState(false);
+  
   useEffect(() => {
     setLoading(true);
-    async function fetchBanners() {
+    const timing = setTimeout(async function fetchBanners() {
       setBanners(await getBanners().catch((error) => toast.error(error.message)));
       setLoading(false);
-    }
-    fetchBanners();
+    }, 4000);
+    return () => clearTimeout(timing);
   }, []);
+
   return (
     <>
       <style jsx>{`

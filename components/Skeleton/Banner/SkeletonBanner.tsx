@@ -1,10 +1,25 @@
-import Wrapper from "../Wrapper";
+import Wrapper from "../../Wrapper";
 import Skeleton from "react-loading-skeleton";
 
 const SkeletonBanner = () => {
   return (
     <>
       <style jsx>{`
+      .banner {
+          height: 44.44vh;
+          width: 100%;
+          background: #D0D0D0;
+          background-size: cover;
+          box-sizing: border-box;
+          cursor: pointer;
+          padding-top: 3rem;
+        }
+
+        .banner_flex {
+          height: 100%;
+          width: 100%;
+          display: flex;
+        }
         .banner-text {
             max-width: 60%;
             height: 80%;
@@ -39,7 +54,7 @@ const SkeletonBanner = () => {
                     <Skeleton height={40} width={300}/>
                 </h1>
                 <p className="description-text">
-                    <Skeleton height={10} width={300}/>
+                    <Skeleton height={30} width={450}/>
                 </p>
             </div>
           </div>

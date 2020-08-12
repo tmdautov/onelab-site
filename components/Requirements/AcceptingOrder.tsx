@@ -1,5 +1,8 @@
 import theme from '../../styles/theme';
 import Wrapper from '../Wrapper';
+import { useState, useEffect } from 'react';
+import Skeleton from 'react-loading-skeleton';
+import SkeletonOrder from '../Skeleton/Requirements/SkeletonOrder';
 
 const AcceptingOrder = () => {
   const orders = [
@@ -16,6 +19,17 @@ const AcceptingOrder = () => {
       description: 'Если вы набрали проходной балл, вас пригласят на собеседование, с вами свяжется HR-компания',
     },
   ];
+
+  const [cards, setCards] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    const timing = setTimeout(() => {
+      setCards(orders);
+      setLoading(false);
+    }, 4000);
+  }, []);
   return (
     <div className="accepting-order" id="order">
       <style jsx>
@@ -96,9 +110,15 @@ const AcceptingOrder = () => {
         `}
       </style>
       <Wrapper>
-        <h1>ПОРЯДОК ПРИЁМА</h1>
+        {!loading ?
+          <h1>ПОРЯДОК ПРИЁМА</h1>
+          :
+          <h1>
+            <Skeleton width={300} />
+          </h1>
+        }
         <div className="flex-holder">
-          {orders.map((order, index) => {
+          {!loading ? cards.map((order, index) => {
             return (
               <div className="order" key={index}>
                 <h1>{index + 1}</h1>
@@ -106,7 +126,9 @@ const AcceptingOrder = () => {
                 <p>{order.description}</p>
               </div>
             );
-          })}
+          }) : 
+          orders.map(() => <SkeletonOrder />)
+          }
         </div>
       </Wrapper>
     </div>

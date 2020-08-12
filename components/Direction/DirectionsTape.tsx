@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 
 import { directionSettings, useWindowSize } from '../../services/sliderSetting';
 import DirectionCard from './DirectionCard';
 import Wrapper from '../Wrapper';
 import theme from '../../styles/theme';
+import Skeleton from 'react-loading-skeleton';
+import SkeletonDirections from '../Skeleton/Directions/SkeletonDirections';
 
 function DirectionsTape({ directions }) {
+  const [cards, setCards] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    const timing = setTimeout(() => {
+      setCards(directions);
+      setLoading(false);
+    }, 4000);
+    return () => clearTimeout(timing);
+  }, []);
+
   const settings = directionSettings();
   const size = useWindowSize();
   return directions !== undefined ? (
@@ -31,9 +45,15 @@ function DirectionsTape({ directions }) {
         `}
       </style>
       <Wrapper>
+        {!loading ? 
         <h1>НАПРАВЛЕНИЯ СТАЖИРОВОК</h1>
+          :
+        <h1>
+          <Skeleton width={300} />
+        </h1>
+        }
         <Slider {...settings}>
-          {directions.map((direction) => {
+          {!loading ? cards.map((direction) => {
             return (
               <div
                 style={{
@@ -43,7 +63,11 @@ function DirectionsTape({ directions }) {
                 <DirectionCard direction={direction} />
               </div>
             );
-          })}
+          }) : 
+            directions.map(() => 
+              <SkeletonDirections />
+            )
+          }
         </Slider>
       </Wrapper>
     </div>
