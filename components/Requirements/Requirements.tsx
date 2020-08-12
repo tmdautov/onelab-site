@@ -111,7 +111,7 @@ const Requirements = () => {
           <h1>ТРЕБОВАНИЯ К ИДЕАЛЬНОМУ КАНДИДАТУ</h1>
           :
           <h1>
-            <Skeleton width={300}/>
+            <Skeleton width={"19.53125vw"}/>
           </h1>
         }
         <div className="flex-holder">
@@ -131,8 +131,7 @@ const Requirements = () => {
             <button>Подать заявку</button>
           </Link>
           :
-          <Skeleton style={{
-            margin: "3% 0 0 74%"}} width={250} />
+          <Skeleton width={"50%"} height={'4.5vh'} />
           }
         </div>
       </Wrapper>

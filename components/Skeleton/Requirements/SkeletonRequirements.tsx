@@ -25,10 +25,10 @@ const SkeletonRequirements = () => {
         `}
       </style>
       <h1>
-        <Skeleton width={150} />
+        <Skeleton width={"9.765625vw"} />
       </h1>
       <p>
-        <Skeleton width={200} />
+        <Skeleton width={"9.765625vw"} />
       </p>
     </div>
     </>

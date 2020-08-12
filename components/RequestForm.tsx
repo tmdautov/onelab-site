@@ -8,6 +8,8 @@ import Wrapper from './Wrapper';
 import theme from '../styles/theme';
 import getDirections from '../services/directions.service';
 import postRequest from '../services/requests.service';
+import SkeletonRequest from './Skeleton/RequestForm/SkeletonRequest';
+import Skeleton from 'react-loading-skeleton';
 
 const RequestForm = () => {
   const [cv, setCv] = useState(null);
@@ -55,11 +57,18 @@ const RequestForm = () => {
         });
     },
   });
+  const [rendering, setRendering] = useState(false);
   const [directions, setDirections] = useState([]);
   useEffect(() => {
-    getDirections()
-      .then((res) => setDirections(res))
-      .catch((error) => toast.error(error.message));
+    setRendering(true);
+    const timing = setTimeout(() => {
+      getDirections()
+        .then((res) => setDirections(res))
+        .catch((error) => toast.error(error.message));
+      setRendering(false);
+    }, 4000);
+
+    return () => clearTimeout(timing);
   }, []);
 
   const [hasErrors, setHasErrors] = useState(false);
@@ -168,94 +177,109 @@ const RequestForm = () => {
             }
           }
         `}</style>
-        <h1>ПОДАЧА ЗАЯВКИ</h1>
-        <p>Все поля обязательные</p>
-        <form onSubmit={Form.handleSubmit} ref={formRef}>
-          <input
-            name="name"
-            type="text"
-            placeholder="Ваше имя"
-            onChange={Form.handleChange}
-            className={Form.errors.name ? 'error-input' : null}
-          />
-          <input
-            name="surname"
-            type="text"
-            placeholder="Ваша фамилия"
-            onChange={Form.handleChange}
-            className={Form.errors.surname ? 'error-input' : null}
-          />
-          <input name="fathername" type="text" placeholder="Ваше отчество" onChange={Form.handleChange} />
-          <div className="phone-email-inputs">
+        {!rendering ? (
+          <h1>ПОДАЧА ЗАЯВКИ</h1>
+        ) : (
+          <h1>
+            <Skeleton width={'19.5vw'} />
+          </h1>
+        )}{!rendering ? (
+          <p>Внесите свои данные</p>
+        ) : (
+          <p>
+            <Skeleton width={'7.5vw'} />
+          </p>
+        )}
+        {!rendering ? (
+          <form onSubmit={Form.handleSubmit} ref={formRef}>
             <input
-              name="phone"
+              name="name"
               type="text"
-              placeholder="Ваш телефон"
+              placeholder="Ваше имя"
               onChange={Form.handleChange}
-              className={Form.errors.phone ? 'error-input' : null}
+              className={Form.errors.name ? 'error-input' : null}
             />
             <input
-              name="email"
-              type="email"
-              placeholder="Ваша почта"
+              name="surname"
+              type="text"
+              placeholder="Ваша фамилия"
               onChange={Form.handleChange}
-              className={Form.errors.email ? 'error-input' : null}
+              className={Form.errors.surname ? 'error-input' : null}
             />
-          </div>
-          <select
-            name="direction"
-            placeholder="Выберите направление"
-            onChange={Form.handleChange}
-            className={Form.errors.direction ? 'error-input' : null}>
-            <option>Выберите направление</option>
-            {directions.map((direction) => (
-              <option key={direction.id}>{direction.title}</option>
-            ))}
-          </select>
-          <input
-            name="university"
-            type="text"
-            placeholder="Ваш университет"
-            onChange={Form.handleChange}
-            className={Form.errors.university ? 'error-input' : null}
-          />
-          <select
-            name="course"
-            placeholder="Выберите курс обучения"
-            onChange={Form.handleChange}
-            className={Form.errors.course ? 'error-input' : null}>
-            <option>На каком крусе вы учитесь</option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-          </select>
-          <Dropzone onDrop={(acceptedFiles) => setCv(acceptedFiles[0])}>
-            {({ getRootProps, getInputProps }) => (
-              <section>
-                <div {...getRootProps()} className={'dropzone' + (hasErrors && !cv ? ' error-input' : '')}>
-                  <input {...getInputProps()} />
-                  {cv ? (
-                    <p>{cv.name}</p>
-                  ) : (
-                    <>
-                      <p>Подгрузите резюме</p>
-                      <p>Перетащите файл или Укажите путь</p>
-                    </>
-                  )}
-                </div>
-              </section>
+            <input name="fathername" type="text" placeholder="Ваше отчество" onChange={Form.handleChange} />
+            <div className="phone-email-inputs">
+              <input
+                name="phone"
+                type="text"
+                placeholder="Ваш телефон"
+                onChange={Form.handleChange}
+                className={Form.errors.phone ? 'error-input' : null}
+              />
+              <input
+                name="email"
+                type="email"
+                placeholder="Ваша почта"
+                onChange={Form.handleChange}
+                className={Form.errors.email ? 'error-input' : null}
+              />
+            </div>
+            <select
+              name="direction"
+              placeholder="Выберите направление"
+              onChange={Form.handleChange}
+              className={Form.errors.direction ? 'error-input' : null}>
+              <option>Выберите направление</option>
+              {directions.map((direction) => (
+                <option key={direction.id}>{direction.title}</option>
+              ))}
+            </select>
+            <input
+              name="university"
+              type="text"
+              placeholder="Ваш университет"
+              onChange={Form.handleChange}
+              className={Form.errors.university ? 'error-input' : null}
+            />
+            <select
+              name="course"
+              placeholder="Выберите курс обучения"
+              onChange={Form.handleChange}
+              className={Form.errors.course ? 'error-input' : null}>
+              <option>На каком крусе вы учитесь</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+            <Dropzone onDrop={(acceptedFiles) => setCv(acceptedFiles[0])}>
+              {({ getRootProps, getInputProps }) => (
+                <section>
+                  <div {...getRootProps()} className={'dropzone' + (hasErrors && !cv ? ' error-input' : '')}>
+                    <input {...getInputProps()} />
+                    {cv ? (
+                      <p>{cv.name}</p>
+                    ) : (
+                      <>
+                        <p>Подгрузите резюме</p>
+                        <p>Перетащите файл или Укажите путь</p>
+                      </>
+                    )}
+                  </div>
+                </section>
+              )}
+            </Dropzone>
+            {hasErrors ? <div className="error-message">Заполните все поля, отмеченные красным</div> : <div></div>}
+            {loading ? (
+              <button disabled type="submit">
+                Отправить
+              </button>
+            ) : (
+              <button type="submit">Отправить</button>
             )}
-          </Dropzone>
-          {hasErrors ? <div className="error-message">Заполните все поля, отмеченные красным</div> : <div></div>}
-          {loading ? (
-            <button disabled type="submit">
-              Отправить
-            </button>
-          ) : (
-            <button type="submit">Отправить</button>
-          )}
-        </form>
+          </form>
+        ) : (
+          <SkeletonRequest />
+        )}
       </div>
     </Wrapper>
   );

@@ -6,7 +6,7 @@ import PracticeIcon from '../../public/assets/svg/practiceIcon';
 import ProjectIcon from '../../public/assets/svg/projectIcon';
 import { useWindowSize } from '../../services/sliderSetting';
 import Skeleton from 'react-loading-skeleton';
-import SkeletonInfo from '../Skeleton/Requirements/SkeletonInfo';
+import SkeletonProfits from '../Skeleton/Profits/SkeletonProfits';
 
 const EducationInfo = () => {
   const size = useWindowSize();
@@ -117,7 +117,7 @@ const EducationInfo = () => {
           </div>
         </div>
         :
-        <SkeletonInfo />
+        <SkeletonProfits length={3} />
       }
       </Wrapper>
     </div>

@@ -11,6 +11,8 @@ function Header() {
   const [hidden, setHidden] = React.useState(true);
   const size = useWindowSize();
 
+  console.log(size.width);
+
   return (
     <>
       <style jsx>{`

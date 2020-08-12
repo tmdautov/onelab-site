@@ -9,13 +9,11 @@ import Skeleton from 'react-loading-skeleton';
 import SkeletonDirections from '../Skeleton/Directions/SkeletonDirections';
 
 function DirectionsTape({ directions }) {
-  const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setLoading(true);
     const timing = setTimeout(() => {
-      setCards(directions);
       setLoading(false);
     }, 4000);
     return () => clearTimeout(timing);
@@ -49,11 +47,11 @@ function DirectionsTape({ directions }) {
         <h1>НАПРАВЛЕНИЯ СТАЖИРОВОК</h1>
           :
         <h1>
-          <Skeleton width={300} />
+          <Skeleton width={"19.5vw"} />
         </h1>
         }
         <Slider {...settings}>
-          {!loading ? cards.map((direction) => {
+          {!loading ? directions.map((direction) => {
             return (
               <div
                 style={{

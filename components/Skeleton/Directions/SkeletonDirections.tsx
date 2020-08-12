@@ -71,17 +71,17 @@ const SkeletonDirections = () => {
             <Skeleton width={250}/>
         </h1>
         <label>
-            <Skeleton width={200}/>
+            <Skeleton width={"13.0208vw"}/>
         </label>
         <span style={{ marginBottom: '4.6vh' }}>
-            <Skeleton width={200}/>
+            <Skeleton width={"13.0208vw"}/>
         </span>
         <p className="description">
-            <Skeleton height={200} width={250}/>
+            <Skeleton height={"13.0208vw"} width={250}/>
         </p>
         <div className="button-holder">
-            <Skeleton width={100}/>
-            <Skeleton width={100}/>
+            <Skeleton width={"6.5vw"}/>
+            <Skeleton width={"6.5vw"}/>
         </div>
       </div>
     </div>

@@ -5,12 +5,14 @@ const SkeletonProfits = ({ length }) => {
   for (var i = 0; i < length; i++) {
     size.push(
       <div>
-        <Skeleton circle={true} height={30} width={30} />
+        <Skeleton circle={true} height={50} width={50} style={{
+            marginBottom: "7.25vh",
+        }}/>
         <h2 className="header-profit">
-          <Skeleton height={20} width={250} />
+          <Skeleton height={"2.652vh"} width={"50%"} />
         </h2>
         <label className="label-profit">
-          <Skeleton height={15} width={175} />
+          <Skeleton height={"2.652vh"} width={"50%"} />
         </label>
       </div>,
     );
