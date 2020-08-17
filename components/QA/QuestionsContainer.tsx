@@ -4,15 +4,20 @@ import { toast } from 'react-toastify';
 import QuestionAnswer from './QuestionAnswer';
 import theme from '../../styles/theme';
 import { getQuestions } from '../../services/qa.service';
+import SkeletonAnswers from '../Skeleton/QA/SkeletonAnswers';
+import Skeleton from 'react-loading-skeleton';
 
 const QuestionsContainer = () => {
+  const [loading, setLoading] = useState(false);
   const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
-    async function fetchQuestions() {
+    setLoading(true);
+    const timing = setTimeout(async function fetchBanners() {
       setQuestions(await getQuestions().catch((error) => toast.error(error.message)));
-    }
-    fetchQuestions();
+      setLoading(false);
+    }, 4000);
+    return () => clearTimeout(timing);
   }, []);
 
   return (
@@ -63,13 +68,21 @@ const QuestionsContainer = () => {
       <div className="questions-container">
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <div style={{ marginBottom: '2.75vw' }}>
-            {questions
-              .filter((qa) => qa.important)
-              .map((qa) => {
-                return <QuestionAnswer question={qa.question} answer={qa.answer} />;
-              })}
+            {!loading ? (
+              questions
+                .filter((qa) => qa.important)
+                .map((qa) => {
+                  return <QuestionAnswer question={qa.question} answer={qa.answer} />;
+                })
+            ) : (
+              <SkeletonAnswers />
+            )}
           </div>
+          {!loading ?
           <button type="button">Смотреть все</button>
+          :
+          <Skeleton width={"50%"} height={'4.5vh'} />
+          }
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   ExperimentOutlined,
   FileDoneOutlined,
@@ -9,6 +9,7 @@ import {
 } from '@ant-design/icons';
 
 import theme from '../styles/theme';
+import SkeletonProfits from './Skeleton/Profits/SkeletonProfits';
 
 const Profits = () => {
   const profits = [
@@ -109,6 +110,19 @@ const Profits = () => {
       ),
     },
   ];
+  
+  const [benefits, setBenefits] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    const timing = setTimeout(() => {
+      setBenefits(profits);
+      setLoading(false);
+    }, 4000);
+    return () => clearTimeout(timing);
+  }, []);
+
   return (
     <div>
       <style jsx>
@@ -152,10 +166,12 @@ const Profits = () => {
           }
         `}
       </style>
+      {!loading ?
       <div className="profits">
         <h1>МЫ ПРЕДЛАГАЕМ</h1>
         <div className="grid-container">
-          {profits.map((e) => {
+          { 
+          profits.map((e) => {
             return (
               <div key={e.header}>
                 {e.icon}
@@ -166,7 +182,11 @@ const Profits = () => {
           })}
         </div>
       </div>
+      :
+      <SkeletonProfits length={profits.length} />
+      }
     </div>
+    
   );
 };
 

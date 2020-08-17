@@ -5,9 +5,20 @@ import { toast } from 'react-toastify';
 import theme from '../../styles/theme';
 import ValidationSchema from './ValidationSchema';
 import postQuestion from '../../services/qa.service';
+import SkeletonForm from '../Skeleton/QA/SkeletonForm';
 
 const QuestionsForm = () => {
   const [loading, setLoading] = useState(false);
+  const [rendering, setRendering] = useState(false);
+
+  useState(() => {
+    setRendering(true);
+    const timing = setTimeout(() => {
+      setRendering(false);
+    }, 4000);
+
+    return () => clearTimeout(timing);
+  });
   const formRef = useRef(null);
   const Form = useFormik({
     initialValues: {
@@ -28,7 +39,7 @@ const QuestionsForm = () => {
         })
         .catch((error) => {
           setLoading(false);
-          toast.error(error.message)
+          toast.error(error.message);
         });
     },
   });
@@ -115,54 +126,58 @@ const QuestionsForm = () => {
                     }
                 `}
       </style>
-      <form onSubmit={Form.handleSubmit} ref={formRef}>
-        <input
-          name="name"
-          type="text"
-          placeholder="Ваше имя"
-          onChange={Form.handleChange}
-          className={Form.errors.name ? 'error-input' : null}
-        />
-        {Form.errors.name && Form.touched.name && <div className="error-message">{Form.errors.name}</div>}
-        <div className="email-phone-holder">
+      {!rendering ? (
+        <form onSubmit={Form.handleSubmit} ref={formRef}>
           <input
-            name="email"
+            name="name"
             type="text"
-            placeholder="Ваш e-mail"
-            style={{
-              marginRight: '3%',
-            }}
+            placeholder="Ваше имя"
             onChange={Form.handleChange}
-            className={Form.errors.email ? 'error-input' : null}
+            className={Form.errors.name ? 'error-input' : null}
           />
-          {!Form.errors.phone && Form.errors.email && Form.touched.email && (
-            <div className="error-message">{Form.errors.email}</div>
+          {Form.errors.name && Form.touched.name && <div className="error-message">{Form.errors.name}</div>}
+          <div className="email-phone-holder">
+            <input
+              name="email"
+              type="text"
+              placeholder="Ваш e-mail"
+              style={{
+                marginRight: '3%',
+              }}
+              onChange={Form.handleChange}
+              className={Form.errors.email ? 'error-input' : null}
+            />
+            {!Form.errors.phone && Form.errors.email && Form.touched.email && (
+              <div className="error-message">{Form.errors.email}</div>
+            )}
+            <input
+              name="phone"
+              type="text"
+              placeholder="Ваш телефон"
+              onChange={Form.handleChange}
+              className={Form.errors.phone ? 'error-input' : null}
+            />
+            {!Form.errors.email && Form.errors.phone && Form.touched.phone && (
+              <div className="error-message phone-message">{Form.errors.phone}</div>
+            )}
+            {Form.errors.email && Form.errors.phone && Form.touched.phone && (
+              <div className="error-message">Обязательно заполните эти поля</div>
+            )}
+          </div>
+          {Form.errors.question && Form.touched.question && (
+            <div className="error-message question-message">{Form.errors.question}</div>
           )}
-          <input
-            name="phone"
-            type="text"
-            placeholder="Ваш телефон"
+          <textarea
+            name="question"
+            placeholder="Ваш вопрос"
             onChange={Form.handleChange}
-            className={Form.errors.phone ? 'error-input' : null}
+            className={Form.errors.question ? 'error-input' : null}
           />
-          {!Form.errors.email && Form.errors.phone && Form.touched.phone && (
-            <div className="error-message phone-message">{Form.errors.phone}</div>
-          )}
-          {Form.errors.email && Form.errors.phone && Form.touched.phone && (
-            <div className="error-message">Обязательно заполните эти поля</div>
-          )}
-        </div>
-        {Form.errors.question && Form.touched.question && (
-          <div className="error-message question-message">{Form.errors.question}</div>
-        )}
-        <textarea
-          name="question"
-          placeholder="Ваш вопрос"
-          onChange={Form.handleChange}
-          className={Form.errors.question ? 'error-input' : null}
-        />
-        <button type="submit">Отправить</button>
-      </form>
+          <button type="submit">Отправить</button>
+        </form>
+      ) : (
+        <SkeletonForm />
+      )}
     </div>
   );
 };

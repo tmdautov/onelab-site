@@ -9,12 +9,17 @@ import BannerContainer from './BannerContainer';
 
 function Banner() {
   const [banners, setBanners] = useState([]);
+  const [loading, setLoading] = useState(false);
+  
   useEffect(() => {
-    async function fetchBanners() {
+    setLoading(true);
+    const timing = setTimeout(async function fetchBanners() {
       setBanners(await getBanners().catch((error) => toast.error(error.message)));
-    }
-    fetchBanners();
+      setLoading(false);
+    }, 4000);
+    return () => clearTimeout(timing);
   }, []);
+
   return (
     <>
       <style jsx>{`

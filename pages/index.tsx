@@ -1,5 +1,4 @@
 import Head from 'next/head';
-
 import Banner from '../components/Banner/Banner';
 import Profits from '../components/Profits';
 import DirectionsContainer from '../components/Direction/DirectionsContainer';
@@ -12,6 +11,10 @@ import EducationInfo from '../components/Requirements/EducationInfo';
 export default function Home() {
   return (
     <>
+      <Head>
+        <title>One LAB</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <style jsx global>{``}</style>
       <Head>
         <title>ONE Lab</title>

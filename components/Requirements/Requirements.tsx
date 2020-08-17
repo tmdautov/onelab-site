@@ -3,32 +3,39 @@ import Link from 'next/link';
 
 import Wrapper from '../Wrapper';
 import theme from '../../styles/theme';
+import Skeleton from 'react-loading-skeleton';
+import SkeletonRequirements from '../Skeleton/Requirements/SkeletonRequirements';
 
 const Requirements = () => {
+  const reqs = [
+    {
+      title: 'Образование',
+      description: 'Выпускники 3-4 курсов бакалавриата, а также магистранты IT-вузов',
+    },
+    {
+      title: 'Знания',
+      description: 'Базовые знания своего направления, понимание ООП, алгоритм, структуры данных',
+    },
+    {
+      title: 'Мотивация',
+      description:
+        'Есть огромное желание развиваться в IT-сфере, работать в команде, инициативность, дисциплина, самоотдача и саморазвитие',
+    },
+    {
+      title: 'Небольшой опыт',
+      description: 'Портфолио на GitHub - будет преимуществом',
+    },
+  ];
   const [requirements, setRequirements] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const reqs = [
-      {
-        title: 'Образование',
-        description: 'Выпускники 3-4 курсов бакалавриата, а также магистранты IT-вузов',
-      },
-      {
-        title: 'Знания',
-        description: 'Базовые знания своего направления, понимание ООП, алгоритм, структуры данных',
-      },
-      {
-        title: 'Мотивация',
-        description:
-          'Есть огромное желание развиваться в IT-сфере, работать в команде, инициативность, дисциплина, самоотдача и саморазвитие',
-      },
-      {
-        title: 'Небольшой опыт',
-        description: 'Портфолио на GitHub - будет преимуществом',
-      },
-    ];
-
-    setRequirements(reqs);
+    setLoading(true);
+    const timing = setTimeout(() => {
+      setRequirements(reqs);
+      setLoading(false);
+    }, 4000);
+    return () => clearTimeout(timing);
   }, []);
   return (
     <div className="requirements" id="requirements">
@@ -100,19 +107,32 @@ const Requirements = () => {
                 `}
       </style>
       <Wrapper>
-        <h1>ТРЕБОВАНИЯ К ИДЕАЛЬНОМУ КАНДИДАТУ</h1>
+        {!loading ?
+          <h1>ТРЕБОВАНИЯ К ИДЕАЛЬНОМУ КАНДИДАТУ</h1>
+          :
+          <h1>
+            <Skeleton width={"19.53125vw"}/>
+          </h1>
+        }
         <div className="flex-holder">
-          {requirements.map((requirement) => {
+          {!loading ? requirements.map((requirement) => {
             return (
               <div className="requirement">
                 <h1>{requirement.title}</h1>
                 <p>{requirement.description}</p>
               </div>
             );
-          })}
+          }) :
+          reqs.map(() => 
+          <SkeletonRequirements />)
+          }
+          {!loading ?
           <Link href="/#request">
             <button>Подать заявку</button>
           </Link>
+          :
+          <Skeleton width={"50%"} height={'4.5vh'} />
+          }
         </div>
       </Wrapper>
     </div>

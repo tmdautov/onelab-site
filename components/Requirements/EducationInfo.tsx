@@ -5,6 +5,8 @@ import TheoryIcon from '../../public/assets/svg/theoryIcon';
 import PracticeIcon from '../../public/assets/svg/practiceIcon';
 import ProjectIcon from '../../public/assets/svg/projectIcon';
 import { useWindowSize } from '../../services/sliderSetting';
+import Skeleton from 'react-loading-skeleton';
+import SkeletonProfits from '../Skeleton/Profits/SkeletonProfits';
 
 const EducationInfo = () => {
   const size = useWindowSize();
@@ -12,8 +14,15 @@ const EducationInfo = () => {
   const number = 16;
   const [lessons, setLessons] = useState(0);
 
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
-    setLessons(number);
+    setLoading(true);
+
+    const timing = setTimeout(() => {
+      setLessons(number);
+      setLoading(false);
+    }, 4000);
   }, []);
   return (
     <div className="education" id="education">
@@ -69,9 +78,9 @@ const EducationInfo = () => {
         `}
       </style>
       <Wrapper>
-        <h1>КАК ПРОХОДИТ ОБУЧЕНИЕ</h1>
-        <p>{lessons} уроков, из которых: </p>
-        <div className="flex-holder">
+        {!loading ? <h1>КАК ПРОХОДИТ ОБУЧЕНИЕ</h1> : <h1><Skeleton width={300} /></h1> }
+        {!loading ? <p>{lessons} уроков, из которых: </p> : <p><Skeleton width={200} /></p> }
+        {!loading ? <div className="flex-holder">
           <div className="content-holder">
             <TheoryIcon
               className="icon"
@@ -107,6 +116,9 @@ const EducationInfo = () => {
             <h3>40% - Проектная работа</h3>
           </div>
         </div>
+        :
+        <SkeletonProfits length={3} />
+      }
       </Wrapper>
     </div>
   );

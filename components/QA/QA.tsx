@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Wrapper from '../Wrapper';
 import QuestionsContainer from './QuestionsContainer';
 import QuestionsForm from './QuestionsForm';
+import Skeleton from 'react-loading-skeleton';
 
 const QAForm = () => {
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    const timing = setTimeout(() => {
+      setLoading(false);
+    }, 4000);
+    return () => clearTimeout(timing);
+  }, []);
   return (
     <div className="qa-form">
       <style jsx>
@@ -37,7 +46,13 @@ const QAForm = () => {
         `}
       </style>
       <Wrapper>
-        <h1> ВОПРОС - ОТВЕТ</h1>
+        {!loading ? 
+          <h1> ВОПРОС - ОТВЕТ</h1>
+          :
+          <h1>
+            <Skeleton width={'19.5vw'} />
+          </h1>
+        }
         <div className="flex-holder">
           <QuestionsContainer />
           <QuestionsForm />

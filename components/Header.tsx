@@ -11,12 +11,14 @@ function Header() {
   const [hidden, setHidden] = React.useState(true);
   const size = useWindowSize();
 
+  console.log(size.width);
+
   return (
     <>
       <style jsx>{`
         header {
           background: ${theme.colors.black};
-          height: 15vh;
+          height: 10vh;
           width: 100%;
           display: flex;
           justify-content: center;
@@ -32,7 +34,7 @@ function Header() {
           align-items: center;
         }
         .logo {
-          width: 30% !important;
+          width: 30%!important;
         }
         .logo svg {
           width: 100%;
@@ -42,7 +44,7 @@ function Header() {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          width: 50% !important;
+          width: 50%!important;
         }
         li a {
           color: ${theme.colors.white};
